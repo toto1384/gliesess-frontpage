@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+.card {
+    @apply p-4 bg-white rounded;
+  }
+  
+.card-disable {
+    @apply p-0 bg-transparent rounded-none   
+}
+
+  .card-hover {
+    @apply card hover:bg-gray-100 cursor-pointer;
+  }
+
+
+  .frosted {
+    @apply bg-white bg-opacity-40 backdrop-blur-xl drop-shadow-lg
+}
+
+.frosted-lg {
+    @apply lg:bg-white lg:bg-opacity-20 lg:backdrop-blur-xl lg:drop-shadow-lg
+}
+
+.skill{
+    @apply card border flex flex-col items-center justify-center hover:scale-105 transition-all text-blue-600 font-bold text-center
+}
+
+.frostedH:hover{
+    @apply bg-white bg-opacity-20 backdrop-blur-xl drop-shadow-lg
+}
+
+.text-gradient{
+    @apply text-transparent bg-clip-text bg-gradient-to-tl from-cyan-400 to-purple-700
+}
+
+.bg-gradient{
+    @apply text-white bg-gradient-to-tl from-blue-400 to-indigo-600
+}
+
+  .bg-svgs {
+    background-image: url(/wave.svg);
+    /* background-size: 100% 100%; */
+    /* -o-background-size: 100% 100%; */
+    /* -webkit-background-size: 100% 100%; */
+    /* background-size: 100vw 40vh; */
+    background-size: auto;
+    background-position: top;
+    
+    background-repeat: no-repeat;
+  
+  }
+  
