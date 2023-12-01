@@ -29,7 +29,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 
 			<header className='h-[60vh] mt-7 flex items-center justify-center'>
-				<img src="/wave.svg" layout='fill' className='blur-3xl h-[40vh] absolute object-cover' />
+				<img src="/wave.svg" className='blur-3xl h-[40vh] absolute object-cover' />
 				<div className='flex flex-col items-center z-10 m-auto'>
 					{/* <img src={'/me.jpeg'} className="aspect-square rounded-full object-cover" width={200} height={200} /> */}
 					<p className='text-4xl pt-5 text-center font-semibold text-gradient'>Building season</p>
