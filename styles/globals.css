@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+html {
+  scroll-behavior: smooth;
+}
 
 
 .card {
@@ -16,6 +19,9 @@
     @apply card hover:bg-gray-100 cursor-pointer;
   }
 
+  .bg-primary{
+    background-color: #6c84c6;
+  }
 
   .frosted {
     @apply bg-white bg-opacity-40 backdrop-blur-xl drop-shadow-lg
@@ -54,3 +60,20 @@
   
   }
   
+  .a {
+    @apply cursor-pointer underline-offset-2 decoration-[2.5px] transition-all hover:underline-offset-4 hover:scale-[1.02] underline decoration-purple-500
+    /* color: var(--primary);
+    text-decoration: none; */
+  }
+
+  .alternateBg{
+      background-image: 
+        radial-gradient(closest-side, #fff 10px, transparent 0),
+        radial-gradient(closest-side, #f0fafd 6px, #fff 0);
+      background-size: 30px 40px, 20px 40px;
+      background-position: 10px 0, 5px 1px;
+      background-attachment: fixed;
+      font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+        Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+
+  }
