@@ -21,7 +21,8 @@ export default {
   images: {
 		domains: [
 			'localhost',
-			"alex-totolici.com",
+			"gliesess.com",
+      "netlify.app"
 		]
 	},
   reactStrictMode: true,
