@@ -16,6 +16,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 
 			<Navbar />
+			<img src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover' />
 			<Hero />
 			<SocialProof />
 			{/* <CTA /> */}
@@ -59,7 +60,7 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
 		<StickyBox className={`z-50  ${(isScrolled || alwaysWhite) && 'bg-white shadow-lg'}`} >
 			<nav className="flex justify-between space-x-5 w-screen items-center px-2 md:py-4 z-10">
 				<Link href="/" className='w-min'>
-					<Image
+					<img
 						src="/logo.png"
 						alt="Gliesses"
 						width={200}
@@ -82,9 +83,8 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
 
 const Hero = () => {
 	return (
-		<div className='flex mx-2 flex-col mt-24 md:mt-0 md:flex-row md:space-x-16 items-center'>
+		<div className='flex mx-2 flex-col mt-24 relative md:mt-0 md:flex-row md:space-x-16 items-center'>
 			<section className="flex items-center justify-center h-[60vh]">
-				<Image src="/wave.svg" layout='fill' className='blur-3xl h-[80vh] absolute object-cover' />
 				<div className="text-center md:text-left z-40">
 					<h1 className="text-3xl md:text-5xl font-bold mb-6">
 						We Generate <br />
@@ -101,7 +101,7 @@ const Hero = () => {
 				</div>
 			</section>
 			<div>
-				<Image src={'/main-pic.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></Image>
+				<img src={'/main-pic.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></img>
 			</div>
 		</div>
 	);
@@ -216,7 +216,7 @@ const FeaturesAndObjections = () => {
 function WhatCost() {
 	return <div className='flex flex-col md:flex-row md:space-x-16 items-center md:my-20 mx-2'>
 		<div >
-			<Image src={'/money.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></Image>
+			<img src={'/money.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></img>
 		</div>
 		<section className="flex flex-row w-full items-center justify-center h-[60vh]">
 			<div className="text-center md:text-right z-40">
