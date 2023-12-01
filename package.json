@@ -7,7 +7,6 @@
     "buildPack": "cd node_modules/react-sticky-box & npm run build",
     "start": "next start"
   },
-  "type": "module",
   "dependencies": {
     "@mdx-js/loader": "^2.3.0",
     "@mdx-js/react": "^2.3.0",
