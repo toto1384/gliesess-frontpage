@@ -16,6 +16,7 @@
     "@reach/tooltip": "^0.17.0",
     "@types/mdx": "^2.0.10",
     "date-fns": "^2.30.0",
+    "esbuild": "^0.19.8",
     "gray-matter": "^4.0.3",
     "jsx-runtime": "^1.2.0",
     "markdown-to-text": "^0.1.1",
