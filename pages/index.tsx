@@ -3,8 +3,7 @@ import { useEffect, useState } from 'react'
 import { FaGithub, FaTwitter } from 'react-icons/fa/index'
 import Image from 'next/image'
 import Link from 'next/link'
-import StickyBox from 'react-sticky-box'
-// import StickyBox from "react-sticky-box";
+import StickyBox from "react-sticky-box";
 
 const Home = ({ posts }: { posts: any[] }) => {
 
@@ -22,6 +21,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 			{/* <CTA /> */}
 			<FeaturesAndObjections />
 			<WhatCost />
+			<CTA className='mb-16' />
 			<Footer />
 
 		</div>
@@ -50,34 +50,30 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
 		};
 	}, []);
 
+	const children = <div className='flex flex-row justify-between'>
+		<Link href="/blog" ><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link>
+		<Link href="#testimonials"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Testimonials</p></Link>
+	</div>
 
 	return (
-		<StickyBox className={`z-50  ${(isScrolled || alwaysWhite) && 'bg-white'}`} >
-			<nav className="flex justify-between w-screen items-center p-4 z-10">
-				<Link href="/">
-					<a>
-						<Image
-							src="/logo.png"
-							alt="Gliesses"
-							width={200}
-							height={100}
-						/>
-					</a>
+		<StickyBox className={`z-50  ${(isScrolled || alwaysWhite) && 'bg-white shadow-lg'}`} >
+			<nav className="flex justify-between space-x-5 w-screen items-center px-2 md:py-4 z-10">
+				<Link href="/" className='w-min'>
+					<Image
+						src="/logo.png"
+						alt="Gliesses"
+						width={200}
+						height={100}
+					/>
 				</Link>
 				<ul className="flex items-center">
-					<li className="mx-3">
-						<Link href="/blog" className="text-gray-600 hover:text-gray-900">
-							Blog
-						</Link>
-					</li>
-					<li className="mx-3">
-						<Link className="text-gray-600 hover:text-gray-900" href="#testimonials"> Testimonials </Link>
-					</li>
-					<li className="mx-3">
+					<div className='hidden md:flex'>{children}</div>
+					<li className="mx-3 w-max">
 						<CTA />
 					</li>
 				</ul>
 			</nav>
+			<div className='flex md:hidden w-full -mt-5'>{children}</div>
 		</StickyBox>
 	);
 };
@@ -86,11 +82,11 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
 
 const Hero = () => {
 	return (
-		<div className='flex flex-row space-x-16 items-center'>
+		<div className='flex mx-2 flex-col mt-24 md:mt-0 md:flex-row md:space-x-16 items-center'>
 			<section className="flex items-center justify-center h-[60vh]">
 				<Image src="/wave.svg" layout='fill' className='blur-3xl h-[80vh] absolute object-cover' />
-				<div className="z-40">
-					<h1 className="text-4xl md:text-5xl font-bold mb-6">
+				<div className="text-center md:text-left z-40">
+					<h1 className="text-3xl md:text-5xl font-bold mb-6">
 						We Generate <br />
 						High paying customers<br />
 						for Your Furniture Shop <br />
@@ -120,7 +116,7 @@ const SocialProof = () => {
 					<h2 className="text-3xl font-bold mb-2">What others have to say</h2>
 					<p className="text-gray-600">See how the people working with us achieve their objectives:</p>
 				</div>
-				<div className="max-w-xl mx-auto mt-12">
+				<div className="max-w-xl mx-auto md:mt-12">
 					<div className="bg-white shadow-lg rounded-lg overflow-hidden">
 						<div className="px-4 py-5 sm:p-6">
 							<blockquote>
@@ -141,14 +137,12 @@ const SocialProof = () => {
 	);
 };
 
-const CTA = () => {
+const CTA = ({ className }: { className?: string }) => {
 	return (
-		<>
-			<button onClick={() => {
-				// @ts-ignore: Unreachable code error
-				MeetFox.initStaticButton({ url: 'https://meetfox.com/en/e/gliesess/borderless' }); return false;
-			}} className='bg-primary rounded-full text-white px-6 py-3'>Book a call</button>
-		</>
+		<button onClick={() => {
+			// @ts-ignore: Unreachable code error
+			MeetFox.initStaticButton({ url: 'https://meetfox.com/en/e/gliesess/borderless' }); return false;
+		}} className={`bg-primary rounded-full line-clamp-1 text-white px-6 py-3 ${className}`}>Book a call</button>
 	);
 };
 
@@ -156,10 +150,10 @@ const FeaturesAndObjections = () => {
 	return (
 		<section className="my-20 alternateBg w-full">
 			<div className="container max-w-6xl mx-auto text-center">
-				<h2 id='features' className="text-3xl md:text-4xl font-bold mb-6">Honestly now, is tv or radio the only way to gain customers?</h2>
-				<div className='mb-16'>
+				<h2 id='features' className="text-3xl mx-2 md:text-4xl font-bold mb-6">Honestly now, is tv or radio the only way to gain customers?</h2>
+				<div className='mb-16 mx-2'>
 					{[
-						<>You can't track tv or radio ads. Google ads has&nbsp;<a target='_blank' className='a' href='https://support.google.com/google-ads/answer/6100636?hl=en'> Store location tracking</a></>,
+						<p>You can't track tv or radio ads. Google ads has&nbsp;<a target='_blank' className='a' href='https://support.google.com/google-ads/answer/6100636?hl=en'> Store location tracking</a></p>,
 						'They are unreliable (different traffic based on time of the year)',
 						'You have to do all the work yourself or agencies are very expensive',
 						'Tv/radio ads have a much smaller return on investment than Google ads'
@@ -220,12 +214,12 @@ const FeaturesAndObjections = () => {
 
 
 function WhatCost() {
-	return <div className='flex flex-row space-x-16 items-center my-20'>
-		<div>
+	return <div className='flex flex-col md:flex-row md:space-x-16 items-center md:my-20 mx-2'>
+		<div >
 			<Image src={'/money.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></Image>
 		</div>
-		<section className="flex items-center justify-center h-[60vh]">
-			<div className="text-right z-40">
+		<section className="flex flex-row w-full items-center justify-center h-[60vh]">
+			<div className="text-center md:text-right z-40">
 				<h2 className="text-2xl font-semibold mb-6">
 					It is costing you 16k per month not running ads
 				</h2>
