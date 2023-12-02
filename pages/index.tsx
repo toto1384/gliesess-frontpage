@@ -221,7 +221,7 @@ function WhatCost() {
 		<section className="flex flex-row w-full items-center justify-center h-[60vh]">
 			<div className="text-center md:text-right z-40">
 				<h2 className="text-2xl font-semibold mb-6">
-					It is costing you 16k per month not running ads
+					Most furniture stores lose 16k per month not running ads
 				</h2>
 				<p className="text-lg text-gray-700 mb-8 max-w-5xl">
 					If your average customer buys furniture worth $2k, <br /> and it costs $4k to run ads that get you 10 clients per month, <br /> you are leaving $16k/month on the table
