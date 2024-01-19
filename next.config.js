@@ -3,7 +3,7 @@ module.exports = {
 		domains: [
 			'localhost',
 			"gliesess.com",
-      "netlify.app"
+      "netlify.app",
 		]
 	},
   reactStrictMode: true,
