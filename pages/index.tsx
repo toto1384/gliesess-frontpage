@@ -1,9 +1,7 @@
-import Head from 'next/head'
-import { useEffect, useState } from 'react'
-import { FaGithub, FaTwitter } from 'react-icons/fa/index'
-import Image from 'next/image'
-import Link from 'next/link'
-import StickyBox from "react-sticky-box";
+import Head from 'next/head';
+import Image from 'next/image';
+import { FaTwitter } from 'react-icons/fa';
+import { CTA, Navbar } from '../components/navbar';
 
 const Home = ({ posts }: { posts: any[] }) => {
 
@@ -14,9 +12,8 @@ const Home = ({ posts }: { posts: any[] }) => {
 				<title>Gliesess • Website</title>
 			</Head>
 
-
 			<Navbar />
-			<img src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover' />
+			<img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover' />
 			<Hero />
 			<SocialProof />
 			{/* <CTA /> */}
@@ -31,53 +28,6 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 
 
-export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
-
-	const [isScrolled, setIsScrolled] = useState(false);
-
-	useEffect(() => {
-		const handleScroll = () => {
-			// Check if the page has been scrolled
-			const scrolled = window.scrollY > 0;
-			setIsScrolled(scrolled);
-		};
-
-		// Add event listener
-		window.addEventListener('scroll', handleScroll);
-
-		// Cleanup - remove event listener
-		return () => {
-			window.removeEventListener('scroll', handleScroll);
-		};
-	}, []);
-
-	const children = <div className='flex flex-row justify-between'>
-		<Link href="/blog" ><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link>
-		<Link href="#testimonials"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Testimonials</p></Link>
-	</div>
-
-	return (
-		<StickyBox className={`z-50  ${(isScrolled || alwaysWhite) && 'bg-white shadow-lg'}`} >
-			<nav className="flex justify-between space-x-5 w-screen items-center px-2 md:py-4 z-10">
-				<Link href="/" className='w-min'>
-					<img
-						src="/logo.png"
-						alt="Gliesses"
-						width={200}
-						height={100}
-					/>
-				</Link>
-				<ul className="flex items-center">
-					<div className='hidden md:flex'>{children}</div>
-					<li className="mx-3 w-max">
-						<CTA />
-					</li>
-				</ul>
-			</nav>
-			<div className='flex md:hidden w-full -mt-5'>{children}</div>
-		</StickyBox>
-	);
-};
 
 
 
@@ -137,14 +87,7 @@ const SocialProof = () => {
 	);
 };
 
-const CTA = ({ className }: { className?: string }) => {
-	return (
-		<button onClick={() => {
-			// @ts-ignore: Unreachable code error
-			MeetFox.initStaticButton({ url: 'https://meetfox.com/en/e/gliesess/borderless' }); return false;
-		}} className={`bg-primary rounded-full line-clamp-1 text-white px-6 py-3 ${className}`}>Book a call</button>
-	);
-};
+
 
 const FeaturesAndObjections = () => {
 	return (

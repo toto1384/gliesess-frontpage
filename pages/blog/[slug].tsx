@@ -1,14 +1,13 @@
 
-import { serialize } from 'next-mdx-remote/serialize'
-import { MDXRemote } from 'next-mdx-remote'
+import Markdown from 'react-markdown'
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import { format } from 'date-fns'
-import { Navbar } from '..'
 import { CenteredCardPage } from '../../components/centeredCardPage'
 import Link from 'next/link'
 import { BlogItem } from '../../components/blogItem'
 import { blogs } from '../../utils/blog'
+import { Navbar } from '../../components/navbar'
 
 function toUnicodeEscape(str: string) {
     return str.split('').map(function (char) {
@@ -48,7 +47,7 @@ export default function Applied({ blog, source, similarArticles }: any) {
             <h4 className='text-lg mb-5'>Published by <Link className='a' href={`/blog/author/${blog.author.toLowerCase().replaceAll(' ', '-')}`}>
                 {blog.author}
             </Link> pe {format(new Date(blog.date), 'dd-MM-yyyy')}</h4>
-            <MDXRemote {...source} components={{
+            <Markdown components={{
                 h1: (props) => <h1 {...props} className='text-2xl mt-3'></h1>,
                 h2: (props) => <h2 {...props} className='text-xl mt-3'></h2>,
                 h3: (props) => <h3 {...props} className='text-xl mt-3'></h3>,
@@ -59,7 +58,7 @@ export default function Applied({ blog, source, similarArticles }: any) {
                 blockquote: (props) => <blockquote className="p-4 my-4 bg-gray-50 border-l-4 border-gray-300 text-xl italic font-medium leading-relaxed text-gray-900" {...props}>
                 </blockquote>,
                 a: (props) => (props.href && props.children) ? <Link {...props as any} className='a'></Link> : <p>{props.children}</p>
-            }}></MDXRemote>
+            }}>{source}</Markdown>
 
             <hr className='my-5' />
             <p>Categories {blog.category.map((i: any) => <Link href={`/blog/category/${i.toLowerCase().replaceAll(' ', '-')}`}>
@@ -79,8 +78,6 @@ export async function getServerSideProps({ req, res, query, params }: GetServerS
 
     if (!blog) return { notFound: true }
 
-    const mdxSource = await serialize(blog?.mdText)
-
 
     const similarArticles = blogs.sort((a, b) => {
         const aScore = a.category.filter(i => blog.category.includes(i)).length + a.tags.filter(i => blog.tags.includes(i)).length
@@ -89,7 +86,7 @@ export async function getServerSideProps({ req, res, query, params }: GetServerS
         return aScore - bScore
     }).slice(0, 3)
 
-    return { props: { source: mdxSource, blog, similarArticles } }
+    return { props: { source: blog?.mdText?.replaceAll(/^[ \t]+/gm, ''), blog, similarArticles } }
 
 }
 

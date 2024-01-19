@@ -1,9 +1,9 @@
 import Head from "next/head"
 import { useRouter } from "next/router"
 import { blogs } from "../../utils/blog"
-import { Navbar } from ".."
 import { CenteredCardPage } from "../../components/centeredCardPage"
 import { BlogItem } from "../../components/blogItem"
+import { Navbar } from "../../components/navbar"
 
 
 
