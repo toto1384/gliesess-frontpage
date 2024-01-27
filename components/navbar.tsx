@@ -2,12 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import StickyBox from "react-sticky-box";
+import { useSize } from "../utils/useSize";
 
 
 
 export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
 
     const [isScrolled, setIsScrolled] = useState(false);
+    const size = useSize(true)
 
     useEffect(() => {
         const handleScroll = () => {
@@ -26,29 +28,28 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
     }, []);
 
     const children = <div className='flex flex-row justify-between'>
-        <Link href="/blog" ><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link>
-        <Link href="#testimonials"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Testimonials</p></Link>
+        {/* <Link href="/blog" ><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link> */}
+        <Link className="font-semibold" href="/services"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Services</p></Link>
     </div>
 
     return (
         <StickyBox className={`z-50  ${(isScrolled || alwaysWhite) && 'bg-white shadow-lg'}`} >
-            <nav className="flex justify-between space-x-5 w-screen items-center px-2 md:py-4 z-10">
+            <nav className="flex justify-between md:space-x-5 w-screen items-center px-2 py-2 md:py-0 z-10">
                 <Link href="/" className=''>
                     <Image
-                        src="/logo.png"
+                        src={size.gmd ? "/logo.png" : '/android-chrome-512x512.png'}
                         alt="Gliesses"
-                        width={200}
+                        width={size.gmd ? 200 : 60}
                         height={100}
                     />
                 </Link>
-                <ul className="flex items-center">
-                    <div className='hidden md:flex'>{children}</div>
-                    <li className="mx-3 w-max">
+                <div className="flex items-center justify-between md:justify-end w-full">
+                    <div className='flex'>{children}</div>
+                    <div className="mx-1 md:mx-3 w-max">
                         <CTA />
-                    </li>
-                </ul>
+                    </div>
+                </div>
             </nav>
-            <div className='flex md:hidden w-full -mt-5'>{children}</div>
         </StickyBox>
     );
 };
@@ -58,6 +59,6 @@ export const CTA = ({ className }: { className?: string }) => {
         <button onClick={() => {
             // @ts-ignore: Unreachable code error
             MeetFox.initStaticButton({ url: 'https://meetfox.com/en/e/gliesess/borderless' }); return false;
-        }} className={`bg-primary rounded-full line-clamp-1 text-white px-6 py-3 ${className}`}>Book a call</button>
+        }} className={`btn-primary ${className}`}>Book a call</button>
     );
 };

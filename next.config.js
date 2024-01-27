@@ -1,9 +1,18 @@
 module.exports = {
   images: {
-		domains: [
-			'localhost',
-			"gliesess.com",
-      "netlify.app",
+		remotePatterns: [
+      {
+        protocol:'http',
+        hostname:'localhost'
+      },
+      {
+        protocol:'https',
+        hostname:'gliesess.com'
+      },
+      {
+        protocol:'https',
+        hostname:'netlify.app'
+      }
 		]
 	},
   reactStrictMode: true,

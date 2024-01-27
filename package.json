@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@emailjs/browser": "^3.12.1",
     "@mdx-js/react": "^3.0.0",
     "@next/mdx": "^14.1.0",
     "@reach/disclosure": "^0.18.0",

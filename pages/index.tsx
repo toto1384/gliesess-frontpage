@@ -2,25 +2,72 @@ import Head from 'next/head';
 import Image from 'next/image';
 import { FaTwitter } from 'react-icons/fa';
 import { CTA, Navbar } from '../components/navbar';
+import Link from 'next/link';
+import StickyBox from 'react-sticky-box';
+import { useSize } from '../utils/useSize';
+import { hrtime } from 'process';
+import React from 'react';
 
 const Home = ({ posts }: { posts: any[] }) => {
 
+	const size = useSize(true)
+	const imageSize = size.gmd ? 450 : 250
 
 	return (
 		<div className="flex min-h-screen flex-col items-center justify-center bg-svg py-2">
 			<Head>
 				<title>Gliesess • Website</title>
 			</Head>
-
 			<Navbar />
-			<img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover' />
+
+			<img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
 			<Hero />
 			<SocialProof />
 			{/* <CTA /> */}
-			<FeaturesAndObjections />
+
+			<section className='flex flex-col items-center max-w-[100vw]'>
+				<div className='container flex flex-col items-center alternateBg w-screen py-20 px-2'>
+					<h2 className='text-2xl md:text-4xl font-semibold text-center'>Honestly now, is this the only way <br />to get customers for your buisness?</h2>
+					<p className='md:mt-10 text-center'>It feels like you shoot a gun while blindfolded everytime you launch that radio/tv ad, <br /> and your social media profiles aren't getting that much engagement. What if there was a better way, <br /> and how long are you willing to wait before actually getting lots of clients?</p>
+
+					<p className='mt-7 md:mt-16 text-center md:text-start'>You can schedule a call with us and we'll show you the better way. Trackable, scalable, efficient.</p>
+					<CTA className='mt-2 md:mt-5' />
+					<p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link></p>
+				</div>
+
+
+				<div className='flex flex-col w-screen my-10 items-center'>
+					<div className='flex flex-col md:flex-row items-center justify-around w-full'>
+						<Image alt='Gliesess Outdated Offline Marketing Channels' width={imageSize} height={imageSize} className='rounded-full' src={'/outdated-offline-marketing-channels.jpeg'} />
+						<div className="px-2 md:w-[50%] md:text-center">
+							<h2 className="text-3xl text-center font-bold mb-2">Tv/Radio Ads are uncertain and untrackable</h2>
+							<p className="text-gray-600">With Tv and Radio Ads you can't easily see which ads perform the best, and how much engegement they have. You just spend a lot of money on that ad, and hope that it brings the customers you expect. And now, you have to do it again next month</p>
+							<div className='flex flex-col items-start w-fit mt-5'>
+								<p>❌ Every month you start from 0</p>
+								<p>❌ Hard to see which ads perform good and which don't</p>
+								<p>❌ Hard to know if the ROI (Return on investment) is positive or negative</p>
+							</div>
+						</div>
+					</div>
+					{size.lmd && <hr className='w-full my-5' />}
+					<div className='flex flex-col md:flex-row-reverse items-center justify-around w-full'>
+						<Image alt='Gliesess Social Media Marketing' width={imageSize} height={imageSize} className='rounded-full' src={'/gliesess-social-media-marketing.jpeg'} />
+						<div className="px-2 md:w-[50%] md:text-center">
+							<h2 className="text-3xl text-center font-bold mb-2">Social media isn't getting that much engagement</h2>
+							<p className="text-gray-600">Have you ever visited a popular brand social media profile just to find out they have 15 likes on their post? Social media is hard to grow and it usually requires investment in paid promotion</p>
+							<div className='flex flex-col items-start w-fit mt-5'>
+								<p>❌ Organic doesn't work that good for most platforms, Paid promotion being necessary</p>
+								<p>❌ Very low ROI(You have to post for months before getting a couple of clients)</p>
+								<p>❌ Low intent: People on social media don't want to buy your product, they just want to be entertained</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 			<WhatCost />
-			<CTA className='mb-16' />
-			<Footer />
+
+			<FeaturesAndObjections />
+			{/* <CTA className='mb-16' /> */}
 
 		</div>
 	)
@@ -32,26 +79,34 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 
 const Hero = () => {
+	const size = useSize(true)
+
 	return (
-		<div className='flex mx-2 flex-col mt-24 relative md:mt-0 md:flex-row md:space-x-16 items-center'>
+		<div className='flex mx-2 flex-col-reverse md:pt-10 relative md:mt-0 md:flex-row md:space-x-16 items-center container'>
 			<section className="flex items-center justify-center h-[60vh]">
-				<div className="text-center md:text-left z-40">
-					<h1 className="text-3xl md:text-5xl font-bold mb-6">
-						We Generate <br />
-						High paying customers<br />
-						for Your Furniture Shop <br />
+				<div className="text-center flex flex-col items-center md:items-start md:text-left z-40 mx-3 md:mx-10">
+					<h1 className="text-3xl md:text-5xl font-bold md:mb-6 mt-10 md:mt-0">
+						We Generate {size.gmd && <br />}
+						High paying customers {size.gmd && <br />}
+						for Your Furniture Shop {size.gmd && <br />}
 						<strong>Without overhead.</strong>
 					</h1>
 					<p className="text-lg text-gray-700 mb-8 max-w-5xl">
-						Google has changed. From targeted demographic ads to store visit conversions. <br /> We use bleeding edge campaigns for better performance.
+						SEO finally exposed. Why it has become one of the highest ROI marketing channels, <span className='underline decoration-purple-600 decoration-2 underline-offset-2'>even</span> higher than ads.
+						{/* S.E.O. has become one of the highest ROI activities, and an exceptional one. */}
+						{/* Google has changed. From targeted demographic ads to store visit conversions. <br /> We use bleeding edge campaigns for better performance. */}
 					</p>
 
-					<p className='mb-7' id='testimonials'><strong>Book a free 30 minute call (at no risk to you) to see if you're a good fit.</strong></p>
+					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a free 30 minute call (at no risk to you) to see if you're a good fit.</strong></p>
 					<CTA />
+					<p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link></p>
 				</div>
 			</section>
-			<div>
-				<img src={'/main-pic.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></img>
+			<div className='relative w-full max-w-[564px] md:h-[564px] h-[200px]'>
+				<Image
+					alt="Gliesess paid web desi" layout='fill' src={'/paid-web-design-agency.png'}
+					className='rounded-lg h-fit min-h-fit object-cover object-top'
+				/>
 			</div>
 		</div>
 	);
@@ -59,27 +114,30 @@ const Hero = () => {
 
 
 const SocialProof = () => {
+	const size = useSize(true)
+
+
 	return (
-		<section className="w-full mt-10 mb-10">
-			<div className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-12">
-				<div className="w-full mx-auto text-center pb-8">
-					<h2 className="text-3xl font-bold mb-2">What others have to say</h2>
-					<p className="text-gray-600">See how the people working with us achieve their objectives:</p>
-				</div>
-				<div className="max-w-xl mx-auto md:mt-12">
-					<div className="bg-white shadow-lg rounded-lg overflow-hidden">
-						<div className="px-4 py-5 sm:p-6">
-							<blockquote>
-								<div className="text-lg font-medium text-gray-900 mb-4">
-									“His expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest and most efficient way.„
+		<section className="w-full my-10 flex md:flex-row flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+
+			{size.lmd && <hr className='w-full mb-7' />}
+			<div className="md:w-[50%] text-center md:pb-8">
+				<h2 className="text-3xl font-bold md:mb-2">What others have to say</h2>
+				<p className="text-gray-600">See how the people working with us achieve their objectives:</p>
+			</div>
+			<div className="max-w-xl md:w-[50%]">
+				<div className="bg-white shadow-lg rounded-lg overflow-hidden">
+					<div className="px-4 py-5 sm:p-6">
+						<blockquote>
+							<div className="text-lg font-medium text-gray-900 mb-4">
+								“His expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest and most efficient way.„
+							</div>
+							<div className="flex items-center">
+								<div className="">
+									<div className="text-sm font-medium text-gray-900">David Lehnhardt</div>
 								</div>
-								<div className="flex items-center">
-									<div className="">
-										<div className="text-sm font-medium text-gray-900">David Lehnhardt</div>
-									</div>
-								</div>
-							</blockquote>
-						</div>
+							</div>
+						</blockquote>
 					</div>
 				</div>
 			</div>
@@ -90,6 +148,62 @@ const SocialProof = () => {
 
 
 const FeaturesAndObjections = () => {
+
+	const size = useSize(true)
+
+	return <section>
+		<div className="">
+			{React.createElement(size.gmd ? StickyBox : 'div', {
+				className: 'pt-24', children: [
+					<div className="w-screen flex flex-row justify-end">
+						<div className="w-full h-[70vw] md:w-[50vw] md:h-screen relative">
+							<Image alt="Web Design and SEO Proceess" className="object-cover object-top md:rounded-tr-xl" src={'/web-design-and-seo-process.jpeg'} layout="fill" />
+						</div>
+
+					</div>
+				]
+			})}
+			<div className="md:w-[50vw] md:-mt-[100vh] px-2 md:px-20">
+
+				<h2 className="text-4xl font-bold mt-5">How do we solve this?</h2>
+
+				<p className='my-2 text-lg'>We take one of the most efficient marketing channel, SEO, and we put it on steroids. By applying a proven process and doing all the good practices in order to generate customers in a shorter time frame, we leave no room for errors. Then, those results only need to be maintained, starting each month on a good foot.</p>
+
+				<hr className="mt-8" />
+
+				<h3 className="text-2xl font-medium mt-8 mb-4">1. Website Design</h3>
+
+				<p className='my-2 text-lg'>We create the visually stunning website if you don't have one, tailored to reflect your brand identity with intuitive navigation and user interfaces. We make it mobile friendly and fast, which is required for good SEO.</p>
+				<hr className="mt-8" />
+
+				<h3 className="text-2xl font-medium mt-8 mb-4">2. User Experience (UX) Enhancement</h3>
+
+				<p className='my-2 text-lg'>This involves meticulously crafting each webpage to not only captivate users but also to optimize visibility on search engines. <br /><br /> By strategically designing and refining the layout, content, and interactive elements of every page, we aim to create an immersive and user-friendly journey for visitors.</p>
+				<hr className="mt-8" />
+
+				<h3 className="text-2xl font-medium mt-8 mb-4">3. SEO Audit, Research and Monitoring</h3>
+
+				<p className='my-2 text-lg'>✅ We take care of conducting an SEO audit for your website.</p>
+				<p className='my-2 text-lg'>✅ Then we conduct thorough research on the market in which you operate. <br />This helps us understand your competitors and get a grasp of your buyers.</p>
+				<p className='my-2 text-lg'>✅ Also we closely monitor the correct implementation of delivered assets.</p>
+				<p className='my-2 text-lg'>✅ Finally we track results and provide regular reports, <br />staying updated with market changes and adapting swiftly through the reoptimization of the SEO strategy.</p>
+
+				<hr className="mt-8" />
+
+				<h3 className="text-2xl font-medium mt-8 mb-4">4. SEO Optimization - Staying on top of Google Updates</h3>
+
+				<p className='my-2 text-lg'>We stay updated with market changes and adapt swiftly through the reoptimization of the SEO strategy.</p>
+
+				<div className='flex flex-col items-center mt-5'>
+					<CTA />
+					<p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link></p>
+				</div>
+
+
+			</div>
+		</div>
+	</section>
+
 	return (
 		<section className="my-20 alternateBg w-full">
 			<div className="container max-w-6xl mx-auto text-center">
@@ -157,17 +271,15 @@ const FeaturesAndObjections = () => {
 
 
 function WhatCost() {
-	return <div className='flex flex-col md:flex-row md:space-x-16 items-center md:my-20 mx-2'>
-		<div >
-			<img src={'/money.png'} className='rounded-lg h-fit min-h-fit' width={564} height={322}></img>
-		</div>
-		<section className="flex flex-row w-full items-center justify-center h-[60vh]">
+	return <div className='flex flex-col md:flex-row md:space-x-16 items-center md:my-20 mx-2 alternateBg w-screen md:px-36'>
+		<Image alt='Gliesess inneficient marketing channels' src={'/gliesess-inneficient-marketing-channels.jpeg'} className='rounded-lg' width={450} height={450}></Image>
+		<section className="flex flex-row w-full items-center justify-center md:h-[60vh]">
 			<div className="text-center md:text-right z-40">
 				<h2 className="text-2xl font-semibold mb-6">
-					Most furniture stores lose 16k per month not running ads
+					Most furniture stores lose 18k per month with inneficient marketing channels
 				</h2>
 				<p className="text-lg text-gray-700 mb-8 max-w-5xl">
-					If your average customer buys furniture worth $2k, <br /> and it costs $4k to run ads that get you 10 clients per month, <br /> you are leaving $16k/month on the table
+					If your average customer buys furniture worth $2k, <br /> and it costs $2k to work with us and get 10 clients per month, <br /> you are leaving $18k/month on the table
 				</p>
 
 			</div>
@@ -175,33 +287,7 @@ function WhatCost() {
 	</div>
 }
 
-function Footer() {
-	return (
-		<footer className="bg-gray-50/80 w-full text-gray-600 py-8">
-			<div className="container mx-auto flex flex-wrap justify-between">
-				<div className="w-full md:w-1/3 text-center md:text-left">
-					<h3 className="font-bold text-xl mb-4">Gliesses</h3>
-					<p className="mb-4">A Google Ads lead generation agency for small to medium furniture retailers.</p>
-					<p>&copy; 2023 Gliesses</p>
-				</div>
-				<div className="w-full md:w-1/3 text-center">
-					<h3 className="font-bold text-xl mb-4">Contact Us</h3>
-					<p className="mb-4">Phone: <a href="tel:+15642122412" className="a hover:text-secondary">+1 (864) 715 9376</a></p>
-					<p className="mb-4">Email: <a href="mailto:info@gliesses.com" className="a hover:text-secondary">contact@gliesses.com</a></p>
-				</div>
-				<div className="w-full md:w-1/3 text-center md:text-right">
-					<h3 className="font-bold text-xl mb-4">Connect</h3>
-					<div className="flex justify-center md:justify-end mb-4">
-						<a href="https://twitter.com/gliesess_ads" className="hover:text-secondary mx-4">
-							<FaTwitter className='w-7 h-7' />
-						</a>
 
-					</div>
-				</div>
-			</div>
-		</footer>
-	);
-}
 
 
 export default Home
