@@ -14,6 +14,7 @@
     "@reach/disclosure": "^0.18.0",
     "@reach/tooltip": "^0.18.0",
     "@types/mdx": "^2.0.10",
+    "@vercel/speed-insights": "^1.0.8",
     "date-fns": "^3.2.0",
     "esbuild": "^0.19.11",
     "gray-matter": "^4.0.3",
