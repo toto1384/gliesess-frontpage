@@ -18,6 +18,7 @@
     "date-fns": "^3.2.0",
     "esbuild": "^0.19.11",
     "gray-matter": "^4.0.3",
+    "image-size": "^1.1.1",
     "jsx-runtime": "^1.2.0",
     "markdown-to-text": "^0.1.1",
     "next": "^14.1.0",

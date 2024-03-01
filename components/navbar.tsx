@@ -30,6 +30,8 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
     const children = <div className='flex flex-row justify-between'>
         {/* <Link href="/blog" ><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link> */}
         <Link className="font-semibold" href="/services"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Services</p></Link>
+
+        <Link className="font-semibold" href="/blog"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link>
     </div>
 
     return (

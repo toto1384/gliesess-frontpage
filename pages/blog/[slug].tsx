@@ -7,7 +7,8 @@ import { CenteredCardPage } from '../../components/centeredCardPage'
 import Link from 'next/link'
 import { BlogItem } from '../../components/blogItem'
 import { blogs } from '../../utils/blog'
-import { Navbar } from '../../components/navbar'
+import { CTA, Navbar } from '../../components/navbar'
+import Image from 'next/image'
 
 function toUnicodeEscape(str: string) {
     return str.split('').map(function (char) {
@@ -48,16 +49,28 @@ export default function Applied({ blog, source, similarArticles }: any) {
                 {blog.author}
             </Link> pe {format(new Date(blog.date), 'dd-MM-yyyy')}</h4>
             <Markdown components={{
-                h1: (props) => <h1 {...props} className='text-2xl mt-3'></h1>,
-                h2: (props) => <h2 {...props} className='text-xl mt-3'></h2>,
+                h1: (props) => <h1 {...props} className='text-3xl font-semibold mt-7'></h1>,
+                h2: (props) => <h2 {...props} className='text-2xl font-medium mt-5'></h2>,
                 h3: (props) => <h3 {...props} className='text-xl mt-3'></h3>,
                 h4: (props) => <h4 {...props} className='text-lg mt-3'></h4>,
                 h5: (props) => <h5 {...props} className='text-lg mt-3'></h5>,
-                h6: (props) => <h6 {...props} className='text-lg mt-3'></h6>,
-                p: (props) => <p {...props} className='my-1 whitespace-pre-wrap'></p>,
+                h6: (props) => props.children == 'CTA' ? <CTA /> : <h6 {...props} className='text-lg mt-3'></h6>,
+                p: (props) => <>
+                    <p {...props} className='my-1 whitespace-pre-wrap'></p>
+                    <br />
+                </>,
                 blockquote: (props) => <blockquote className="p-4 my-4 bg-gray-50 border-l-4 border-gray-300 text-xl italic font-medium leading-relaxed text-gray-900" {...props}>
                 </blockquote>,
-                a: (props) => (props.href && props.children) ? <Link {...props as any} className='a'></Link> : <p>{props.children}</p>
+                a: (props) => (props.href && props.children) ? <Link {...props as any} className='a'></Link> : <p>{props.children}</p>,
+                img: (props) => <div className='relative'><Image
+                    alt={props.alt!}
+                    src={props.src!}
+                    width={0}
+                    height={0}
+                    sizes="100%"
+                    style={{ width: '100%', height: 'auto' }}
+                />
+                </div>
             }}>{source}</Markdown>
 
             <hr className='my-5' />

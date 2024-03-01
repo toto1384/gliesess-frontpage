@@ -32,7 +32,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 					<p className='mt-7 md:mt-16 text-center md:text-start'>You can schedule a call with us and we'll show you the better way. Trackable, scalable, efficient.</p>
 					<CTA className='mt-2 md:mt-5' />
-					<p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link></p>
+					<AlternativeCTA />
 				</div>
 
 
@@ -99,7 +99,7 @@ const Hero = () => {
 
 					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a free 30 minute call (at no risk to you) to see if you're a good fit.</strong></p>
 					<CTA />
-					<p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link></p>
+					<AlternativeCTA />
 				</div>
 			</section>
 			<div className='relative w-full max-w-[564px] md:h-[564px] h-[200px]'>
@@ -118,14 +118,22 @@ const SocialProof = () => {
 
 
 	return (
-		<section className="w-full my-10 flex md:flex-row flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+		<section className="w-full container my-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
 
 			{size.lmd && <hr className='w-full mb-7' />}
-			<div className="md:w-[50%] text-center md:pb-8">
-				<h2 className="text-3xl font-bold md:mb-2">What others have to say</h2>
+			<div className="text-center md:pb-8">
+				<h2 className="text-3xl font-bold md:mb-2">Success Stories from our clients</h2>
 				<p className="text-gray-600">See how the people working with us achieve their objectives:</p>
 			</div>
-			<div className="max-w-xl md:w-[50%]">
+			<div className="grid justify-items-stretch grid-cols-1 md:grid-cols-2 gap-4 mx-2">
+				<div className="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-5 sm:p-6">
+					<Link className="a text-lg font-medium text-gray-900 mb-4" href={'/blog/seo-agency-10x-google'}>
+						How we 10x the number of Google organic pages in 2 months for one of our clients
+					</Link>
+					<p>
+						Read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end you are going to see the strategies we used to do it!
+					</p>
+				</div>
 				<div className="bg-white shadow-lg rounded-lg overflow-hidden">
 					<div className="px-4 py-5 sm:p-6">
 						<blockquote>
@@ -196,7 +204,7 @@ const FeaturesAndObjections = () => {
 
 				<div className='flex flex-col items-center mt-5'>
 					<CTA />
-					<p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link></p>
+					<AlternativeCTA />
 				</div>
 
 
@@ -288,6 +296,9 @@ function WhatCost() {
 }
 
 
+function AlternativeCTA() {
+	return <p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/blog/seo-agency-10x-google'} className='a'>case studies</Link></p>
+}
 
 
 export default Home
