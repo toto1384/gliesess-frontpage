@@ -59,6 +59,8 @@ export default function Applied({ blog, source, similarArticles }: any) {
                     <p {...props} className='my-1 whitespace-pre-wrap'></p>
                     <br />
                 </>,
+                ol: (props) => <ol {...props} className='list-decimal'></ol>,
+                ul: (props) => <ul {...props} className='list-disc'></ul>,
                 blockquote: (props) => <blockquote className="p-4 my-4 bg-gray-50 border-l-4 border-gray-300 text-xl italic font-medium leading-relaxed text-gray-900" {...props}>
                 </blockquote>,
                 a: (props) => (props.href && props.children) ? <Link {...props as any} className='a'></Link> : <p>{props.children}</p>,

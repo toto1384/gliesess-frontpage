@@ -175,9 +175,10 @@ After:
 2. Looking at our website audits and making a list of the most prominent issues
 3. Combining our past knowledge of SEO and learning whatever was needed to form a conclusion
 
+
 We found 3 main problems with the site and 25+ fixes we must implement to make the site rank well on Google
 
-Here are some things that we found from only one of our competitors
+Here are some things that we found from only one of our competitors:
 
 ![SEO Checklist](${domain}/blog/seo-checklist.png)
 
@@ -185,7 +186,7 @@ The main problem was site architecture and internal linking. Without going much 
 
 # Finally, results
 
-After implementing most of the things that we found, the website started growing like crazy, and users started signing up for it. We worked smarter, not harder and the results speak for themselves
+After implementing most of the things that we found, the website started growing like crazy, and users started signing up for it. We worked smarter, not harder and the results speak for themselves.
 
 It took a couple of weeks for Google to pick up the changes and then the charts started being vertical instead of horizontal. 
 
@@ -200,6 +201,8 @@ If this story inspires you, keep in mind that it can be easily replicated. By re
  
 
 ### If you want a free analysis of your website from us, and the option to work together, schedule a call below
+
+###### CTA
         `
     }
 ] 
