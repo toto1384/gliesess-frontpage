@@ -11,6 +11,10 @@ module.exports = {
       },
       {
         protocol:'https',
+        hostname:'www.gliesess.com'
+      },
+      {
+        protocol:'https',
         hostname:'netlify.app'
       }
 		]
