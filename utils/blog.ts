@@ -117,41 +117,41 @@ Also the organic keywords:
 
 # About the customer
 
-I started working with this client a while ago to develop the website, while he was focusing on hiring other contractors to work on SEO. Since the content is dynamic, he wanted to have a bunch of these pages on Google, which would boost sales. 
+I started working with this client a while ago to develop his website, while he was focusing on hiring other contractors to work on SEO. Since the content is dynamic, he wanted to have a bunch of these pages on Google, which would boost sales. 
 
-But the deck was not stacked in our favor. The content posted was not great, in all other languages but the one we were targeting. The contractors were not doing their jobs, and you can see in the charts that in a full year we did not grow that much, if at all.
+But the deck was not stacked in our favor. The content posted was not great, and it was in all other languages but the one we were targeting. The contractors were not doing their jobs, and you can see in the charts that in a full year we did not grow that much, if at all.
 
 ![SEO Agency Results](${domain}/blog/seo-agency-results.png)
 
 # The painful 1 year road to nothing
 
-How trying different contractors and different strategies did not help at all
+He tried different contractors and different strategies. Nothing helped.
 
-We started with doing the seo basics at fast speeds. Ie: everything that everyone recommends: sitemaps, keywords, header and footer optimization, social media tags.
+He started with the seo basics. Ie: everything that everyone recommends: sitemaps, keywords, header and footer optimization, social media tags.
 
-We were not drowning in traffic, but we started to grow little by little. Brick by brick our organic pages were started to index.
+The results were nothing spectacular, but there was a little bit of growth. Brick by brick the organic pages were started to index.
 
 ### Then the unexpected hit.
 
-After consistently growing for 1.5 months, we stopped growing. Our speculation is that changing the keywords made Google stopped liking us, and then we fell. And we fell harder than ever.
+After consistently growing for 1.5 months, he stopped growing. Our speculation is that changing the keywords made Google stopped liking the site. And then fell harder than ever.
 
 ![SEO Growth then fall](${domain}/blog/seo-growth-then-fall.png)
 
-This was a big hit in our morale, but we did not give up. We focused on making the product better, adding features, and preparing for our next try. From March until summer we did not hire any other contractors.
+This was a big hit in his morale, but he did not give up. We then focused on making the product better, adding features, and preparing for our next try. From March until summer we did not hire any other contractors.
 
 ### Failing again
 
-In the summer we hired another contractor to bring this project to life, and the work began
+In the summer he hired another contractor to bring this project to life, and the work began
 
 Some of the biggest changes to the site have been made since then.
 
-New keywords, titles, links, url structures. We even used Artificial intelligence to structure the User-generated content.
+New keywords, titles, links, url structures. We even implemented Artificial intelligence to structure the User-generated content.
 
-And those things helped. We started growing, but very slowly. It was dreading, because we knew we were doing well, but we didn’t know how to do even better
+And those things helped. He started growing, but very slowly. It was dreading, because he knew he was doing well, but he didn’t know how to do even better
 
-We continued with the work, creating blog posts, revamping old pages, and focused on more internal linking, only to see incremental improvements.
+After continuing with the work, creating blog posts, revamping old pages, focusing on more internal linking, he only saw incremental improvements.
 
-The contractor “finished” the work, and we were yet again on our own.
+The contractor “finished” the work, and he were yet again on his own.
 
 # We stepped in.
 
