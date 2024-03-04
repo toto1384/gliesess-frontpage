@@ -92,9 +92,9 @@ export const blogs: BlogItem[] = [
     {
         author: 'Alexandru Totolici',
         category: ['Case Study'],
-        date: '2024-3-1',
+        date: '2024-03-01',
         h1: 'How we 10x the number of Google organic pages in 2 months for one of our clients',
-        image: 'store-conversion.png',
+        image: 'store-conversion.webp',
         seo: {
             title: "How we 10x the number of Google organic pages in 2 months for one of our clients | Gliesess",
             desc: "In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end you are going to see the strategies we used to do it!"

@@ -1,0 +1,18 @@
+
+User-agent: Googlebot-Image
+Disallow: /noindex/
+
+
+User-agent: *
+Allow: /
+
+Sitemap: ${domain}/sitemap.xml
+
+Disallow: /*?language=
+Disallow: /*?source=
+Disallow: /*?clear=
+Disallow: /*?mode=
+Disallow: /*?page=
+Disallow: /*apply
+Disallow: /*favorite
+Disallow: /*similar

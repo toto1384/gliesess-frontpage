@@ -1,4 +1,60 @@
+const withBundleAnalyzer = require('@next/bundle-analyzer')({
+	enabled: process.env.ANALYZE === 'true'
+})
+
+const nextSafe = require('next-safe')
+
+const nextSafeHeaders = nextSafe({ 
+	isDev:process.env.NODE_ENV !== 'production',
+	frameOptions: "SAMEORIGIN",
+	permissionsPolicy: {
+		camera: '*',
+		microphone: '*',
+		geolocation: '*'
+	},
+	referrerPolicy: "no-referrer-when-downgrade",
+	contentSecurityPolicy: {
+		"base-uri": "'none'",
+		"child-src": "'none'",
+		"connect-src": ["*", "'unsafe-inline'", "'unsafe-eval'","*.gliesess.com",],
+		"default-src": "'self'",
+		"font-src": "'self'",
+		"form-action": "'self'",
+		"frame-ancestors": "self",
+		"frame-src": ["*", "'unsafe-inline'", "'unsafe-eval'"],
+		"img-src": ["'self'", "data:",],
+		"manifest-src": "'self'",
+		"media-src": "'self'",
+		"object-src": "'none'",
+		"prefetch-src": false,
+		"script-src": ["*", "'unsafe-inline'", "'unsafe-eval'"],
+		"style-src": ["'self'", "'unsafe-inline'", "*.google.com"],
+		"worker-src": ["'self'","blob:"],
+	},
+ }).filter(i=>i.key!=='Feature-Policy' && i.key !=='Permissions-Policy')
+
+ const fullHeaders = [
+	...nextSafeHeaders,
+	{
+		key: 'Permissions-Policy',
+		value: 'camera=(), microphone=(), geolocation=()'
+	  },
+	  {
+		key: 'Strict-Transport-Security',
+		value: 'max-age=63072000; includeSubDomains; preload'
+	},
+ ]
+
 module.exports = {
+//   headers(){
+//     return [
+//       {
+//         // Apply these headers to all routes in your application.
+//         source: '/:path*',
+//         headers: fullHeaders
+//       },
+//     ]
+//   },
   images: {
 		remotePatterns: [
       {

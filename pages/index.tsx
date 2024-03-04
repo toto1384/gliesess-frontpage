@@ -5,7 +5,6 @@ import { CTA, Navbar } from '../components/navbar';
 import Link from 'next/link';
 import StickyBox from 'react-sticky-box';
 import { useSize } from '../utils/useSize';
-import { hrtime } from 'process';
 import React from 'react';
 
 const Home = ({ posts }: { posts: any[] }) => {
@@ -38,7 +37,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 				<div className='flex flex-col w-screen my-10 items-center'>
 					<div className='flex flex-col md:flex-row items-center justify-around w-full'>
-						<Image alt='Gliesess Outdated Offline Marketing Channels' width={imageSize} height={imageSize} className='rounded-full' src={'/outdated-offline-marketing-channels.jpeg'} />
+						<Image alt='Gliesess Outdated Offline Marketing Channels' width={imageSize} height={imageSize} className='rounded-full' src={'/outdated-offline-marketing-channels.webp'} />
 						<div className="px-2 md:w-[50%] md:text-center">
 							<h2 className="text-3xl text-center font-bold mb-2">Tv/Radio Ads are uncertain and untrackable</h2>
 							<p className="text-gray-600">With Tv and Radio Ads you can't easily see which ads perform the best, and how much engegement they have. You just spend a lot of money on that ad, and hope that it brings the customers you expect. And now, you have to do it again next month</p>
@@ -51,7 +50,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 					</div>
 					{size.lmd && <hr className='w-full my-5' />}
 					<div className='flex flex-col md:flex-row-reverse items-center justify-around w-full'>
-						<Image alt='Gliesess Social Media Marketing' width={imageSize} height={imageSize} className='rounded-full' src={'/gliesess-social-media-marketing.jpeg'} />
+						<Image alt='Gliesess Social Media Marketing' width={imageSize} height={imageSize} className='rounded-full' src={'/gliesess-social-media-marketing.webp'} />
 						<div className="px-2 md:w-[50%] md:text-center">
 							<h2 className="text-3xl text-center font-bold mb-2">Social media isn't getting that much engagement</h2>
 							<p className="text-gray-600">Have you ever visited a popular brand social media profile just to find out they have 15 likes on their post? Social media is hard to grow and it usually requires investment in paid promotion</p>
@@ -83,7 +82,7 @@ const Hero = () => {
 
 	return (
 		<div className='flex mx-2 flex-col-reverse md:pt-10 relative md:mt-0 md:flex-row md:space-x-16 items-center container'>
-			<section className="flex items-center justify-center h-[60vh]">
+			<section className="flex items-center justify-center md:h-[60vh]">
 				<div className="text-center flex flex-col items-center md:items-start md:text-left z-40 mx-3 md:mx-10">
 					<h1 className="text-3xl md:text-5xl font-bold md:mb-6 mt-10 md:mt-0">
 						We Generate {size.gmd && <br />}
@@ -102,10 +101,12 @@ const Hero = () => {
 					<AlternativeCTA />
 				</div>
 			</section>
-			<div className='relative w-full max-w-[564px] md:h-[564px] h-[200px]'>
+			<div className='relative w-full max-w-[564px] md:h-[564px] h-[250px]'>
 				<Image
-					alt="Gliesess paid web desi" layout='fill' src={'/paid-web-design-agency.png'}
-					className='rounded-lg h-fit min-h-fit object-cover object-top'
+					alt="Gliesess paid web desi"
+					layout='fill'
+					src={'/paid-web-design-agency.webp'}
+					className='object-cover object-top rounded-lg'
 				/>
 			</div>
 		</div>
@@ -118,7 +119,7 @@ const SocialProof = () => {
 
 
 	return (
-		<section className="w-full container my-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+		<section className="w-full container md:my-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
 
 			{size.lmd && <hr className='w-full mb-7' />}
 			<div className="text-center md:pb-8">
@@ -165,7 +166,7 @@ const FeaturesAndObjections = () => {
 				className: 'pt-24', children: [
 					<div className="w-screen flex flex-row justify-end">
 						<div className="w-full h-[70vw] md:w-[50vw] md:h-screen relative">
-							<Image alt="Web Design and SEO Proceess" className="object-cover object-top md:rounded-tr-xl" src={'/web-design-and-seo-process.jpeg'} layout="fill" />
+							<Image alt="Web Design and SEO Proceess" className="object-cover object-top md:rounded-tr-xl" src={'/web-design-and-seo-process.webp'} layout="fill" />
 						</div>
 
 					</div>
@@ -280,7 +281,7 @@ const FeaturesAndObjections = () => {
 
 function WhatCost() {
 	return <div className='flex flex-col md:flex-row md:space-x-16 items-center md:my-20 mx-2 alternateBg w-screen md:px-36'>
-		<Image alt='Gliesess inneficient marketing channels' src={'/gliesess-inneficient-marketing-channels.jpeg'} className='rounded-lg' width={450} height={450}></Image>
+		<Image alt='Gliesess inneficient marketing channels' src={'/gliesess-inneficient-marketing-channels.webp'} className='rounded-lg' width={450} height={450}></Image>
 		<section className="flex flex-row w-full items-center justify-center md:h-[60vh]">
 			<div className="text-center md:text-right z-40">
 				<h2 className="text-2xl font-semibold mb-6">

@@ -122,13 +122,13 @@ export default function ServicesPage() {
 
             </div>
             <div className="md:w-[50vw] md:h-[1000px] w-full h-[70vw] relative">
-                <Image alt="Gliesess desk setup" className="object-cover object-top md:rounded-bl-xl" src={'/gliesess-desk-setup.png'} layout="fill" />
+                <Image alt="Gliesess desk setup" className="object-cover object-top md:rounded-bl-xl" src={'/gliesess-desk-setup.webp'} layout="fill" />
             </div>
         </div>
 
         <div className="flex flex-col md:flex-row w-full alternateBg items-center">
             <div className="md:w-[50vw] md:h-[1000px] w-full h-[70vw] relative">
-                <Image alt="Gliesess desk setup" className="object-cover object-top md:rounded-tr-xl" src={'/gliesess-development-and-seo-methodology.png'} layout="fill" />
+                <Image alt="Gliesess desk setup" className="object-cover object-top md:rounded-tr-xl" src={'/gliesess-development-and-seo-methodology.webp'} layout="fill" />
             </div>
             <div className="flex md:w-[50vw] w-full flex-col items-start px-2 md:px-16 my-5">
                 <h2 className="text-3xl md:text-4xl font-bold">Why Consider Investing in SEO Optimization?</h2>
