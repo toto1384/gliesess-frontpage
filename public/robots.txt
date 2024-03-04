@@ -6,7 +6,7 @@ Disallow: /noindex/
 User-agent: *
 Allow: /
 
-Sitemap: ${domain}/sitemap.xml
+Sitemap: https://www.gliesess.com/sitemap.xml
 
 Disallow: /*?language=
 Disallow: /*?source=
