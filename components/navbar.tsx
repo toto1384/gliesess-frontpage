@@ -39,7 +39,7 @@ export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
             <nav className="flex justify-between md:space-x-5 w-screen items-center px-2 py-2 md:py-0 z-10">
                 <Link href="/" className=''>
                     <Image
-                        src={size.gmd ? "/logo.png" : '/android-chrome-512x512.png'}
+                        src={size.gmd ? "/logo.png" : '/logo-square.png'}
                         alt="Gliesses"
                         width={size.gmd ? 200 : 60}
                         height={100}
