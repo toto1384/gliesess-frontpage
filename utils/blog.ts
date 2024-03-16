@@ -205,8 +205,6 @@ After implementing most of the things that we found, the website started growing
 
 It took a couple of weeks for Google to pick up the changes and then the charts started being vertical instead of horizontal. 
 
-No doubt we could’ve done things better and drove even more traffic to the website. But we did the bare minimum to stop the stagnation. From now on, we aim to implement even more tactics, and hopefully, keep the upward trajectory.
-
 In the future, we want to combine the short-term with the long-term. Make all the initial changes so that are easy, to see the growth skyrocket, while simultaneously focusing on more long-term strategies like backlinks and brand building.
 
 ## We can do the same for you
