@@ -1,0 +1,3 @@
+{
+    "jest.jestCommandLine": "DOTENV_CONFIG_PATH=.env.local jest --watchAll --setupFiles=dotenv/config"
+}

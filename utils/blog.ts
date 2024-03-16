@@ -1,7 +1,7 @@
 
 
 
-export type BlogItem = {
+export type BlogItemType = {
     slug: string;
     date: string;
     h1: string;
@@ -22,7 +22,22 @@ export const dev = (process.env.NODE_ENV || '').indexOf('production') === -1;
 export const domain: string = dev ? "http://localhost:3000" : `https://www.gliesess.com`
 
 
-export const blogs: BlogItem[] = [
+export const authors = [
+    {
+        name: 'Alexandru Totolici',
+        image: 'alex-totolici-profile-photo.jpg'
+    }
+] as const
+
+
+export const categories = [
+    {
+        name: 'Case Study',
+        image: 'case-study-illustration.webp'
+    }
+] as const
+
+export const blogs: BlogItemType[] = [
     // {
     //     author: 'Alexandru Totolici',
     //     category: ['Boost Conversions'],
@@ -115,7 +130,7 @@ Also the organic keywords:
 
 ![Ahrefs Keywords Growth](${domain}/blog/ahrefs-keywords-growth.png)
 
-# About the customer
+## About the customer
 
 I started working with this client a while ago to develop his website, while he was focusing on hiring other contractors to work on SEO. Since the content is dynamic, he wanted to have a bunch of these pages on Google, which would boost sales. 
 
@@ -123,7 +138,7 @@ But the deck was not stacked in our favor. The content posted was not great, and
 
 ![SEO Agency Results](${domain}/blog/seo-agency-results.png)
 
-# The painful 1 year road to nothing
+## The painful 1 year road to nothing
 
 He tried different contractors and different strategies. Nothing helped.
 
@@ -153,13 +168,13 @@ After continuing with the work, creating blog posts, revamping old pages, focusi
 
 The contractor “finished” the work, and he were yet again on his own.
 
-# We stepped in.
+## We stepped in.
 
 After all the pains and frustrations gained over almost a year of not seeing any significant results, the client chose us to do SEO.
 
 We already had some theories of why the site is not growing and what we might do to help it
 
-# What exactly did we do
+### What exactly did we do
 
 We started doing SEO for the client with 2 of our core principles in mind: 1. Don’t pretend you’re smart when you’re not. And 2. replicate before you iterate.
 
@@ -184,7 +199,7 @@ Here are some things that we found from only one of our competitors:
 
 The main problem was site architecture and internal linking. Without going much into detail, site architecture is the hierarchical structure of the site, and how pages interact with each other. Internal linking is how we link from one page to another.
 
-# Finally, results
+## Finally, results
 
 After implementing most of the things that we found, the website started growing like crazy, and users started signing up for it. We worked smarter, not harder and the results speak for themselves.
 
@@ -194,13 +209,13 @@ No doubt we could’ve done things better and drove even more traffic to the web
 
 In the future, we want to combine the short-term with the long-term. Make all the initial changes so that are easy, to see the growth skyrocket, while simultaneously focusing on more long-term strategies like backlinks and brand building.
 
-# We can do the same for you
+## We can do the same for you
 
 If this story inspires you, keep in mind that it can be easily replicated. By reducing SEO down to a science, we can do it again and again.
 
  
 
-### If you want a free analysis of your website from us, and the option to work together, schedule a call below
+##### If you want a free analysis of your website from us, and the option to work together, schedule a call below
 
 ###### CTA
         `

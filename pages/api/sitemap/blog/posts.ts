@@ -15,7 +15,7 @@ export default async function handler(req: any, res: any) {
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
     <url>
-        <loc>${domain}</loc>
+        <loc>${domain}/blog</loc>
         <priority>0.7</priority>
         <lastmod>${format(startOfWeek(new Date()), 'yyyy-MM-dd')}</lastmod>
         <changefreq>weekly</changefreq>

@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "@builder.io/partytown": "^0.10.0",
     "@emailjs/browser": "^3.12.1",
     "@locator/runtime": "^0.4.3",
     "@mdx-js/react": "^3.0.0",
@@ -30,16 +31,20 @@
     "patch-package": "^8.0.0",
     "posthog-js": "^1.110.0",
     "react": "^18.2.0",
+    "react-chrono": "^2.6.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.0.1",
     "react-markdown": "^9.0.1",
+    "react-share": "^5.1.0",
     "react-sticky-box": "^2.0.5",
-    "remark-frontmatter": "^5.0.0"
+    "remark-frontmatter": "^5.0.0",
+    "uuid": "^9.0.1"
   },
   "devDependencies": {
     "@netlify/plugin-nextjs": "^4.41.3",
     "@types/node": "20.11.5",
     "@types/react": "18.2.48",
+    "@types/uuid": "^9.0.8",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.33",
     "prettier": "^3.2.4",

@@ -85,18 +85,21 @@ const Hero = () => {
 			<section className="flex items-center justify-center md:h-[60vh]">
 				<div className="text-center flex flex-col items-center md:items-start md:text-left z-40 mx-3 md:mx-10">
 					<h1 className="text-3xl md:text-5xl font-bold md:mb-6 mt-10 md:mt-0">
-						We Generate {size.gmd && <br />}
+						We Generate customers {size.gmd && <br />}
+						for Your Furniture Shop {size.gmd && <br />}
+						Without your effort. {size.gmd && <br />}
+						<strong>Consistently.</strong>
+						{/* We Generate {size.gmd && <br />}
 						High paying customers {size.gmd && <br />}
 						for Your Furniture Shop {size.gmd && <br />}
-						<strong>Without overhead.</strong>
+						<strong>Without overhead.</strong> */}
 					</h1>
 					<p className="text-lg text-gray-700 mb-8 max-w-5xl">
-						SEO finally exposed. Why it has become one of the highest ROI marketing channels, <span className='underline decoration-purple-600 decoration-2 underline-offset-2'>even</span> higher than ads.
-						{/* S.E.O. has become one of the highest ROI activities, and an exceptional one. */}
-						{/* Google has changed. From targeted demographic ads to store visit conversions. <br /> We use bleeding edge campaigns for better performance. */}
+						... or we’ll send you your money back. We build exceptionally efficient customer acquisition systems using SEO. Even if everybody thinks it’s dead, we use it as a secret to fill our client's stores.
+						{/* SEO finally exposed. Why it has become one of the highest ROI marketing channels, <span className='underline decoration-purple-600 decoration-2 underline-offset-2'>even</span> higher than ads. */}
 					</p>
 
-					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a free 30 minute call (at no risk to you) to see if you're a good fit.</strong></p>
+					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30 minute call (no risk/cost to you) and we'll show you our strategy.</strong></p>
 					<CTA />
 					<AlternativeCTA />
 				</div>
@@ -154,128 +157,72 @@ const SocialProof = () => {
 	);
 };
 
-
-
 const FeaturesAndObjections = () => {
 
 	const size = useSize(true)
 
-	return <section>
-		<div className="">
-			{React.createElement(size.gmd ? StickyBox : 'div', {
-				className: 'pt-24', children: [
-					<div className="w-screen flex flex-row justify-end">
+	return <section className='w-screen'>
+
+		<div className="mb-20 flex flex-row-reverse">
+
+			<div className='relative'>
+				{React.createElement(size.gmd ? StickyBox : 'div', {
+					className: 'pt-24', children: [
+						// <div className=" flex flex-row justify-end">
 						<div className="w-full h-[70vw] md:w-[50vw] md:h-screen relative">
 							<Image alt="Web Design and SEO Proceess" className="object-cover object-top md:rounded-tr-xl" src={'/web-design-and-seo-process.webp'} layout="fill" />
 						</div>
 
+						// </div>
+					]
+				})}
+
+			</div>
+			<div className='flex flex-row justify-end'>
+				<div className="md:w-[50vw] pt-24 px-2 md:px-20">
+
+					<h2 className="text-4xl font-bold mt-5">How do we solve this?</h2>
+
+					<p className='my-2 text-lg'>We take one of the most efficient marketing channel, SEO, and we put it on steroids. By applying a proven process and doing all the good practices in order to generate customers in a shorter time frame, we leave no room for errors. Then, those results only need to be maintained, starting each month on a good foot.</p>
+
+					<hr className="mt-8" />
+
+					<h3 className="text-2xl font-medium mt-8 mb-4">1. Website Design</h3>
+
+					<p className='my-2 text-lg'>We create the visually stunning website if you don't have one, tailored to reflect your brand identity with intuitive navigation and user interfaces. We make it mobile friendly and fast, which is required for good SEO.</p>
+					<hr className="mt-8" />
+
+					<h3 className="text-2xl font-medium mt-8 mb-4">2. User Experience (UX) Enhancement</h3>
+
+					<p className='my-2 text-lg'>This involves meticulously crafting each webpage to not only captivate users but also to optimize visibility on search engines. <br /><br /> By strategically designing and refining the layout, content, and interactive elements of every page, we aim to create an immersive and user-friendly journey for visitors.</p>
+					<hr className="mt-8" />
+
+					<h3 className="text-2xl font-medium mt-8 mb-4">3. SEO Audit, Research and Monitoring</h3>
+
+					<p className='my-2 text-lg'>✅ We take care of conducting an SEO audit for your website.</p>
+					<p className='my-2 text-lg'>✅ Then we conduct thorough research on the market in which you operate. <br />This helps us understand your competitors and get a grasp of your buyers.</p>
+					<p className='my-2 text-lg'>✅ Also we closely monitor the correct implementation of delivered assets.</p>
+					<p className='my-2 text-lg'>✅ Finally we track results and provide regular reports, <br />staying updated with market changes and adapting swiftly through the reoptimization of the SEO strategy.</p>
+
+					<hr className="mt-8" />
+
+					<h3 className="text-2xl font-medium mt-8 mb-4">4. SEO Optimization - Staying on top of Google Updates</h3>
+
+					<p className='my-2 text-lg'>We stay updated with market changes and adapt swiftly through the reoptimization of the SEO strategy.</p>
+
+					<div className='flex flex-col items-center mt-5'>
+						<CTA />
+						<AlternativeCTA />
 					</div>
-				]
-			})}
-			<div className="md:w-[50vw] md:-mt-[100vh] px-2 md:px-20">
 
-				<h2 className="text-4xl font-bold mt-5">How do we solve this?</h2>
 
-				<p className='my-2 text-lg'>We take one of the most efficient marketing channel, SEO, and we put it on steroids. By applying a proven process and doing all the good practices in order to generate customers in a shorter time frame, we leave no room for errors. Then, those results only need to be maintained, starting each month on a good foot.</p>
-
-				<hr className="mt-8" />
-
-				<h3 className="text-2xl font-medium mt-8 mb-4">1. Website Design</h3>
-
-				<p className='my-2 text-lg'>We create the visually stunning website if you don't have one, tailored to reflect your brand identity with intuitive navigation and user interfaces. We make it mobile friendly and fast, which is required for good SEO.</p>
-				<hr className="mt-8" />
-
-				<h3 className="text-2xl font-medium mt-8 mb-4">2. User Experience (UX) Enhancement</h3>
-
-				<p className='my-2 text-lg'>This involves meticulously crafting each webpage to not only captivate users but also to optimize visibility on search engines. <br /><br /> By strategically designing and refining the layout, content, and interactive elements of every page, we aim to create an immersive and user-friendly journey for visitors.</p>
-				<hr className="mt-8" />
-
-				<h3 className="text-2xl font-medium mt-8 mb-4">3. SEO Audit, Research and Monitoring</h3>
-
-				<p className='my-2 text-lg'>✅ We take care of conducting an SEO audit for your website.</p>
-				<p className='my-2 text-lg'>✅ Then we conduct thorough research on the market in which you operate. <br />This helps us understand your competitors and get a grasp of your buyers.</p>
-				<p className='my-2 text-lg'>✅ Also we closely monitor the correct implementation of delivered assets.</p>
-				<p className='my-2 text-lg'>✅ Finally we track results and provide regular reports, <br />staying updated with market changes and adapting swiftly through the reoptimization of the SEO strategy.</p>
-
-				<hr className="mt-8" />
-
-				<h3 className="text-2xl font-medium mt-8 mb-4">4. SEO Optimization - Staying on top of Google Updates</h3>
-
-				<p className='my-2 text-lg'>We stay updated with market changes and adapt swiftly through the reoptimization of the SEO strategy.</p>
-
-				<div className='flex flex-col items-center mt-5'>
-					<CTA />
-					<AlternativeCTA />
 				</div>
-
 
 			</div>
 		</div>
 	</section>
 
-	return (
-		<section className="my-20 alternateBg w-full">
-			<div className="container max-w-6xl mx-auto text-center">
-				<h2 id='features' className="text-3xl mx-2 md:text-4xl font-bold mb-6">Honestly now, is tv or radio the only way to gain customers?</h2>
-				<div className='mb-16 mx-2'>
-					{[
-						<p>You can't track tv or radio ads. Google ads has&nbsp;<a target='_blank' className='a' href='https://support.google.com/google-ads/answer/6100636?hl=en'> Store location tracking</a></p>,
-						'They are unreliable (different traffic based on time of the year)',
-						'You have to do all the work yourself or agencies are very expensive',
-						'Tv/radio ads have a much smaller return on investment than Google ads'
-					].map((i, index) => <li key={index} className="flex items-center mb-2">
-						<svg
-							className="w-4 h-4 mr-2 text-purple-500"
-							fill="currentColor"
-							viewBox="0 0 20 20"
-							xmlns="http://www.w3.org/2000/svg"
-						>
-							<path
-								fillRule="evenodd"
-								d="M18.707,4.293c0.391,0.391,0.391,1.023,0,1.414L8.707,16H6c-1.103,0-2-0.897-2-2V8l9.293-9.293C15.488-1.098,16.512-1.098,17.707,0.098S19.098,3.488,18.707,4.293z"
-								clipRule="evenodd"
-							/>
-						</svg>
-						{i}
-					</li>)}
 
-				</div>
-				{/* <div className="flex flex-wrap justify-center items-start">
-					<div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-						<div className="mb-4">
-							<img src="/feature1.svg" alt="Feature 1" className="h-16" />
-						</div>
-						<h3 className="text-xl font-bold mb-2">High-Quality Leads</h3>
-						<p className="text-lg text-gray-700 mb-4">
-							We specialize in generating high-quality leads for small to medium furniture dealers, helping you grow your business quickly and easily.
-						</p>
-					</div>
-					<div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-						<div className="mb-4">
-							<img src="/feature2.svg" alt="Feature 2" className="h-16" />
-						</div>
-						<h3 className="text-xl font-bold mb-2">Cost-Effective Solution</h3>
-						<p className="text-lg text-gray-700 mb-4">
-							Our lead generation services are a cost-effective solution for small to medium furniture dealers, providing you with the results you need without breaking the bank.
-						</p>
-					</div>
-					<div className="w-full md:w-1/2 lg:w-1/3 px-4 mb-8">
-						<div className="mb-4">
-							<img src="/feature3.svg" alt="Feature 3" className="h-16" />
-						</div>
-						<h3 className="text-xl font-bold mb-2">Transparent Reporting</h3>
-						<p className="text-lg text-gray-700 mb-4">
-							We provide transparent reporting and analytics, so you can see exactly how our services are benefitting your business and make data-driven decisions.
-						</p>
-					</div>
-				</div> */}
-				{/* <p className="text-lg text-gray-700 mb-8">
-					We understand that you might have some concerns about working with a lead generation agency, but we assure you that our services are reliable, effective, and tailored to your specific needs. Don't hesitate to contact us to discuss how we can help your business grow.
-				</p> */}
-				<CTA />
-			</div>
-		</section>
-	);
 };
 
 

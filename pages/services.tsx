@@ -4,19 +4,60 @@ import { LuAreaChart } from "react-icons/lu";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
-
-
-
+import { useSize } from "../utils/useSize";
 
 
 export default function ServicesPage() {
+
+
+    const data = [
+        {
+            title: 'Plug and play',
+            description: 'No matter the technology and hosting platform of the website, with our deep technical knowledge we will implement the necessary steps to grow it (either WordPress, Shopify, Javascript hosted on either WPEngine, AWS, or anything else)',
+        },
+        {
+            title: 'Make it new or make it better',
+            description: 'If the website is old/slow/ugly, we’ll bring it back to life by either remaking it completely or finding and fixing all the problems with it. (We’ll coach you on the best solution and let you choose)',
+        },
+        {
+            title: 'Up to date technologies',
+            description: 'We will build a website with the most performant technologies that are up-to-date, and with optional e-commerce functionality such as Secure payments, product catalog, and Virtual carts. You don’t need to learn any complicated software',
+        },
+        {
+            title: 'No effort transfer',
+            description: 'If you have an old website, we will transfer everything from it with little effort from your side(all pages, products, and information). Your convenience comes first',
+        },
+        {
+            title: 'Location independent results',
+            description: 'We optimize for Google Maps so no matter your store’s location, you’ll still get customers'
+        },
+        {
+            title: 'Fast(er) results',
+            description: 'Agile-focused strategy - we implement the highest impact changes first, so you see results in a couple of months, not half a year'
+        },
+        {
+            title: 'Batteries included',
+            description: 'We make the SEO strategy, social media profiles, design the front page, write all product descriptions and titles, and all extra pages with your logo and some product photos (which we edit ourselves to look better). Again, your convenience comes first. '
+        },
+        {
+            title: 'Full transparency',
+            description: 'You get weekly/monthly reports of exactly how much traffic your site gets and how many customers it generates, so you can see if the ROI is positive(or get a refund if you don’t like it)'
+        },
+        {
+            title: 'No other expenses',
+            description: 'No other expenses: Apart from our service fee you don’t have to spend money on advertising or other contractors. We’re an autonomous one-stop shop.'
+        }
+    ];
+
+    const size = useSize(true)
+
     return <div className="flex flex-col items-center">
         <Navbar />
         <div className="container">
-            <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10 opacity-50' />
+            <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 right-0 left-0 absolute object-cover -z-10 opacity-50' />
             <h1 className="text-3xl md:text-5xl font-bold mx-2">Services</h1>
-            <p className="mx-2">Select one of our crafted packages as a foundation to kickstart your online</p>
-            <p className="mb-7 mx-2">presence swiftly, ensuring a launch within weeks, not months or years!</p>
+            <p className="mx-2">Ensure a launch within weeks, not months or years!</p>
+            <p className="mb-7 mx-2">All packages have an 100 day money back guarantee.</p>
 
             {/* all packages table */}
             <div className="flex flex-col md:flex-row justify-between items-center md:items-start">
@@ -90,6 +131,62 @@ export default function ServicesPage() {
             </div>
 
         </div>
+
+        <div className="container mt-32 mx-3">
+            <h2 className="text-3xl font-bold mb-5">Our methodology</h2>
+        </div>
+        {size.size === 'xs' ? <div className="flex flex-row w-full px-5">
+            <div className="h-[150vh] w-1.5 lg:w-full my-auto lg:h-1.5 bg-indigo-500 rounded"></div>
+            <div className="flex flex-col w-fit space-y-4">
+                {data.map((i, index) => <div className="flex flex-row h-full justify-center items-center">
+                    <div className="-mr-[2px] inline-block overflow-hidden -rotate-90">
+                        <div className="h-3 w-4 origin-bottom-left rotate-45 transform border-3 bg-indigo-500"></div>
+                    </div>
+                    <div className="border-3 bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-md p-1 mr-2 h-full w-fit">
+                        <div className="bg-white h-full w-full p-2 rounded">
+                            <h3 className="text-xl font-medium">{index + 1}. {i.title}</h3>
+                            <p>{i.description}</p>
+
+                        </div>
+                    </div>
+                </div>)}
+            </div>
+        </div> :
+            <div className="mb-32 flex flex-row lg:flex-col mx-2">
+                <div className="grid lg:grid-cols-5 grid-cols-1 gap-3">
+                    {data.filter((v, i) => i % 2 == 0).map((i, index) => <div className="flex max-w-sm flex-row items-center lg:flex-col place-self-end h-full">
+                        <div className="border-3 bg-gradient-to-l lg:bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 rounded-md p-1 h-full w-fit">
+                            <div className="bg-white p-2 rounded w-full h-full">
+                                <h3 className="text-xl font-medium bg-gradient-to-l lg:bg-gradient-to-t from-indigo-500 via-purple-500 to-pink-500 inline-block text-transparent bg-clip-text">{(index + 1) * 2 - 1}. {i.title}</h3>
+                                <p>{i.description}</p>
+                            </div>
+                        </div>
+                        <div className={`mx-auto ${size.llg && '-ml-[2px]'} lg:-mt-[2px] inline-block overflow-hidden rotate-90 lg:rotate-180`}>
+                            <div className="h-3 w-4 origin-bottom-left rotate-45 transform border-3 bg-indigo-500"></div>
+                        </div>
+                    </div>)}
+                </div>
+
+                <div className="h-[90vh] w-1.5 lg:w-full my-auto lg:h-1.5 bg-indigo-500 rounded"></div>
+
+                <div className="grid lg:grid-cols-4 grid-cols-1 gap-3">
+                    {data.filter((v, i) => i % 2 !== 0).map((i, index) => <div className={`flex max-w-sm h-full flex-row items-center lg:flex-col ${index === 0 && 'lg:ml-10 xl:ml-16'}`}>
+                        <div className={`mx-auto ${size.llg && '-mr-[2px]'} lg:-mb-[2px] inline-block overflow-hidden -rotate-90 lg:rotate-0`}>
+                            <div className="h-3 w-4 origin-bottom-left rotate-45 transform border-3 bg-indigo-500"></div>
+                        </div>
+                        <div className="border-3 bg-gradient-to-r lg:bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 h-full rounded-md p-1 w-fit">
+                            <div className="rounded bg-white p-2 w-full h-full">
+                                <h3 className="text-xl font-medium bg-gradient-to-r lg:bg-gradient-to-b from-indigo-500 via-purple-500 to-pink-500 inline-block text-transparent bg-clip-text">{(index + 1) * 2}. {i.title}</h3>
+                                <p>{i.description}</p>
+
+                            </div>
+                        </div>
+                    </div>)}
+
+                </div>
+            </div>
+        }
+
 
 
         {/* images explanation */}
@@ -170,7 +267,7 @@ export default function ServicesPage() {
         {/* contact us */}
         <div className="container my-20 px-2 text-center md:text-start flex flex-col items-center md:items-start">
             <h2 className="text-4xl font-semibold">Get Started</h2>
-            <p>Contact us today to schedule a consultation and take the first step towards transforming your online presence.</p>
+            <p>Book a call to get a <span className="underline decoration-purple-500">free website analysis</span> (if you have one) or a <span className="underline decoration-purple-500">free SEO blueprint</span> (if you don't).</p>
             <CTA className="mt-2" />
         </div>
 
