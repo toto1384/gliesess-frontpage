@@ -13,7 +13,7 @@ const Document = () => {
 		font-src 'self' *.sendinblue.com;
 		form-action 'self' *.convertkit.com;
 		frame-src 'self' *.google.com *.google-analytics.com *.meetfox.com meetfox.com 'nonce-${nonce}';
-		img-src 'self';
+		img-src 'self' data:;
 		manifest-src 'self';
 		media-src 'self';
 		object-src 'none';
