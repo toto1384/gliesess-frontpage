@@ -46,15 +46,15 @@ const nextSafeHeaders = nextSafe({
  ]
 
 module.exports = {
-//   headers(){
-//     return [
-//       {
-//         // Apply these headers to all routes in your application.
-//         source: '/:path*',
-//         headers: fullHeaders
-//       },
-//     ]
-//   },
+  headers(){
+    return [
+      {
+        // Apply these headers to all routes in your application.
+        source: '/:path*',
+        headers: fullHeaders
+      },
+    ]
+  },
 async rewrites() {
 	return [
 		{
