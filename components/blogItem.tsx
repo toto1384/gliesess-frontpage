@@ -11,10 +11,10 @@ export function BlogItem({ i }: { i: BlogItemType }) {
             <Image className="ml-1  rounded-lg" width="192" height="192" src={`${domain}/blog/${i.image}`} alt={`${i.image} blog image`}></Image>
         </Link>
         <div className="flex flex-col w-fit p-2">
-            <Link href={href} className="hover:text-blue-500 group" >
-                <h4 className="text-lg w-full">{i.h1}</h4>
+            <Link href={href} className="hover:text-blue-500 group p-1" >
+                <h3 className="text-lg w-full">{i.h1}</h3>
             </Link>
-            <h6 className="mb-1">{i.category.map(j => <Link href={`/blog/categories/${j.toLowerCase().replaceAll(' ', '-')}`} className="a"><span className="hoverableChip mr-1">{j}</span></Link>)}</h6>
+            <h4 className="mb-1">{i.category.map(j => <Link href={`/blog/categories/${j.toLowerCase().replaceAll(' ', '-')}`} className="a p-1"><span className="hoverableChip mr-1">{j}</span></Link>)}</h4>
             <p className="w-fit text-sm">{i.description ?? removeMarkdown(i.mdText).slice(0, 200)}</p>
         </div>
 

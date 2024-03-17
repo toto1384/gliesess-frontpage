@@ -21,7 +21,7 @@ export default function AboutUs({ }: {}) {
             <div className="flex flex-col-reverse md:flex-row w-full justify-around items-center mt-10">
                 <div className="flex flex-col md:w-[50%] items-center md:items-start mx-5">
                     <h2 className="text-3xl font-bold">Alex Totolici</h2>
-                    <h4 className="text-xl font-medium">Founder</h4>
+                    <h3 className="text-xl font-medium">Founder</h3>
                     <blockquote className="text-center md:text-start">Welcome to <Link className="a" href={'/'}>Gliesess</Link>, where we bring your business to the forefront of digital success. As a seasoned full-stack developer specializing in SEO and web design, I'm committed to optimizing your online presence and propelling your site to the first page of Google.</blockquote>
                 </div>
                 <div className="md:w-[50%] flex flex-row justify-end">

@@ -33,6 +33,7 @@ export default function Applied() {
         // }}
         >
             <h1 className="text-3xl font-semibold">Blog Gliesess</h1>
+            <h2 className="text-2xl font-medium my-3">Posts</h2>
             {actualBlogs.map(i => <BlogItem i={i} />)}
 
             <hr className="my-10" />

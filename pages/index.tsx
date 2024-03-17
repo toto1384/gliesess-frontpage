@@ -106,8 +106,8 @@ const Hero = () => {
 			</section>
 			<div className='relative w-full max-w-[564px] md:h-[564px] h-[250px]'>
 				<Image
-					alt="Gliesess paid web desi"
-					layout='fill'
+					alt="Gliesess paid web design agency"
+					layout='fill' priority
 					src={'/paid-web-design-agency.webp'}
 					className='object-cover object-top rounded-lg'
 				/>
@@ -245,7 +245,7 @@ function WhatCost() {
 
 
 function AlternativeCTA() {
-	return <p className='text-gray-400 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/blog/seo-agency-10x-google'} className='a'>case studies</Link></p>
+	return <p className='text-gray-500 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/blog/seo-agency-10x-google'} className='a'>case studies</Link></p>
 }
 
 

@@ -56,12 +56,14 @@ const ContactForm = ({ className }: { className?: string }) => {
     };
     return (
         <form className={`flex flex-col items-center ${className}`} onSubmit={sendEmail}>
-            <label className="w-full">Name</label>
-            <input type="text" name="user_name" className="border rounded my-2 p-2 w-full" />
-            <label className="w-full">Email</label>
-            <input type="email" name="user_email" className="border rounded my-2 p-2 w-full" />
-            <label className="w-full">Message</label>
-            <textarea name="message" className="border rounded my-2 p-2 w-full" />
+            <label htmlFor="user_name" className="w-full">Name</label>
+            <input type="text" id="user_name" name="user_name" className="border rounded my-2 p-2 w-full" />
+
+            <label htmlFor="email" className="w-full">Email</label>
+            <input id="email" type="email" name="user_email" className="border rounded my-2 p-2 w-full" />
+
+            <label htmlFor="message" className="w-full">Message</label>
+            <textarea id="message" name="message" className="border rounded my-2 p-2 w-full" />
             <button type="submit" className="btn-primary w-fit" disabled={isSubmitting} >Send</button>
             {stateMessage && <p className="">{stateMessage}</p>}
         </form>

@@ -6,7 +6,7 @@ import { useSize } from "../utils/useSize";
 
 
 
-export const Navbar = ({ alwaysWhite }: { alwaysWhite?: boolean }) => {
+export const Navbar = ({ alwaysWhite, }: { alwaysWhite?: boolean, }) => {
 
     const [isScrolled, setIsScrolled] = useState(false);
     const size = useSize(true)
@@ -64,3 +64,4 @@ export const CTA = ({ className }: { className?: string }) => {
         }} className={`btn-primary ${className}`}>Book a call</button>
     );
 };
+

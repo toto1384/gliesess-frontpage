@@ -25,7 +25,7 @@ const Document = () => {
 
 
     return (
-        <Html>
+        <Html lang='en'>
 
             <Head nonce={nonce}>
                 <link href="https://app.meetfox.com/assets/styles/popup.css" rel="stylesheet" />

@@ -40,17 +40,18 @@ function TableOfContent() {
         {/* {activeId} */}
         <ul className='mb-10'>
             {headings.map(heading => (
-                <a href={`#${heading.id}`}>
-                    <li
-                        className={`cursor-pointer p-2 border-l-2 ${activeId === heading.id && 'border-l-blue-800'} hover:border-l-blue-500`}
-                        // onClick={() => heading.scrollIntoView()}
-                        style={{
-                            marginLeft: Number(heading.tagName[1]) * 10
-                        }}
-                        key={heading.textContent}
-                    >{heading.textContent}</li>
-
-                </a>
+                <li
+                    className={`w-fit cursor-pointer border-l-2 ${activeId === heading.id && 'border-l-blue-800'} hover:border-l-blue-500`}
+                    // onClick={() => heading.scrollIntoView()}
+                    style={{
+                        marginLeft: Number(heading.tagName[1]) * 10
+                    }}
+                    key={heading.textContent}
+                >
+                    <a href={`#${heading.id}`} className='p-2'>
+                        {heading.textContent}
+                    </a>
+                </li>
             ))}
         </ul>
     </div>
@@ -122,6 +123,7 @@ export default function BlogPost({ blog, source, similarArticles }: any) {
             'backgroundRepeat': 'no-repeat'
         }}></div>
         <div className={`top-0 z-30 w-full mb-0 md:mb-16`}><Navbar alwaysWhite /></div>
+        <StickyBox className='z-50 w-full'><ProgressBar /></StickyBox>
 
         <div className="mb-20 mx-auto flex flex-col md:flex-row">
 
@@ -135,9 +137,9 @@ export default function BlogPost({ blog, source, similarArticles }: any) {
                     <div className="px-4 pt-14 md:px-12 md:pb-10 backdrop-blur-sm rounded-none md:rounded-lg bg-white">
                         {/* <Image sizes='100%' src={ } /> */}
                         <h1 className='text-3xl mb-2'>{blog.h1}</h1>
-                        <h4 className='text-lg mb-5' id={publishedById}>Published by <Link className='a' href={`/blog/authors/${blog.author.toLowerCase().replaceAll(' ', '-')}`}>
+                        <p className='text-lg mb-5' id={publishedById}>Published by <Link className='a' href={`/blog/authors/${blog.author.toLowerCase().replaceAll(' ', '-')}`}>
                             {blog.author}
-                        </Link> on {format(new Date(blog.date), 'dd-MM-yyyy')}</h4>
+                        </Link> on {format(new Date(blog.date), 'dd-MM-yyyy')}</p>
 
                         {size.llg && <TableOfContent />}
                         <Markdown components={{
@@ -217,3 +219,24 @@ export async function getServerSideProps({ req, res, query, params }: GetServerS
 
 }
 
+
+const ProgressBar = () => {
+    //Width State
+    const [width, setWidth] = useState(0);
+    // scroll function
+    const scrollHeight = () => {
+        var el = document.documentElement,
+            ScrollTop = el.scrollTop || document.body.scrollTop,
+            ScrollHeight = el.scrollHeight || document.body.scrollHeight;
+        var percent = (ScrollTop / (ScrollHeight - el.clientHeight)) * 100;
+        // store percentage in state
+        setWidth(percent);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", scrollHeight);
+        return () => window.removeEventListener("scroll", scrollHeight);
+    });
+
+    return <div className={"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-2"} style={{ width: `${width}%` }}></div>
+}
