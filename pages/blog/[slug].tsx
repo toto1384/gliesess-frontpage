@@ -5,14 +5,15 @@ import Head from 'next/head'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import { BlogItem } from '../../components/blogItem'
-import { blogs, domain } from '../../utils/blog'
-import { CTA, Navbar } from '../../components/navbar'
+import { blogs, } from '../../utils/blog'
+import { BasicNextSeo, CTA, Navbar } from '../../components/navbar'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
 import StickyBox from 'react-sticky-box'
 import { useSize } from '../../utils/useSize'
 import { NewsletterForm } from '../../components/footer'
 import { ShareButton } from '../../components/shareButton'
+import { domain } from '../../utils/mainUtils'
 
 
 
@@ -90,6 +91,8 @@ export default function BlogPost({ blog, source, similarArticles }: any) {
 
     const size = useSize(true)
 
+    const url = `${domain}/blog/${blog.slug}`
+
     function RightPanel() {
         return <>
             <div className='border rounded mt-10 pt-10 px-2'>
@@ -108,10 +111,7 @@ export default function BlogPost({ blog, source, similarArticles }: any) {
     }
 
     return <div className='flex flex-col items-center'>
-        <Head>
-            <title>{blog.seo.title}</title>
-            <meta name='description' content={blog.seo.desc} />
-        </Head>
+        <BasicNextSeo title={blog.seo.title} description={blog.seo.desc} url={url} />
 
         <div className={`absolute top-0 z-0`} style={{
             backgroundImage: `url(/blog/${blog.image})`,

@@ -1,3 +1,4 @@
+import { domain } from "./mainUtils";
 
 
 
@@ -17,9 +18,6 @@ export type BlogItemType = {
     mdText: string;
 }
 
-export const dev = (process.env.NODE_ENV || '').indexOf('production') === -1;
-
-export const domain: string = dev ? "http://localhost:3000" : `https://www.gliesess.com`
 
 
 export const authors = [

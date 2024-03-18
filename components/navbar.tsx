@@ -3,8 +3,23 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import StickyBox from "react-sticky-box";
 import { useSize } from "../utils/useSize";
+import { NextSeo } from "next-seo";
+import Head from "next/head";
 
 
+export const BasicNextSeo = ({ description, title, url }: { title: string | undefined, description: string | undefined, url: string }) => {
+    return <>
+        <Head>
+            <title>{title}</title>
+            <meta name="description" content={description}></meta>
+            {/* <meta name='keywords' content='locuri de munca, loc de munca, angajari, anunturi angajari, oferte locuri de munca, joburi in strainatate, joburi, oferte de munca, anunturi gratuite, angajari romania, angajari bucuresti, angajari constanta, locuri de munca in tara, angajari in strainatate' /> */}
+        </Head>
+        <NextSeo
+            canonical={url}
+            openGraph={{ title, description, siteName: 'Gliesess', url, }}
+        />
+    </>
+}
 
 export const Navbar = ({ alwaysWhite, }: { alwaysWhite?: boolean, }) => {
 

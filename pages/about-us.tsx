@@ -1,7 +1,8 @@
 import Image from "next/image";
-import { Navbar } from "../components/navbar";
+import { BasicNextSeo, Navbar } from "../components/navbar";
 import Link from "next/link";
 import { useSize } from "../utils/useSize";
+import { domain } from "../utils/mainUtils";
 
 
 
@@ -10,8 +11,14 @@ export default function AboutUs({ }: {}) {
     const size = useSize(true)
     const imageSize = size.gmd ? 250 : 150
 
+    const title = "About Gliesess - An SEO agency for Local businesses"
+    const description = "Gliesess is an SEO agency that generates customers for local businesses. Schedule a call for a free website analysis report."
+    const url = `${domain}/about-us`
+
     return <div className="flex flex-col items-center">
         <Navbar />
+
+        <BasicNextSeo title={title} description={description} url={url} />
 
         <div className="container">
 

@@ -1,22 +1,27 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { FaTwitter } from 'react-icons/fa';
-import { CTA, Navbar } from '../components/navbar';
+import { BasicNextSeo, CTA, Navbar } from '../components/navbar';
 import Link from 'next/link';
 import StickyBox from 'react-sticky-box';
 import { useSize } from '../utils/useSize';
 import React from 'react';
+import { NextSeo } from 'next-seo';
+import { domain, twitterHandle } from '../utils/mainUtils';
 
 const Home = ({ posts }: { posts: any[] }) => {
 
 	const size = useSize(true)
 	const imageSize = size.gmd ? 450 : 250
 
+
+	const title = "Gliesses Home Page"
+	const description = "We Generate customers for Your Furniture Shop Without your effort. Consistently. | Gliesess"
+	const url = `${domain}/`
+
 	return (
 		<div className="flex min-h-screen flex-col items-center justify-center bg-svg py-2">
-			<Head>
-				<title>Gliesess • Website</title>
-			</Head>
+			<BasicNextSeo title={title} description={description} url={url} />
+
 			<Navbar />
 
 			<img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />

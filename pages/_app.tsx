@@ -6,7 +6,8 @@ import { DefaultSeo, NextSeo } from 'next-seo'
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import posthog from "posthog-js"
 import { PostHogProvider } from 'posthog-js/react'
-import { domain } from '../utils/blog'
+import { domain } from '../utils/mainUtils'
+
 
 if (typeof window !== 'undefined') { // checks that we are client-side
 	posthog.init(process.env.NEXT_PUBLIC_POSTHOG_KEY!, {
@@ -26,9 +27,11 @@ function MyApp({ Component, pageProps }: AppProps) {
 	const defaultDescription: string = 'With a foundation built on 7 years of experience, we bring the technological expertise to the table. From the latest web development frameworks to SEO best practices, we stay at the forefront of technology trends. Our commitment to continuous learning ensures that your digital solutions are not only current but future-proof.'
 	return <>
 		<PostHogProvider client={posthog}>
+			<Head>
+				<title>{defaultTitle}</title>
+				<meta name="description" content={defaultDescription}></meta>
+			</Head>
 			<DefaultSeo
-				title={defaultTitle}
-				description={defaultDescription}
 				openGraph={{
 					title: defaultTitle,
 					description: defaultDescription,
@@ -46,8 +49,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 					]
 				}}
 				twitter={{
-					handle: '@gliesess_ads',
-					// site: '@site',
+					site: '@gliesess_ads',
 					cardType: 'summary_large_image',
 				}}
 

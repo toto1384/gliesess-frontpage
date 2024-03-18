@@ -1,7 +1,8 @@
 
 import { format, startOfWeek } from "date-fns"
 import { contentTypeSitemap } from ".."
-import { blogs, domain } from "../../../../utils/blog"
+import { blogs, } from "../../../../utils/blog"
+import { domain } from "../../../../utils/mainUtils"
 
 
 export default async function handler(req: any, res: any) {

@@ -1,11 +1,18 @@
 import { useState } from "react";
-import { Navbar } from "../components/navbar";
+import { BasicNextSeo, Navbar } from "../components/navbar";
 import emailjs from '@emailjs/browser';
 import Link from "next/link";
+import { domain } from "../utils/mainUtils";
 
 
 export default function ContactPage() {
+    const title = "Gliesses • Contact for SEO services"
+    const description = "Contact us • 520 Aspen Dr, Herndon, VA, Washington D.C., DC, United States, 20170 contact@gliesess.com | Gliesess"
+    const url = `${domain}/contact`
+
     return <div className="flex flex-col items-center min-h-[100vh]">
+
+        <BasicNextSeo title={title} description={description} url={url} />
         <Navbar />
 
         <h1 className="text-4xl font-bold w-full container">Contact Us</h1>

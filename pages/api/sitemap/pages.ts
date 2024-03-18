@@ -2,7 +2,7 @@
 
 import { contentTypeSitemap } from ".";
 import { format, startOfMonth } from "date-fns";
-import { domain } from "../../../utils/blog";
+import { domain } from "../../../utils/mainUtils";
 
 //from most important to least important
 

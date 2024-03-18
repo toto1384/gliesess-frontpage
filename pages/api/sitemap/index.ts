@@ -1,4 +1,5 @@
-import { domain } from "../../../utils/blog"
+import { domain } from "../../../utils/mainUtils"
+
 
 async function createMap() {
     return `<?xml version="1.0" encoding="UTF-8"?>

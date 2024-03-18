@@ -13,3 +13,9 @@ export const innerLeave = (arr: any[], value: any | ((index: number) => any)) =>
         return result;
     }, []);
 };
+
+export const dev = (process.env.NODE_ENV || '').indexOf('production') === -1;
+
+export const domain: string = dev ? "http://localhost:3000" : `https://www.gliesess.com`
+
+export const twitterHandle = "@gliesess_ads"

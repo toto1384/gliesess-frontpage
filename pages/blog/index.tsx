@@ -3,8 +3,9 @@ import { useRouter } from "next/router"
 import { authors, blogs, categories } from "../../utils/blog"
 import { CenteredCardPage } from "../../components/centeredCardPage"
 import { AuthorItem, BlogItem, CategoryItem } from "../../components/blogItem"
-import { Navbar } from "../../components/navbar"
+import { BasicNextSeo, Navbar } from "../../components/navbar"
 import Link from "next/link"
+import { domain } from "../../utils/mainUtils"
 
 
 
@@ -15,11 +16,12 @@ export default function Applied() {
 
     const actualBlogs = router.query.s ? blogs.filter(i => i.h1.includes(router.query.s as string) || i.mdText.includes(router.query.s as string)) : blogs
 
+    const title = "Blog Gliesess"
+    const description = "Welcome to Gliesess Blog. Read articles about SEO, Case studies, Marketing strategies and others"
+    const url = `${domain}/about-us`
+
     return <>
-        <Head>
-            <title>Blog Gliesess</title>
-            <meta name="description" content={"Blog Gliesess"}></meta>
-        </Head>
+        <BasicNextSeo title={title} description={description} url={url} />
 
         <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
         <CenteredCardPage appBar={<Navbar />} className='mt-32 bg-transparent'

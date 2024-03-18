@@ -83,3 +83,17 @@ html {
       background-position: 10px 0, 5px 1px;*/
 
 }
+
+.alternateBgWhite {
+  background:
+    repeating-linear-gradient(0deg, white, white 20px, #f7f6f6 20px, #f7f6f6 21px),
+    repeating-linear-gradient(90deg, white, white 20px, #f7f6f6 20px, #f7f6f6 21px);
+
+  background-attachment: fixed;
+  /* background-image: 
+        radial-gradient(closest-side, #fff 10px, transparent 0),
+        radial-gradient(closest-side, #f0fafd 6px, #fff 0);
+      background-size: 30px 40px, 20px 40px;
+      background-position: 10px 0, 5px 1px;*/
+
+}

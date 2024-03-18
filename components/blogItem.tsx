@@ -1,7 +1,8 @@
 import removeMarkdown from "markdown-to-text"
 import Link from "next/link"
-import { BlogItemType, domain } from "../utils/blog"
+import { BlogItemType, } from "../utils/blog"
 import Image from "next/image"
+import { domain } from "../utils/mainUtils"
 
 
 export function BlogItem({ i }: { i: BlogItemType }) {

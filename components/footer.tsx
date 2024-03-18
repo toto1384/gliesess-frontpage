@@ -12,10 +12,10 @@ export function Footer() {
                 <div className="w-full md:w-1/3 text-center md:text-left">
                     <h3 className="font-bold text-xl mb-4">Gliesses</h3>
                     {/* <p className="mb-4">A Google Ads lead generation agency for small to medium furniture retailers.</p> */}
-                    <p>With style and grace, we'll fill the space 💨</p>
+                    {/* <p>With style and grace, we'll fill the space 💨</p> */}
                     <p>In a hundred days, your store will gleam ✨</p>
                     <p>The owner’s dream, low-effort scheme 🙏</p>
-                    <p>We do our best, the countdown commence ⏰</p>
+                    <p>You can afford, it's a small expense 🪙</p>
                     <p>Low effort, high reward, it's just common sense 🙌</p>
 
                     <br></br>
