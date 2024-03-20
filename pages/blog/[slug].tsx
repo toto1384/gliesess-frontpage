@@ -5,7 +5,7 @@ import Head from 'next/head'
 import { format } from 'date-fns'
 import Link from 'next/link'
 import { BlogItem } from '../../components/blogItem'
-import { blogs, } from '../../utils/blog'
+import { authors, blogs, } from '../../utils/blog'
 import { BasicNextSeo, CTA, Navbar } from '../../components/navbar'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
@@ -13,7 +13,8 @@ import StickyBox from 'react-sticky-box'
 import { useSize } from '../../utils/useSize'
 import { NewsletterForm } from '../../components/footer'
 import { ShareButton } from '../../components/shareButton'
-import { domain } from '../../utils/mainUtils'
+import { categoriesTitle, categoryTitle, categoryUrl, domain, homePageTitle, innerLeave, slogan } from '../../utils/mainUtils'
+import { MdChevronRight } from 'react-icons/md'
 
 
 
@@ -86,7 +87,7 @@ export function useHeadsObserver(toObserveElements: Element[]) {
 
 
 
-export default function BlogPost({ blog, source, similarArticles }: any) {
+export default function BlogPost({ blog, source, similarArticles }: InferGetServerSidePropsType<typeof getServerSideProps>) {
     const widthClassName: string = `md:min-h-fit md:min-w-[30rem] md:w-fit md:mb-10 max-w-4xl transition mx-auto`
 
     const size = useSize(true)
@@ -112,16 +113,154 @@ export default function BlogPost({ blog, source, similarArticles }: any) {
 
     return <div className='flex flex-col items-center'>
         <BasicNextSeo title={blog.seo.title} description={blog.seo.desc} url={url} />
+        <Head>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `{
+                        "@context": "http://schema.org/",
+                        "@type": "Article",
+                        "headline": "${blog.h1}",
+                        "alternativeHeadline": "${blog.seo.title}",
+                        "name": "${blog.h1}",
+                        "datePublished": "${blog.date}",
+                        "dateModified": "${blog.date}",
+                        "description": "${blog.description}",
+                        "image": {
+                            "@type": "ImageObject",
+                            "height": "1024",
+                            "width": "1024",
+                            "url": "https://www.gliesess.com/blog/${blog.image}"
+                        },
+                        "author": {
+                            "@type": "Person",
+                            "name": "Alex Totolici",
+                            "url": "https://www.gliesess.com/authors/alex-totolici/"
+                        },
+                        "publisher": {
+                            "@type": "Organization",
+                            "name": "Gliesess",
+                            "sameAs": [
+                                "https://www.linkedin.com/company/gliesess",
+                                "https://twitter.com/gliesess_ads",
+                                "https://www.youtube.com/@GliesessSEO"
+                            ],
+                            "logo": {
+                                "@type": "ImageObject",
+                                "url": "https://www.gliesess.com/logo.png"
+                            }
+                        }
+                    }`
+                }}
+            />
+
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: `{
+                        "@context": "https://schema.org",
+                        "@graph": [
+                          {
+                            "@type": "WebSite",
+                            "@id": "https://www.gliesess.com#website",
+                            "url": "https://www.gliesess.com",
+                            "name": "Gliesess",
+                            "description": "${slogan}",
+                            "inLanguage": "en-US"
+                          },
+                          {
+                            "@type": "ImageObject",
+                            "@id": "https://www.gliesess.com/blog/${blog.slug}/#primary-image",
+                            "inLanguage": "en-US",
+                            "url": "https://www.gliesess.com/blog/${blog.image}"
+                          },
+                          {
+                            "@type": "WebPage",
+                            "@id": "https://www.gliesess.com/blog/${blog.slug}/#webpage",
+                            "url": "https://www.gliesess.com/blog/${blog.slug}/",
+                            "name": "${blog.h1}",
+                            "isPartOf": {
+                              "@id": "https://www.gliesess.com#website"
+                            },
+                            "primaryImageOfPage": {
+                              "@id": "https://www.gliesess.com/blog/${blog.slug}/#primaryimage"
+                            },
+                            "datePublished": "${blog.date}",
+                            "dateModified": "${blog.date}",
+                            "author": {
+                              "@id": "https://www.gliesess.com/blog/${blog.slug}/#/schema/person/4494fa0000534e80a656782c5f9bff73"
+                            },
+                            "breadcrumb": {
+                              "@id": "https://www.gliesess.com/blog/${blog.slug}/#breadcrumb"
+                            },
+                            "inLanguage": "en-US",
+                            "potentialAction": [
+                              {
+                                "@type": "ReadAction",
+                                "target": [
+                                  "https://www.gliesess.com/blog/${blog.slug}/"
+                                ]
+                              }
+                            ]
+                          },
+                          {
+                            "@type": "BreadcrumbList",
+                            "@id": "https://www.gliesess.com/blog/${blog.slug}/#breadcrumb",
+                            "itemListElement": [
+                              {
+                                "@type": "ListItem",
+                                "position": 1,
+                                "item": {
+                                  "@type": "WebPage",
+                                  "@id": "https://www.gliesess.com",
+                                  "url": "https://www.gliesess.com",
+                                  "name": "${homePageTitle}"
+                                }
+                              },
+                              {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "item": {
+                                  "@type": "WebPage",
+                                  "@id": "https://www.gliesess.com/categories/",
+                                  "url": "https://www.gliesess.com/categories/",
+                                  "name": "${categoriesTitle}"
+                                }
+                              },
+                              {
+                                "@type": "ListItem",
+                                "position": 2,
+                                "item": {
+                                  "@type": "WebPage",
+                                  "@id": "${categoryUrl(blog.category[0])}",
+                                  "url": "${categoryUrl(blog.category[0])}",
+                                  "name": "${categoryTitle(blog.category[0])}"
+                                }
+                              },
+                              {
+                                "@type": "ListItem",
+                                "position": 3,
+                                "item": {
+                                  "@type": "WebPage",
+                                  "@id": "https://www.gliesess.com/blog/${blog.slug}/",
+                                  "url": "https://www.gliesess.com/blog/${blog.slug}/",
+                                  "name": "${blog.h1}"
+                                }
+                              }
+                            ]
+                          },
+                          ${authors.find(i => i.name === blog.author)!.jsonSchema(`https://www.gliesess.com/blog/${blog.slug}/#/schema/person/4494fa0000534e80a656782c5f9bff73`)}
+                        ]
+                      }`
+                }}
+            />
+        </Head>
 
         <div className={`absolute top-0 z-0`} style={{
-            backgroundImage: `url(/blog/${blog.image})`,
-            backgroundSize: 'cover',
             height: '55vh',
             width: '100vw',
             marginTop: '3rem',
-            'backgroundPosition': 'center',
-            'backgroundRepeat': 'no-repeat'
-        }}></div>
+        }}><Image src={`/blog/${blog.image}`} alt={`${blog.h1} Image`} id='primary-image' fill className='object-cover' /></div>
         <div className={`top-0 z-30 w-full mb-0 md:mb-16`}><Navbar alwaysWhite /></div>
         <StickyBox className='z-50 w-full'><ProgressBar /></StickyBox>
 
@@ -136,6 +275,14 @@ export default function BlogPost({ blog, source, similarArticles }: any) {
                 <div className={`w-full bg-white z-[5] rounded-none md:rounded-lg ${widthClassName} mt-52`}>
                     <div className="px-4 pt-14 md:px-12 md:pb-10 backdrop-blur-sm rounded-none md:rounded-lg bg-white">
                         {/* <Image sizes='100%' src={ } /> */}
+                        <nav aria-label='breadcrumb' className='rounded mb-5 text-sm bg-gray-0 flex items-center flex-wrap'>
+                            {innerLeave([
+                                <Link key={1} className='breadcrumb' href={'/blog'}>Blog</Link>,
+                                <Link key={2} className='breadcrumb' href={`/blog/categories/`}>Categories</Link>,
+                                <Link key={2} className='breadcrumb' href={`/blog/categories/${blog.category[0].toLowerCase().replaceAll(' ', '-')}`}>{blog.category[0]}</Link>,
+                                <Link key={2} className='breadcrumb' href={`/blog/${blog.slug}`}>{blog.breadcrumbName}</Link>,
+                            ], (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
+                        </nav>
                         <h1 className='text-3xl mb-2'>{blog.h1}</h1>
                         <p className='text-lg mb-5' id={publishedById}>Published by <Link className='a' href={`/blog/authors/${blog.author.toLowerCase().replaceAll(' ', '-')}`}>
                             {blog.author}

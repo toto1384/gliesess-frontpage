@@ -3,11 +3,47 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import StickyBox from "react-sticky-box";
 import { useSize } from "../utils/useSize";
-import { NextSeo } from "next-seo";
+import { BrandJsonLd, LogoJsonLd, NextSeo, NextSeoProps, OrganizationJsonLd } from "next-seo";
 import Head from "next/head";
+import { slogan } from "../utils/mainUtils";
 
 
-export const BasicNextSeo = ({ description, title, url }: { title: string | undefined, description: string | undefined, url: string }) => {
+export const OrganizationStructuredData = () => {
+    return <>
+        <OrganizationJsonLd
+            type="Corporation"
+            id="https://www.gliesess.com/"
+            logo="https://www.gliesess.com/logo.png"
+            // legalName="Totolici Ionut-Alexandru Persoana Fizica Autorizata"
+            name="Gliesess"
+            address={{
+                streetAddress: '520 Aspen Dr',
+                addressLocality: 'Herndon',
+                addressRegion: 'VA',
+                postalCode: '20170',
+                addressCountry: 'US',
+            }}
+            contactPoint={[
+                {
+                    telephone: '+1-864-715-9376',
+                    contactType: 'Contact',
+                    email: 'contact@gliesess.com',
+                    areaServed: 'US',
+                    availableLanguage: ['English',],
+                }
+            ]}
+            sameAs={['https://www.gliesess.com']}
+            url="https://www.gliesess.com/"
+        />
+        <BrandJsonLd
+            slogan={slogan}
+            id="https://www.gliesess.com/"
+            logo="https://www.gliesess.com/logo.jpg"
+        />
+    </>
+}
+
+export const BasicNextSeo = ({ description, title, url, additionalProps }: { title: string | undefined, description: string | undefined, url: string, additionalProps?: NextSeoProps }) => {
     return <>
         <Head>
             <title>{title}</title>
@@ -17,6 +53,11 @@ export const BasicNextSeo = ({ description, title, url }: { title: string | unde
         <NextSeo
             canonical={url}
             openGraph={{ title, description, siteName: 'Gliesess', url, }}
+            {...additionalProps}
+        />
+        <LogoJsonLd
+            logo="https://www.gliesess.com/logo.jpg"
+            url="https://www.gliesess.com"
         />
     </>
 }

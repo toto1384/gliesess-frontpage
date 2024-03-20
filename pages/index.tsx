@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { BasicNextSeo, CTA, Navbar } from '../components/navbar';
+import { BasicNextSeo, CTA, Navbar, OrganizationStructuredData } from '../components/navbar';
 import Link from 'next/link';
 import StickyBox from 'react-sticky-box';
 import { useSize } from '../utils/useSize';
 import React from 'react';
 import { NextSeo } from 'next-seo';
-import { domain, twitterHandle } from '../utils/mainUtils';
+import { domain, homePageTitle, twitterHandle } from '../utils/mainUtils';
 
 const Home = ({ posts }: { posts: any[] }) => {
 
@@ -14,13 +14,15 @@ const Home = ({ posts }: { posts: any[] }) => {
 	const imageSize = size.gmd ? 450 : 250
 
 
-	const title = "Gliesses Home Page"
+
 	const description = "We Generate customers for Your Furniture Shop Without your effort. Consistently. | Gliesess"
 	const url = `${domain}/`
 
 	return (
 		<div className="flex min-h-screen flex-col items-center justify-center bg-svg py-2">
-			<BasicNextSeo title={title} description={description} url={url} />
+			<BasicNextSeo title={homePageTitle} description={description} url={url} />
+
+			<OrganizationStructuredData />
 
 			<Navbar />
 

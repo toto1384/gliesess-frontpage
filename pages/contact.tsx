@@ -1,8 +1,9 @@
 import { useState } from "react";
-import { BasicNextSeo, Navbar } from "../components/navbar";
+import { BasicNextSeo, Navbar, OrganizationStructuredData } from "../components/navbar";
 import emailjs from '@emailjs/browser';
 import Link from "next/link";
 import { domain } from "../utils/mainUtils";
+import { CorporateContactJsonLd } from "next-seo";
 
 
 export default function ContactPage() {
@@ -13,6 +14,23 @@ export default function ContactPage() {
     return <div className="flex flex-col items-center min-h-[100vh]">
 
         <BasicNextSeo title={title} description={description} url={url} />
+
+        <OrganizationStructuredData />
+
+        <CorporateContactJsonLd
+            url="https://www.gliesess.com"
+            logo="https://www.gliesess.com/logo.png"
+            contactPoint={[
+                {
+                    telephone: '+1-864-715-9376',
+                    contactType: 'Contact',
+                    email: 'contact@gliesess.com',
+                    areaServed: 'US',
+                    availableLanguage: ['English',],
+                },
+            ]}
+        />
+
         <Navbar />
 
         <h1 className="text-4xl font-bold w-full container">Contact Us</h1>

@@ -28,6 +28,15 @@ const Document = () => {
         <Html lang='en'>
 
             <Head nonce={nonce}>
+                <link rel="publisher" href="https://www.facebook.com/people/Gliesess/61556601061619/" />
+                <link rel="publisher" href="https://www.pinterest.com/gliesess/" />
+                <link rel="publisher" href="https://twitter.com/gliesess_ads" />
+                <link rel="publisher" href="https://www.instagram.com/gliesesss" />
+                <link rel="publisher" href="https://www.youtube.com/@GliesessSEO" />
+                <link rel="publisher" href="https://www.linkedin.com/company/gliesess" />
+                <link rel="publisher" href="https://www.tiktok.com/@gliesesss" />
+
+
                 <link href="https://app.meetfox.com/assets/styles/popup.css" rel="stylesheet" />
                 <script src="https://app.meetfox.com/assets/libs/popup.min.js" type="text/javascript"></script>
                 <script nonce={nonce} async type="text/partytown" src={`https://www.googletagmanager.com/gtag/js?id=G-LR9E5G7ECB`}></script>

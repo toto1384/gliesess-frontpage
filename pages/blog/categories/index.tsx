@@ -7,7 +7,7 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import { MdChevronRight } from "react-icons/md";
 import { authors, blogs, categories, } from "../../../utils/blog";
-import { domain, innerLeave } from "../../../utils/mainUtils";
+import { categoriesTitle, domain, innerLeave } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
 import { BasicNextSeo, Navbar } from "../../../components/navbar";
 import Link from "next/link";
@@ -16,11 +16,11 @@ import { CategoryItem } from "../../../components/blogItem";
 
 
 export default function Authors() {
-    const title = `Categories - Blog Gliesess`
+
     const description = `Blog categories - Explore categories such as ${categories.slice(0, 3).map(i => `${i.name}, `)}`
     const url = `${domain}/blog/categories`
     return <>
-        <BasicNextSeo title={title} description={description} url={url} />
+        <BasicNextSeo title={categoriesTitle} description={description} url={url} />
         <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
         <CenteredCardPage appBar={<Navbar />} className='mt-32'>
             <nav aria-label='breadcrumb' className='rounded mb-5 text-sm bg-gray-0 flex items-center flex-wrap'>

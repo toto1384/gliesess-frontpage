@@ -1,10 +1,46 @@
 import Image from "next/image";
-import { BasicNextSeo, Navbar } from "../components/navbar";
+import { BasicNextSeo, Navbar, OrganizationStructuredData } from "../components/navbar";
 import Link from "next/link";
 import { useSize } from "../utils/useSize";
 import { domain } from "../utils/mainUtils";
+import { authors } from "../utils/blog";
+import { FaFacebook, FaLinkedin } from "react-icons/fa";
+import { MdPublic } from "react-icons/md";
+import { CenteredCardPage } from "../components/centeredCardPage";
+import Head from "next/head";
 
 
+const emiSchema = `
+{
+"@context": "https://schema.org",
+"@type": "Person",
+"name": "Emil Sandu",
+"image": "https://www.gliesess.com/emil-sandu-profile-picture.jpeg",
+"sameAs": [
+    "https://www.facebook.com/emi.sandu.3"
+],
+"jobTitle": "Marketing Manager",
+"worksFor": {
+    "@type": "Organization",
+    "name": "Gliesess"
+},
+"alumniOf": {
+    "@type": "CollegeOrUniversity",
+    "name": "College of Telecommunication"
+},
+"birthDate": "2003-04-13",
+"nationality": "Romanian",
+"gender": "Male",
+"knowsAbout": ["SEO", "Marketing", "Web Development"],
+"address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Constanta",
+    "addressRegion": "CO",
+    "postalCode": "900272",
+    "streetAddress": "Str Baragan nr 21"
+},
+"email": "mailto:emil@gliesess.com",
+}`
 
 export default function AboutUs({ }: {}) {
 
@@ -15,28 +51,83 @@ export default function AboutUs({ }: {}) {
     const description = "Gliesess is an SEO agency that generates customers for local businesses. Schedule a call for a free website analysis report."
     const url = `${domain}/about-us`
 
+    const alexTotolici = authors.find(i => i.name === 'Alexandru Totolici')!
+
     return <div className="flex flex-col items-center">
-        <Navbar />
+
+        <Head>
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                    __html: alexTotolici.jsonSchema(),
+                }}
+            />
+
+            <script type="application/ld+json" dangerouslySetInnerHTML={{
+                __html: emiSchema
+            }}>
+            </script>
+        </Head>
+
+        <OrganizationStructuredData />
 
         <BasicNextSeo title={title} description={description} url={url} />
+        <img alt='Background image' src="/wave.svg" className='blur-3xl opacity-60 h-[80vh] -z-10 w-[100vw] top-16 absolute object-cover' />
 
-        <div className="container">
-
+        <CenteredCardPage appBar={<Navbar />}>
             <h1 className="text-4xl md:text-5xl font-bold mx-5">About us</h1>
 
-            <img alt='Background image' src="/wave.svg" className='blur-3xl opacity-60 h-[80vh] -z-10 w-[100vw] top-16 absolute object-cover' />
-            <div className="flex flex-col-reverse md:flex-row w-full justify-around items-center mt-10">
-                <div className="flex flex-col md:w-[50%] items-center md:items-start mx-5">
-                    <h2 className="text-3xl font-bold">Alex Totolici</h2>
-                    <h3 className="text-xl font-medium">Founder</h3>
-                    <blockquote className="text-center md:text-start">Welcome to <Link className="a" href={'/'}>Gliesess</Link>, where we bring your business to the forefront of digital success. As a seasoned full-stack developer specializing in SEO and web design, I'm committed to optimizing your online presence and propelling your site to the first page of Google.</blockquote>
+
+            <div className="flex flex-col-reverse md:flex-row items-center mt-10">
+                <div className="flex flex-col md:mx-5">
+                    <h2 className="text-3xl font-semibold">{alexTotolici.name}</h2>
+                    <p className="text-lg my-5">{alexTotolici.shortDescription}</p>
+                    <p className="">{alexTotolici.longDescription}</p>
+
                 </div>
-                <div className="md:w-[50%] flex flex-row justify-end">
-                    <Image
-                        src={'/alex-totolici-profile-photo.jpg'} alt="Alex Totolici Photo"
-                        className="rounded-full mx-10 border-blue-950 border-8 aspect-square object-cover"
-                        width={imageSize} height={imageSize}
-                    />
+                <div className="flex flex-col items-center my-5">
+                    <div className="mx-10" style={{ width: `${imageSize}px`, height: `${imageSize}px` }}>
+                        <Image
+                            src={alexTotolici.image} alt="Alex Totolici Photo"
+                            className="rounded-full border-blue-950 border-8 aspect-square object-cover"
+                            width={imageSize} height={imageSize}
+                        />
+
+                    </div>
+                    <div className="flex flex-row justify-between mt-2">
+                        <a href="https://www.linkedin.com/in/alex-totolici-2a4709186/" className="hover:text-secondary mx-4" aria-label="Alex Totolici Linkedin account">
+                            <FaLinkedin className='w-7 h-7' />
+                        </a>
+                        <a href="https://www.alex-totolici.com" className="hover:text-secondary mx-4" aria-label="Alex Totolici website">
+                            <MdPublic className='w-7 h-7' />
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <hr className="my-5" />
+
+            <div className="flex flex-col-reverse md:flex-row-reverse items-center mt-10">
+                <div className="flex flex-col md:mx-5">
+                    <h2 className="text-3xl font-semibold">Emil Sandu</h2>
+                    <p className="text-lg my-5">Emil is the marketing manager at <Link className="a" href={'/'}>Gliesess</Link>. He worked with a lot of companies for cold calling, and B2C sales.</p>
+                    <p className="">Driven by improvement, Emil does everything in his power to get his job done. From copywriting, to design, to CRO, Emil has become a Swiss Army knife in his field.</p>
+
+                </div>
+                <div className="flex flex-col items-center my-5">
+                    <div className="mx-10" style={{ width: `${imageSize}px`, height: `${imageSize}px` }}>
+                        <Image
+                            src={'/emil-sandu-profile-picture.jpeg'} alt="Alex Totolici Photo"
+                            className="rounded-full border-blue-950 border-8 aspect-square object-cover object-top"
+                            width={imageSize} height={imageSize}
+                        />
+                    </div>
+                    <div className="flex flex-row justify-between mt-2">
+                        <a href="https://www.facebook.com/emi.sandu.3" className="hover:text-secondary mx-4" aria-label="Alex Totolici Linkedin account">
+                            <FaFacebook className='w-7 h-7' />
+                        </a>
+
+                    </div>
                 </div>
             </div>
 
@@ -66,7 +157,11 @@ export default function AboutUs({ }: {}) {
                 </p>
 
             </div>
-        </div>
+
+        </CenteredCardPage>
+
+
+
 
     </div>
 }

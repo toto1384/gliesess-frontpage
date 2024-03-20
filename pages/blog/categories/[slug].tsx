@@ -3,7 +3,7 @@ import { NextSeo } from "next-seo";
 import Head from "next/head";
 import { MdChevronRight } from "react-icons/md";
 import { blogs, } from "../../../utils/blog";
-import { domain, innerLeave } from "../../../utils/mainUtils";
+import { categoryTitle, domain, innerLeave } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
 import { BasicNextSeo, Navbar } from "../../../components/navbar";
 import Link from "next/link";
@@ -18,11 +18,11 @@ export default function Author({ categoryBlogs }: InferGetServerSidePropsType<ty
     const category = categoryBlogs[0]!.category.find(j => j.toLowerCase().replaceAll(' ', '-') === router.query?.slug)!
 
 
-    const title = `${category} - Blog Gliesess`
+
     const description = `Explore the "${category}" category and all of its posts - Blog Gliesess`
-    const url = `${domain}/blog/categories/${category.toLowerCase().replaceAll(' ', '-')}/`
+    const url = `${domain}/blog/categories/${category.toLowerCase().replaceAll(' ', '-')}`
     return <>
-        <BasicNextSeo title={title} description={description} url={url} />
+        <BasicNextSeo title={categoryTitle(category)} description={description} url={url} />
         <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
         <CenteredCardPage appBar={<Navbar />} className='mt-32'>
             <nav aria-label='breadcrumb' className='rounded mb-5 text-sm bg-gray-0 flex items-center flex-wrap'>
