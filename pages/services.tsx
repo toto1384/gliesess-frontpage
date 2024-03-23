@@ -1,4 +1,4 @@
-import { BasicNextSeo, CTA, Navbar } from "../components/navbar";
+import { BasicNextSeo, CTA, Navbar, TawkWidget } from "../components/navbar";
 import { CgWebsite } from "react-icons/cg";
 import { LuAreaChart } from "react-icons/lu";
 import { HiOutlineShoppingCart } from "react-icons/hi";
@@ -21,7 +21,7 @@ export default function ServicesPage() {
             description: 'If the website is old/slow/ugly, we’ll bring it back to life by either remaking it completely or finding and fixing all the problems with it. (We’ll coach you on the best solution and let you choose)',
         },
         {
-            title: 'Up to date technologies',
+            title: 'Up-to-date technologies',
             description: 'We will build a website with the most performant technologies that are up-to-date, and with optional e-commerce functionality such as Secure payments, product catalog, and Virtual carts. You don’t need to learn any complicated software',
         },
         {
@@ -53,11 +53,12 @@ export default function ServicesPage() {
     const size = useSize(true)
 
     const title = "Gliesses Services for your Local business"
-    const description = "Ensure a launch within weeks, not months or years! All packages have an 100 day money back guarantee. | Gliesess"
+    const description = "Ensure a launch within weeks, not months or years! All packages have a 100-day-money-back-guarantee. | Gliesess"
     const url = `${domain}/services`
 
     return <div className="flex flex-col items-center">
         <BasicNextSeo title={title} description={description} url={url} />
+        <TawkWidget />
         <Navbar />
         <div className="container">
             <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 right-0 left-0 absolute object-cover -z-10 opacity-50' />
@@ -119,7 +120,7 @@ export default function ServicesPage() {
 
                         </div>
                         <CheckText text="Everything in 'Website + SEO'" />
-                        <CheckText text="Ecommerce functionality" />
+                        <CheckText text="E-commerce functionality" />
                         <CheckText text="Product catalog setup" />
                         <CheckText text="Secure payment gateway integration" />
                         <CheckText text="Backend Inventory management" />

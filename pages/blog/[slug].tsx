@@ -98,7 +98,7 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
         return <>
             <div className='border rounded mt-10 pt-10 px-2'>
                 <div className='mx-2'>
-                    <h2 id={contentsId} className='text-xl font-semibold mb-1.5'>Improve you customer acquisition systems</h2>
+                    <h2 id={contentsId} className='text-xl font-semibold mb-1.5'>Improve your customer acquisition systems</h2>
                     <p>One email at a time</p>
                     <p>(no spam, we promise)</p>
                 </div>

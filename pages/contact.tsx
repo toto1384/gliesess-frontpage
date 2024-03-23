@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { BasicNextSeo, Navbar, OrganizationStructuredData } from "../components/navbar";
+import { BasicNextSeo, Navbar, OrganizationStructuredData, TawkWidget } from "../components/navbar";
 import emailjs from '@emailjs/browser';
 import Link from "next/link";
 import { domain } from "../utils/mainUtils";
@@ -15,6 +15,7 @@ export default function ContactPage() {
 
         <BasicNextSeo title={title} description={description} url={url} />
 
+        <TawkWidget />
         <OrganizationStructuredData />
 
         <CorporateContactJsonLd

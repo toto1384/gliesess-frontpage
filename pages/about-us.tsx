@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { BasicNextSeo, Navbar, OrganizationStructuredData } from "../components/navbar";
+import { BasicNextSeo, Navbar, OrganizationStructuredData, TawkWidget } from "../components/navbar";
 import Link from "next/link";
 import { useSize } from "../utils/useSize";
 import { domain } from "../utils/mainUtils";
@@ -68,6 +68,8 @@ export default function AboutUs({ }: {}) {
             }}>
             </script>
         </Head>
+
+        <TawkWidget />
 
         <OrganizationStructuredData />
 

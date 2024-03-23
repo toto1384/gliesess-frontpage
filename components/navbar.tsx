@@ -1,11 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import StickyBox from "react-sticky-box";
 import { useSize } from "../utils/useSize";
 import { BrandJsonLd, LogoJsonLd, NextSeo, NextSeoProps, OrganizationJsonLd } from "next-seo";
 import Head from "next/head";
 import { slogan } from "../utils/mainUtils";
+import { NonceContext } from "../pages/_document";
 
 
 export const OrganizationStructuredData = () => {
@@ -121,3 +122,24 @@ export const CTA = ({ className }: { className?: string }) => {
     );
 };
 
+
+export const TawkWidget = () => {
+    const nonce = useContext(NonceContext)
+    return <>
+        <Head>
+            <script nonce={nonce} type="text/javascript" dangerouslySetInnerHTML={{
+                __html: `
+            var Tawk_API=Tawk_API||{ }, Tawk_LoadStart=new Date();
+            (function(){
+            var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+            s1.async=true;
+            s1.src='https://embed.tawk.to/65fec286a0c6737bd123e7f4/1hplifne3';
+            s1.charset='UTF-8';
+            s1.setAttribute('crossorigin','*');
+            s0.parentNode.insertBefore(s1,s0);
+            })();
+        `}}>
+            </script>
+        </Head>
+    </>
+}

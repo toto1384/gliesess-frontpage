@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { BasicNextSeo, CTA, Navbar, OrganizationStructuredData } from '../components/navbar';
+import { BasicNextSeo, CTA, Navbar, OrganizationStructuredData, TawkWidget } from '../components/navbar';
 import Link from 'next/link';
 import StickyBox from 'react-sticky-box';
 import { useSize } from '../utils/useSize';
@@ -21,7 +21,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 	return (
 		<div className="flex min-h-screen flex-col items-center justify-center bg-svg py-2">
 			<BasicNextSeo title={homePageTitle} description={description} url={url} />
-
+			<TawkWidget />
 			<OrganizationStructuredData />
 
 			<Navbar />
@@ -33,8 +33,8 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 			<section className='flex flex-col items-center max-w-[100vw]'>
 				<div className='container flex flex-col items-center alternateBg w-screen py-20 px-2'>
-					<h2 className='text-2xl md:text-4xl font-semibold text-center'>Honestly now, is this the only way <br />to get customers for your buisness?</h2>
-					<p className='md:mt-10 text-center'>It feels like you shoot a gun while blindfolded everytime you launch that radio/tv ad, <br /> and your social media profiles aren't getting that much engagement. What if there was a better way, <br /> and how long are you willing to wait before actually getting lots of clients?</p>
+					<h2 className='text-2xl md:text-4xl font-semibold text-center'>Honestly now, is this the only way <br />to get customers for your business?</h2>
+					<p className='md:mt-10 text-center'>It feels like you shoot a gun while blindfolded every time you launch that radio/TV ad, <br /> and your social media profiles aren't getting that much engagement. What if there was a better way, <br /> and how long are you willing to wait before actually getting lots of clients?</p>
 
 					<p className='mt-7 md:mt-16 text-center md:text-start'>You can schedule a call with us and we'll show you the better way. Trackable, scalable, efficient.</p>
 					<CTA className='mt-2 md:mt-5' />
@@ -46,11 +46,11 @@ const Home = ({ posts }: { posts: any[] }) => {
 					<div className='flex flex-col md:flex-row items-center justify-around w-full'>
 						<Image alt='Gliesess Outdated Offline Marketing Channels' width={imageSize} height={imageSize} className='rounded-full' src={'/outdated-offline-marketing-channels.webp'} />
 						<div className="px-2 md:w-[50%] md:text-center">
-							<h2 className="text-3xl text-center font-bold mb-2">Tv/Radio Ads are uncertain and untrackable</h2>
-							<p className="text-gray-600">With Tv and Radio Ads you can't easily see which ads perform the best, and how much engegement they have. You just spend a lot of money on that ad, and hope that it brings the customers you expect. And now, you have to do it again next month</p>
+							<h2 className="text-3xl text-center font-bold mb-2">TV/Radio Ads are uncertain and untrackable</h2>
+							<p className="text-gray-600">With TV and Radio Ads you can't easily see which ads perform the best, and how much engagement they have. You just spend a lot of money on that ad and hope that it brings the customers you expect. And now, you have to do it again next month</p>
 							<div className='flex flex-col items-start w-fit mt-5'>
 								<p>❌ Every month you start from 0</p>
-								<p>❌ Hard to see which ads perform good and which don't</p>
+								<p>❌ Hard to see which ads perform well and which don't</p>
 								<p>❌ Hard to know if the ROI (Return on investment) is positive or negative</p>
 							</div>
 						</div>
@@ -60,9 +60,9 @@ const Home = ({ posts }: { posts: any[] }) => {
 						<Image alt='Gliesess Social Media Marketing' width={imageSize} height={imageSize} className='rounded-full' src={'/gliesess-social-media-marketing.webp'} />
 						<div className="px-2 md:w-[50%] md:text-center">
 							<h2 className="text-3xl text-center font-bold mb-2">Social media isn't getting that much engagement</h2>
-							<p className="text-gray-600">Have you ever visited a popular brand social media profile just to find out they have 15 likes on their post? Social media is hard to grow and it usually requires investment in paid promotion</p>
+							<p className="text-gray-600">Have you ever visited a popular brand's social media profile just to find out they have 15 likes on their post? Social media is hard to grow and it usually requires investment in paid promotion</p>
 							<div className='flex flex-col items-start w-fit mt-5'>
-								<p>❌ Organic doesn't work that good for most platforms, Paid promotion being necessary</p>
+								<p>❌ Organic doesn't work that well for most platforms, Paid promotion being necessary</p>
 								<p>❌ Very low ROI(You have to post for months before getting a couple of clients)</p>
 								<p>❌ Low intent: People on social media don't want to buy your product, they just want to be entertained</p>
 							</div>
@@ -70,7 +70,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 					</div>
 				</div>
 			</section>
-			<WhatCost />
+			{/* <WhatCost /> */}
 
 			<FeaturesAndObjections />
 			{/* <CTA className='mb-16' /> */}
@@ -92,10 +92,14 @@ const Hero = () => {
 			<section className="flex items-center justify-center md:h-[60vh]">
 				<div className="text-center flex flex-col items-center md:items-start md:text-left z-40 mx-3 md:mx-10">
 					<h1 className="text-3xl md:text-5xl font-bold md:mb-6 mt-10 md:mt-0">
-						We Generate customers {size.gmd && <br />}
+						<strong>Effortlessly</strong> drive {size.gmd && <br />}
+						<strong>Consistent</strong> customer {size.gmd && <br />}
+						traffic to your furniture shop. {size.gmd && <br />}
+
+						{/* We Generate customers {size.gmd && <br />}
 						for Your Furniture Shop {size.gmd && <br />}
 						Without your effort. {size.gmd && <br />}
-						<strong>Consistently.</strong>
+						<strong>Consistently.</strong> */}
 						{/* We Generate {size.gmd && <br />}
 						High paying customers {size.gmd && <br />}
 						for Your Furniture Shop {size.gmd && <br />}
@@ -106,7 +110,7 @@ const Hero = () => {
 						{/* SEO finally exposed. Why it has become one of the highest ROI marketing channels, <span className='underline decoration-purple-600 decoration-2 underline-offset-2'>even</span> higher than ads. */}
 					</p>
 
-					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30 minute call (no risk/cost to you) and we'll show you our strategy.</strong></p>
+					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call (no risk/cost to you) and we'll show you our strategy.</strong></p>
 					<CTA />
 					<AlternativeCTA />
 				</div>
@@ -149,7 +153,7 @@ const SocialProof = () => {
 					<div className="px-4 py-5 sm:p-6">
 						<blockquote>
 							<div className="text-lg font-medium text-gray-900 mb-4">
-								“His expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest and most efficient way.„
+								“His expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest, and most efficient way.„
 							</div>
 							<div className="flex items-center">
 								<div className="">
@@ -177,7 +181,7 @@ const FeaturesAndObjections = () => {
 					className: 'pt-24', children: [
 						// <div className=" flex flex-row justify-end">
 						<div className="w-full h-[70vw] md:w-[50vw] md:h-screen relative">
-							<Image alt="Web Design and SEO Proceess" className="object-cover object-top md:rounded-tr-xl" src={'/web-design-and-seo-process.webp'} layout="fill" />
+							<Image alt="Web Design and SEO Process" className="object-cover object-top md:rounded-tr-xl" src={'/web-design-and-seo-process.webp'} layout="fill" />
 						</div>
 
 						// </div>
@@ -190,13 +194,13 @@ const FeaturesAndObjections = () => {
 
 					<h2 className="text-4xl font-bold mt-5">How do we solve this?</h2>
 
-					<p className='my-2 text-lg'>We take one of the most efficient marketing channel, SEO, and we put it on steroids. By applying a proven process and doing all the good practices in order to generate customers in a shorter time frame, we leave no room for errors. Then, those results only need to be maintained, starting each month on a good foot.</p>
+					<p className='my-2 text-lg'>We take one of the most efficient marketing channel, SEO, and we put it on steroids. By applying a proven process and doing all the good practices to generate customers in a shorter time frame, we leave no room for errors. Then, those results only need to be maintained, starting each month on a good foot.</p>
 
 					<hr className="mt-8" />
 
 					<h3 className="text-2xl font-medium mt-8 mb-4">1. Website Design</h3>
 
-					<p className='my-2 text-lg'>We create the visually stunning website if you don't have one, tailored to reflect your brand identity with intuitive navigation and user interfaces. We make it mobile friendly and fast, which is required for good SEO.</p>
+					<p className='my-2 text-lg'>We create a visually stunning website if you don't have one, tailored to reflect your brand identity with intuitive navigation and user interfaces. We make it mobile-friendly and fast, which is required for good SEO.</p>
 					<hr className="mt-8" />
 
 					<h3 className="text-2xl font-medium mt-8 mb-4">2. User Experience (UX) Enhancement</h3>
@@ -204,18 +208,18 @@ const FeaturesAndObjections = () => {
 					<p className='my-2 text-lg'>This involves meticulously crafting each webpage to not only captivate users but also to optimize visibility on search engines. <br /><br /> By strategically designing and refining the layout, content, and interactive elements of every page, we aim to create an immersive and user-friendly journey for visitors.</p>
 					<hr className="mt-8" />
 
-					<h3 className="text-2xl font-medium mt-8 mb-4">3. SEO Audit, Research and Monitoring</h3>
+					<h3 className="text-2xl font-medium mt-8 mb-4">3. SEO Audit, Research, and Monitoring</h3>
 
 					<p className='my-2 text-lg'>✅ We take care of conducting an SEO audit for your website.</p>
 					<p className='my-2 text-lg'>✅ Then we conduct thorough research on the market in which you operate. <br />This helps us understand your competitors and get a grasp of your buyers.</p>
 					<p className='my-2 text-lg'>✅ Also we closely monitor the correct implementation of delivered assets.</p>
-					<p className='my-2 text-lg'>✅ Finally we track results and provide regular reports, <br />staying updated with market changes and adapting swiftly through the reoptimization of the SEO strategy.</p>
+					<p className='my-2 text-lg'>✅ Finally we track results and provide regular reports, <br />staying updated with market changes and adapting swiftly through the optimization of the SEO strategy.</p>
 
 					<hr className="mt-8" />
 
 					<h3 className="text-2xl font-medium mt-8 mb-4">4. SEO Optimization - Staying on top of Google Updates</h3>
 
-					<p className='my-2 text-lg'>We stay updated with market changes and adapt swiftly through the reoptimization of the SEO strategy.</p>
+					<p className='my-2 text-lg'>We stay updated with market changes and adapt swiftly through the optimization of the SEO strategy.</p>
 
 					<div className='flex flex-col items-center mt-5'>
 						<CTA />
@@ -235,11 +239,11 @@ const FeaturesAndObjections = () => {
 
 function WhatCost() {
 	return <div className='flex flex-col md:flex-row md:space-x-16 items-center md:my-20 mx-2 alternateBg w-screen md:px-36'>
-		<Image alt='Gliesess inneficient marketing channels' src={'/gliesess-inneficient-marketing-channels.webp'} className='rounded-lg' width={450} height={450}></Image>
+		<Image alt='Gliesess inefficient marketing channels' src={'/gliesess-inefficient-marketing-channels.webp'} className='rounded-lg' width={450} height={450}></Image>
 		<section className="flex flex-row w-full items-center justify-center md:h-[60vh]">
 			<div className="text-center md:text-right z-40">
 				<h2 className="text-2xl font-semibold mb-6">
-					Most furniture stores lose 18k per month with inneficient marketing channels
+					Most furniture stores lose 18k per month with inefficient marketing channels
 				</h2>
 				<p className="text-lg text-gray-700 mb-8 max-w-5xl">
 					If your average customer buys furniture worth $2k, <br /> and it costs $2k to work with us and get 10 clients per month, <br /> you are leaving $18k/month on the table

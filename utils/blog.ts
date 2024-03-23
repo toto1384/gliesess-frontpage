@@ -83,7 +83,7 @@ export const blogs: BlogItemType[] = [
   //     image: 'store-conversion.png',
   //     seo: {
   //         title: "Maximize Store Conversions with Google Ads - Expert Strategies | Gliesess",
-  //         desc: "Join Gliesess in exploring expert strategies to boost store conversions through Google Ads. Our latest blog post dives deep into keyword research, compelling ad copy, and effective remarketing techniques to enhance your digital marketing ROI. Perfect for businesses of all sizes!"
+  //         desc: "Join Gliesess in exploring expert strategies to boost store conversions through Google Ads. Our latest blog post dives deep into keyword research, compelling ad copy, and effective re-marketing techniques to enhance your digital marketing ROI. Perfect for businesses of all sizes!"
   //     },
   //     slug: 'how-to-boost-store-conversions',
   //     tags: ["store conversions", 'google ads', "gliesess",],
@@ -111,7 +111,7 @@ export const blogs: BlogItemType[] = [
 
   //     Ad extensions are a powerful way to provide additional information and make your ad more prominent.
 
-  //     - **Sitelink Extensions:** Direct users to specific pages of your website.
+  //     - **Site link Extensions:** Direct users to specific pages of your website.
   //     - **Callout Extensions:** Highlight special offers or unique features of your products/services.
 
   //     ## 4. Optimizing Landing Pages
@@ -128,16 +128,16 @@ export const blogs: BlogItemType[] = [
   //     - **Track Conversion Rates:** Understand which ads are driving the most conversions.
   //     - **A/B Testing:** Experiment with different ad copies and landing pages to see what works best.
 
-  //     ## 6. Remarketing: Capturing Lost Opportunities
+  //     ## 6. Re-marketing: Capturing Lost Opportunities
 
-  //     Remarketing allows you to target users who have previously interacted with your site but didn’t convert.
+  //     Re-marketing allows you to target users who have previously interacted with your site but didn’t convert.
 
   //     - **Tailored Ad Messages:** Customize your ads based on the user’s previous behavior on your site.
   //     - **Frequency Caps:** Avoid ad fatigue by controlling how often users see your ads.
 
   //     ## Conclusion
 
-  //     Achieving high store conversions through Google Ads is a blend of art and science. By focusing on detailed keyword research, compelling ad copy, effective use of ad extensions, optimized landing pages, diligent data analysis, and strategic remarketing, you can significantly enhance your campaign’s performance. Remember, the digital marketing landscape is ever-evolving, and staying adaptable and informed is key to ongoing success.
+  //     Achieving high store conversions through Google Ads is a blend of art and science. By focusing on detailed keyword research, compelling ad copy, effective use of ad extensions, optimized landing pages, diligent data analysis, and strategic re-marketing, you can significantly enhance your campaign’s performance. Remember, the digital marketing landscape is ever-evolving, and staying adaptable and informed is key to ongoing success.
 
   //     Stay tuned for more insights and tips in future posts. Happy advertising, and here's to boosting your store conversions!`
   // },
@@ -149,18 +149,18 @@ export const blogs: BlogItemType[] = [
     image: 'store-conversion.webp',
     seo: {
       title: "How we 10x the number of Google organic pages in 2 months for one of our clients | Gliesess",
-      desc: "In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end you are going to see the strategies we used to do it!"
+      desc: "In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end, you are going to see the strategies we used to do it!"
     },
-    description: 'In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end you are going to see the strategies we used to do it!',
+    description: 'In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end, you are going to see the strategies we used to do it!',
     slug: 'seo-agency-10x-google',
     breadcrumbName: '10x SEO Case Study',
     tags: ["seo-agency", '10x-growth', "best-practices",],
     mdText: `
-In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end you are going to see the strategies we used to do it.
+In this post, you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end, you are going to see the strategies we used to do it.
 
-PS: this was done without any shady tactics or ANY BACKINKS. Only applying best practices that best suit the type of site we were building.
+PS: this was done without any shady tactics or ANY BACKLINKS. Only applying best practices that best suit the type of site we were building.
 
-The website is still growing, but here is the results we’ve seen at the time of writing this (end of Feb 2024). Here are the results:
+The website is still growing, but here are the results we’ve seen at the time of writing this (end of Feb 2024). Here are the results:
 
 ![Organic Pages And Traffic Growth](${domain}/blog/organic-pages-and-traffic-growth.png)
 
@@ -176,17 +176,17 @@ But the deck was not stacked in our favor. The content posted was not great, and
 
 ![SEO Agency Results](${domain}/blog/seo-agency-results.png)
 
-## The painful 1 year road to nothing
+## The painful 1-year road to nothing
 
 He tried different contractors and different strategies. Nothing helped.
 
-He started with the seo basics. Ie: everything that everyone recommends: sitemaps, keywords, header and footer optimization, social media tags.
+He started with the SEO basics. Ie: everything that everyone recommends: sitemaps, keywords, header and footer optimization, social media tags.
 
 The results were nothing spectacular, but there was a little bit of growth. Brick by brick the organic pages were started to index.
 
 ### Then the unexpected hit.
 
-After consistently growing for 1.5 months, he stopped growing. Our speculation is that changing the keywords made Google stopped liking the site. And then fell harder than ever.
+After consistently growing for 1.5 months, he stopped growing. We speculate is that changing the keywords made Google stop liking the site. And then fell harder than ever.
 
 ![SEO Growth then fall](${domain}/blog/seo-growth-then-fall.png)
 
@@ -202,9 +202,9 @@ New keywords, titles, links, url structures. We even implemented Artificial inte
 
 And those things helped. He started growing, but very slowly. It was dreading, because he knew he was doing well, but he didn’t know how to do even better
 
-After continuing with the work, creating blog posts, revamping old pages, focusing on more internal linking, he only saw incremental improvements.
+After continuing with the work, creating blog posts, revamping old pages, and focusing on more internal linking, he only saw incremental improvements.
 
-The contractor “finished” the work, and he were yet again on his own.
+The contractor “finished” the work, and he wes yet again on his own.
 
 ## We stepped in.
 
@@ -224,7 +224,7 @@ We asked: Are those tactics suiting this type of site? What are our competitors 
 
 After:
 
-1. In-depth analysis of our competitors, searching through sitemaps, analyzing their code with developer tools, seeing how headers, breadcrumbs, links, and images are merged together on their website
+1. In-depth analysis of our competitors, searching through sitemaps, analyzing their code with developer tools, seeing how headers, breadcrumbs, links, and images are merged on their website
 2. Looking at our website audits and making a list of the most prominent issues
 3. Combining our past knowledge of SEO and learning whatever was needed to form a conclusion
 
@@ -243,11 +243,11 @@ After implementing most of the things that we found, the website started growing
 
 It took a couple of weeks for Google to pick up the changes and then the charts started being vertical instead of horizontal. 
 
-In the future, we want to combine the short-term with the long-term. Make all the initial changes so that are easy, to see the growth skyrocket, while simultaneously focusing on more long-term strategies like backlinks and brand building.
+In the future, we want to combine the short-term with the long-term. Make all the initial changes that are easy, to see the growth skyrocket, while simultaneously focusing on more long-term strategies like backlinks and brand building.
 
 ## We can do the same for you
 
-If this story inspires you, keep in mind that it can be easily replicated. By reducing SEO down to a science, we can do it again and again.
+If this story inspires you, keep in mind that it can be easily replicated. By reducing SEO to a science, we can do it again and again.
 
  
 

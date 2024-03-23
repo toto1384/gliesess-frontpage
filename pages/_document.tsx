@@ -1,24 +1,27 @@
 import { Partytown } from '@builder.io/partytown/react';
 import { Head, Html, Main, NextScript } from 'next/document'
+import { createContext } from 'react';
 import { v4 } from 'uuid';
 
+
+export const NonceContext = createContext<string>('')
 
 const Document = () => {
     const nonce = `${v4()}${v4()}`
     const csp = `
     base-uri 'none';
     child-src 'none';
-		connect-src 'self' *.gliesess.com *.google.com https://*.googleapis.com *.google-analytics.com *.googletagmanager.com *.posthog.com *.convertkit.com *.emailjs.com;
+		connect-src 'self' *.gliesess.com *.google.com https://*.googleapis.com *.google-analytics.com *.googletagmanager.com *.posthog.com *.convertkit.com *.emailjs.com *.tawk.to wss://*.tawk.to;
 		default-src 'self';
-		font-src 'self' *.sendinblue.com;
-		form-action 'self' *.convertkit.com;
-		frame-src 'self' *.google.com *.google-analytics.com *.meetfox.com meetfox.com 'nonce-${nonce}';
-		img-src 'self' data:;
+		font-src 'self' *.sendinblue.com *.tawk.to fonts.gstatic.com;
+		form-action 'self' *.convertkit.com *.tawk.to;
+		frame-src 'self' *.google.com *.google-analytics.com *.meetfox.com meetfox.com 'nonce-${nonce}' *.tawk.to;
+		img-src 'self' data: *.tawk.to cdn.jsdelivr.net tawk.link s3.amazonaws.com;
 		manifest-src 'self';
 		media-src 'self';
 		object-src 'none';
-		script-src ${process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''} 'self' unpkg.com *.gliesess.com *.googletagmanager.com *.google-analytics.com *.google.com *.gstatic.com cdn.jsdelivr.net 'nonce-${nonce}' *.vercel-scripts.com *.convertkit.com;
-		style-src 'self' *.google.com *.meetfox.com 'unsafe-inline';
+		script-src ${process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''} 'self' unpkg.com *.gliesess.com *.googletagmanager.com *.google-analytics.com *.google.com *.gstatic.com cdn.jsdelivr.net 'nonce-${nonce}' *.vercel-scripts.com *.convertkit.com *.tawk.to 'sha256-xMNk+iEs3UvYrk5oHnOqjx93iwXmn3fD+VhqxqoTocE=';
+		style-src 'self' *.google.com *.meetfox.com *.tawk.to 'unsafe-inline';
 		worker-src 'self' blob:;
   `
 
@@ -54,8 +57,10 @@ const Document = () => {
             </Head>
 
             <body>
-                <Main />
-                <NextScript nonce={nonce} />
+                <NonceContext.Provider value={nonce}>
+                    <Main />
+                    <NextScript nonce={nonce} />
+                </NonceContext.Provider>
             </body>
         </Html>
     )
