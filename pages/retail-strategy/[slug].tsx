@@ -1,5 +1,4 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
-import { dbConnect, getCompanyModel } from "../api/companies"
 import { Navbar } from "../../components/navbar"
 import Image from "next/image"
 import { MdBusiness, MdChevronRight, MdOpenInNew } from "react-icons/md"
@@ -19,6 +18,7 @@ import React from "react"
 import Head from "next/head"
 import { authors, blogs, } from '../../utils/blog'
 import { AuthorBox } from "../../components/blogItem"
+import { dbConnect, getCompanyModel } from "../../utils/db"
 
 
 export default function Applied({ company, similarCompanies }: InferGetServerSidePropsType<typeof getServerSideProps>) {

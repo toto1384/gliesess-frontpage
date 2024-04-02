@@ -1,5 +1,4 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
-import { CompanyObject, dbConnect, getCompanyModel } from "../api/companies"
 import { BasicNextSeo, Navbar } from "../../components/navbar"
 import { CenteredCardPage } from "../../components/centeredCardPage"
 import 'react-json-view-lite/dist/index.css';
@@ -9,6 +8,7 @@ import { domain, innerLeave } from "../../utils/mainUtils"
 import { RetailStrategyComponent, retailStrategyPageName } from "../../components/retailStrategyComponent"
 import { BreadcrumbJsonLd } from "next-seo"
 import { useRouter } from "next/router";
+import { getCompanyModel, dbConnect, CompanyObject } from "../../utils/db";
 
 
 export default function LoginPage({ companies, years, year, type, state, states, types, count: [{ companies: countC }] }: InferGetServerSidePropsType<typeof getServerSideProps>) {
