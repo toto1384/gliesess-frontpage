@@ -12,6 +12,19 @@ async function createMap() {
             <sitemap>
                 <loc>${domain}/api/sitemap/blog/posts</loc>
             </sitemap>
+
+            <sitemap>
+                <loc>${domain}/api/sitemap/retail-strategies/by-category</loc>
+            </sitemap>
+            <sitemap>
+                <loc>${domain}/api/sitemap/retail-strategies/by-state</loc>
+            </sitemap>
+            <sitemap>
+                <loc>${domain}/api/sitemap/retail-strategies/by-years</loc>
+            </sitemap>
+            <sitemap>
+                <loc>${domain}/api/sitemap/retail-strategies/strategies</loc>
+            </sitemap>
             
             
         </sitemapindex>`

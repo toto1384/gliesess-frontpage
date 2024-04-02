@@ -22,7 +22,7 @@ const nextSafeHeaders = nextSafe({
 		"form-action": ["*", "'unsafe-inline'", "'unsafe-eval'"],
 		"frame-ancestors": "self",
 		"frame-src": ["*", "'unsafe-inline'", "'unsafe-eval'"],
-		"img-src": ["'self'", "data:", "*.tawk.to", "cdn.jsdelivr.net", "tawk.link", "s3.amazonaws.com"],
+		"img-src": ["'self'", "data:", "*.tawk.to", "cdn.jsdelivr.net", "tawk.link", "s3.amazonaws.com","*.clearbit.com"],
 		"manifest-src": "'self'",
 		"media-src": "'self'",
 		"object-src": "'none'",
@@ -80,7 +80,11 @@ async rewrites() {
       {
         protocol:'https',
         hostname:'netlify.app'
-      }
+      },
+	  {
+		protocol:'https',
+		hostname:'logo.clearbit.com'
+	  }
 		]
 	},
   reactStrictMode: true,
@@ -90,3 +94,4 @@ async rewrites() {
   //   path: 'https://images.unsplash.com/',
   // },
 };
+

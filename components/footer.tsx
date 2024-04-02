@@ -26,6 +26,7 @@ export function Footer() {
                     <Link className="a" href={'/contact'}>Contact</Link>
                     <Link className="a" href={'/about-us'}>About Us</Link>
                     <Link className="a" href={'/services'}>Services</Link>
+                    <Link className="a" href={'/retail-strategies'}>Marketing strategy breakdowns</Link>
                 </div>
                 <div className="w-full md:w-1/3 text-center items-center flex flex-col md:items-end md:text-right">
                     <h3 className="font-bold text-xl mb-4">Connect</h3>

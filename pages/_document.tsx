@@ -15,7 +15,7 @@ const Document = () => {
 		default-src 'self';
 		font-src 'self' *.sendinblue.com *.tawk.to fonts.gstatic.com;
 		form-action 'self' *.convertkit.com *.tawk.to;
-		frame-src 'self' *.google.com *.google-analytics.com *.meetfox.com meetfox.com 'nonce-${nonce}' *.tawk.to;
+		frame-src 'self' *.google.com *.google-analytics.com *.meetfox.com meetfox.com 'nonce-${nonce}' *.tawk.to *.youtube.com;
 		img-src 'self' data: *.tawk.to cdn.jsdelivr.net tawk.link s3.amazonaws.com;
 		manifest-src 'self';
 		media-src 'self';

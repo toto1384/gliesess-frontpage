@@ -4,7 +4,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from 'next'
 import Head from 'next/head'
 import { format } from 'date-fns'
 import Link from 'next/link'
-import { BlogItem } from '../../components/blogItem'
+import { AuthorBox, BlogItem } from '../../components/blogItem'
 import { authors, blogs, } from '../../utils/blog'
 import { BasicNextSeo, CTA, Navbar } from '../../components/navbar'
 import Image from 'next/image'
@@ -15,101 +15,22 @@ import { NewsletterForm } from '../../components/footer'
 import { ShareButton } from '../../components/shareButton'
 import { categoriesTitle, categoryTitle, categoryUrl, domain, homePageTitle, innerLeave, slogan } from '../../utils/mainUtils'
 import { MdChevronRight } from 'react-icons/md'
+import { ProgressBar } from '../../components/progressBar'
+import { RightPanel, TableOfContent, publishedById, similarArticlesId, widthClassName } from '../../components/blogSidePanel'
 
 
-
-const similarArticlesId = 'similarArticles'
-const publishedById = 'publishedBy'
-const contentsId = 'contents'
-
-function useHeadings() {
-    const [headings, setHeadings] = React.useState<Element[]>([]);
-    React.useEffect(() => {
-        const elements = Array.from(document.querySelectorAll("h2, h3, h4"));
-        setHeadings(elements);
-    }, []);
-    return headings.slice(0, headings.findIndex(el => similarArticlesId === el.id)).filter(i => ![publishedById, contentsId].includes(i.id));
-}
-
-// Now, the function that renders it all
-function TableOfContent() {
-    const headings = useHeadings();
-
-    const { activeId } = useHeadsObserver(headings)
-
-    return <div className='border rounded'>
-        <h2 className='text-xl font-semibold ml-5 mb-2 mt-10' id={contentsId}>Contents</h2>
-        {/* {activeId} */}
-        <ul className='mb-10'>
-            {headings.map(heading => (
-                <li
-                    className={`w-fit cursor-pointer border-l-2 ${activeId === heading.id && 'border-l-blue-800'} hover:border-l-blue-500`}
-                    // onClick={() => heading.scrollIntoView()}
-                    style={{
-                        marginLeft: Number(heading.tagName[1]) * 10
-                    }}
-                    key={heading.textContent}
-                >
-                    <a href={`#${heading.id}`} className='p-2'>
-                        {heading.textContent}
-                    </a>
-                </li>
-            ))}
-        </ul>
-    </div>
-}
-
-export function useHeadsObserver(toObserveElements: Element[]) {
-    const observer = useRef<any>()
-    const [activeId, setActiveId] = useState('')
-
-    useEffect(() => {
-        const handleObsever = (entries: any[]) => {
-            entries.forEach((entry) => {
-                if (entry?.isIntersecting) {
-                    setActiveId(entry.target.id)
-                }
-            })
-        }
-
-        observer.current = new IntersectionObserver(handleObsever, {
-            rootMargin: "-20% 0% -35% 0px"
-        }
-        )
-
-        toObserveElements.map((elem) => observer.current.observe(elem))
-
-        return () => observer.current?.disconnect()
-    }, [toObserveElements])
-
-    return { activeId }
-}
 
 
 
 export default function BlogPost({ blog, source, similarArticles }: InferGetServerSidePropsType<typeof getServerSideProps>) {
-    const widthClassName: string = `md:min-h-fit md:min-w-[30rem] md:w-fit md:mb-10 max-w-4xl transition mx-auto`
+
 
     const size = useSize(true)
 
     const url = `${domain}/blog/${blog.slug}`
 
-    function RightPanel() {
-        return <>
-            <div className='border rounded mt-10 pt-10 px-2'>
-                <div className='mx-2'>
-                    <h2 id={contentsId} className='text-xl font-semibold mb-1.5'>Improve your customer acquisition systems</h2>
-                    <p>One email at a time</p>
-                    <p>(no spam, we promise)</p>
-                </div>
-                <NewsletterForm />
-            </div>
-            <div className='px-4 border rounded mt-6 py-7'>
-                <h2 id={contentsId} className='text-xl font-semibold mb-1.5'>Share this post on the internet!</h2>
-                <ShareButton link={`${domain}/blog/${blog.slug}`} />
-            </div>
-        </>
-    }
+    const author = authors.find(i => i.name === blog.author)!
+
 
     return <div className='flex flex-col items-center'>
         <BasicNextSeo title={blog.seo.title} description={blog.seo.desc} url={url} />
@@ -249,7 +170,7 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
                               }
                             ]
                           },
-                          ${authors.find(i => i.name === blog.author)!.jsonSchema(`https://www.gliesess.com/blog/${blog.slug}/#/schema/person/4494fa0000534e80a656782c5f9bff73`)}
+                          ${author.jsonSchema(`https://www.gliesess.com/blog/${blog.slug}/#/schema/person/4494fa0000534e80a656782c5f9bff73`)}
                         ]
                       }`
                 }}
@@ -284,9 +205,7 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
                             ], (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
                         </nav>
                         <h1 className='text-3xl mb-2'>{blog.h1}</h1>
-                        <p className='text-lg mb-5' id={publishedById}>Published by <Link className='a' href={`/blog/authors/${blog.author.toLowerCase().replaceAll(' ', '-')}`}>
-                            {blog.author}
-                        </Link> on {format(new Date(blog.date), 'dd-MM-yyyy')}</p>
+                        <p className='text-lg mb-5' id={publishedById}>Published on {format(new Date(blog.date), 'dd-MM-yyyy')}</p>
 
                         {size.llg && <TableOfContent />}
                         <Markdown components={{
@@ -296,7 +215,7 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
                             h4: (props) => <h4 {...props} id={props.children?.toString().trim().replace(' ', '-').toLowerCase()} className='text-lg mt-3'></h4>,
                             h5: (props) => <h5 {...props} id={props.children?.toString().trim().replace(' ', '-').toLowerCase()} className='text-lg mt-3'></h5>,
                             h6: (props) => props.children == 'CTA' ? <CTA /> : <h6 {...props} id={props.children?.toString().trim().replace(' ', '-').toLowerCase()} className='text-lg mt-3'></h6>,
-                            p: (props) => <>
+                            p: (props) => props.children?.toString().includes('www.youtube.com/watch') ? <iframe className='w-full aspect-video rounded-lg' src={props.children.toString().replace('/watch?v=', '/embed/')} /> : <>
                                 <p {...props} className='my-1 whitespace-pre-wrap'></p>
                                 <br />
                             </>,
@@ -311,10 +230,13 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
                                 width={0}
                                 height={0}
                                 sizes="100%"
+                                className='rounded-lg'
                                 style={{ width: '100%', height: 'auto' }}
                             />
                             </div>
                         }}>{source}</Markdown>
+
+                        <AuthorBox author={author} />
 
                         <hr className='my-5' />
                         <p>Categories {blog.category.map((i: any) => <Link href={`/blog/categories/${i.toLowerCase().replaceAll(' ', '-')}`}>
@@ -325,11 +247,11 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
                         >
                             <span className='hoverableChip'>{i}</span>
                         </Link>)}</p>
-                        {size.llg && <RightPanel />}
+                        {size.llg && <RightPanel articleLink={`${domain}/blog/${blog.slug}`} />}
                         <div className="flex md:hidden my-5 items-center justify-center">
                             <div className='flex flex-col'>
                                 <h2 className="text-2xl text-center" id={similarArticlesId}>Similar articles</h2>
-                                {similarArticles.map((j: any) => <BlogItem i={j} />)}
+                                {similarArticles.filter(i => i.slug != blog.slug).map((j: any) => <BlogItem i={j} />)}
                             </div>
                         </div>
                     </div>
@@ -337,13 +259,13 @@ export default function BlogPost({ blog, source, similarArticles }: InferGetServ
                 <div className={`hidden self-center md:flex my-5 bottom-5 ${widthClassName}`}>
                     <div className='flex flex-col'>
                         <h2 className="text-2xl text-center" id={similarArticlesId}>Similar articles</h2>
-                        {similarArticles.map((j: any) => <BlogItem i={j} />)}
+                        {similarArticles.filter(i => i.slug != blog.slug).map((j: any) => <BlogItem i={j} />)}
                     </div>
                 </div>
 
             </div>
 
-            {size.gmd && <StickyBox className='w-[30%] mt-[50vh] h-fit mr-2'> <RightPanel /> </StickyBox>}
+            {size.gmd && <StickyBox className='w-[30%] mt-[50vh] h-fit mr-2'> <RightPanel articleLink={`${domain}/blog/${blog.slug}`} /> </StickyBox>}
         </div>
 
     </div>
@@ -367,23 +289,3 @@ export async function getServerSideProps({ req, res, query, params }: GetServerS
 }
 
 
-const ProgressBar = () => {
-    //Width State
-    const [width, setWidth] = useState(0);
-    // scroll function
-    const scrollHeight = () => {
-        var el = document.documentElement,
-            ScrollTop = el.scrollTop || document.body.scrollTop,
-            ScrollHeight = el.scrollHeight || document.body.scrollHeight;
-        var percent = (ScrollTop / (ScrollHeight - el.clientHeight)) * 100;
-        // store percentage in state
-        setWidth(percent);
-    };
-
-    useEffect(() => {
-        window.addEventListener("scroll", scrollHeight);
-        return () => window.removeEventListener("scroll", scrollHeight);
-    });
-
-    return <div className={"bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 h-2"} style={{ width: `${width}%` }}></div>
-}

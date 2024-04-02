@@ -10,8 +10,7 @@ import { CenteredCardPage } from "../components/centeredCardPage";
 import Head from "next/head";
 
 
-const emiSchema = `
-{
+const emiSchema = `{
 "@context": "https://schema.org",
 "@type": "Person",
 "name": "Emil Sandu",
@@ -39,7 +38,7 @@ const emiSchema = `
     "postalCode": "900272",
     "streetAddress": "Str Baragan nr 21"
 },
-"email": "mailto:emil@gliesess.com",
+"email": "mailto:emil@gliesess.com"
 }`
 
 export default function AboutUs({ }: {}) {

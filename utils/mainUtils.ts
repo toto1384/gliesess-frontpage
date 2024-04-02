@@ -30,3 +30,10 @@ export const categoriesTitle = `Categories - Blog Gliesess`
 export const categoryTitle = (category: string) => `${category} - Blog Gliesess`
 
 export const categoryUrl = (category: string) => `${domain}/blog/categories/${category.toLowerCase().replaceAll(' ', '-')}`
+
+
+export function kFormatter(num: number) {
+    return Math.abs(num) > 999_999 ? Math.sign(num) * ((Math.abs(num) / 1000000).toFixed(1) as any) + 'm' :
+        Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1) as any) + 'k' :
+            (Math.sign(num) * Math.abs(num)).toFixed(1)
+}

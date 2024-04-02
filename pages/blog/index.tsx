@@ -40,11 +40,15 @@ export default function Applied() {
 
             <hr className="my-10" />
             <Link href={`/blog/categories`}><h2 className="text-2xl font-medium decoration-purple-500 cursor-pointer hover:text-purple-500 underline transition-all mb-3">Categories</h2></Link>
-            {categories.map(i => <CategoryItem i={i} />)}
+            <div className="flex flex-wrap items-center space-x-2">
+                {categories.map(i => <CategoryItem i={i} />)}
+            </div>
 
             <hr className="my-10" />
             <Link href={`/blog/authors`}><h2 className="text-2xl font-medium decoration-purple-500 cursor-pointer hover:text-purple-500 underline transition-all mb-3">Authors</h2></Link>
-            {authors.map(i => <AuthorItem i={i} />)}
+            <div className="flex flex-wrap items-center space-x-2">
+                {authors.map(i => <AuthorItem i={i} />)}
+            </div>
 
         </CenteredCardPage>
     </>

@@ -28,7 +28,9 @@ export default function Authors() {
                 ], (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
             </nav>
             <h1 className="text-3xl">Authors • Gliesess Blog</h1>
-            {authors.map(i => <AuthorItem i={i} />)}
+            <div className="flex flex-wrap items-center space-x-2 mt-5 w-full">
+                {authors.map(i => <AuthorItem i={i} />)}
+            </div>
         </CenteredCardPage>
     </>
 }
