@@ -2,7 +2,7 @@ const withBundleAnalyzer = require('@next/bundle-analyzer')({
 	enabled: process.env.ANALYZE === 'true'
 })
 
-const nextSafe = require('next-safe')
+const nextSafe = require('next-safe');
 
 const nextSafeHeaders = nextSafe({ 
 	isDev:process.env.NODE_ENV !== 'production',
@@ -22,7 +22,7 @@ const nextSafeHeaders = nextSafe({
 		"form-action": ["*", "'unsafe-inline'", "'unsafe-eval'"],
 		"frame-ancestors": "self",
 		"frame-src": ["*", "'unsafe-inline'", "'unsafe-eval'"],
-		"img-src": ["'self'", "data:", "*.tawk.to", "cdn.jsdelivr.net", "tawk.link", "s3.amazonaws.com","*.clearbit.com"],
+		"img-src": ["'self'", "data:", "*.tawk.to", "cdn.jsdelivr.net", "tawk.link", "s3.amazonaws.com","*.clearbit.com", '*.2findlocal.com'],
 		"manifest-src": "'self'",
 		"media-src": "'self'",
 		"object-src": "'none'",
@@ -88,6 +88,14 @@ async rewrites() {
 	  {
 		protocol:'https',
 		hostname:'logo.clearbit.com'
+	  },
+	  {
+		protocol:'http',
+		hostname:'www.2findlocal.com'
+	  },
+	  {
+		protocol:'https',
+		hostname:'www.2findlocal.com'
 	  }
 		]
 	},

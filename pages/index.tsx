@@ -74,6 +74,11 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 			<FeaturesAndObjections />
 			{/* <CTA className='mb-16' /> */}
+			<div className='flex flex-row'>
+				<a id="href2" target="_blank" href="http://www.2findlocal.com/b/15159573"><img className="anchorImage" alt="gliesess" src="http://www.2findlocal.com/Set/Icons/2.png" /></a>
+				<a target="_blank" href="http://taxihowmuch.com"><img alt="taxi fare calculator" src="http://www.2findlocal.com/Set/Icons/u.png" /></a>
+				<a id="href3" target="_blank" href="https://updownradar.com"><img alt="downdetector" src="http://www.2findlocal.com/Set/Icons/f.png" /></a>
+			</div>
 
 		</div>
 	)
