@@ -197,7 +197,7 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                                 <Link key={1} className='breadcrumb' href={'/retail-strategies'}>Retail Strategies</Link>,
                                 (year != -1 ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}`}>{year}s</Link> : undefined),
                                 (company.category ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category}</Link> : undefined),
-                                ((year && company.category) ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category} - {year}s</Link> : undefined),
+                                (((year != -1) && company.category) ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category} - {year}s</Link> : undefined),
                                 <Link key={1} className='breadcrumb' href={`/retail-strategy/${company.slug}`}>{company.name}</Link>,
                             ].filter(i => i), (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
                         </nav>

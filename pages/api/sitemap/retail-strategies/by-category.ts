@@ -18,6 +18,7 @@ export default async function handler(req: any, res: any) {
 
 
     const categories: { _id: string, count: number }[] = await CompanyModel.aggregate([
+        { $match: { "serpProps.type": { $ne: null } } },
         { $group: { _id: "$category", count: { $count: {} } } },
     ])
 

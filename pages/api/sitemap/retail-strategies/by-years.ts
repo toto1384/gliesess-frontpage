@@ -24,6 +24,7 @@ export default async function handler(req: any, res: any) {
     }
 
     const categories: { _id: string, count: number }[] = await CompanyModel.aggregate([
+        { $match: { "serpProps.type": { $ne: null } } },
         { $addFields: { resultObject: { $regexFind: { input: "$serpProps.founded", regex: /\b\d{4}\b/ } } } },
         {
             $addFields: {

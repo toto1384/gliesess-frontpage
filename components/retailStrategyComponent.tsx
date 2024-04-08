@@ -20,7 +20,7 @@ export function RetailStrategyComponent({ company }: { company: CompanyObject })
             <Link href={`/retail-strategy/${company.slug}`} className="a"><h3 className="text-xl font-semibold">{company.name}</h3></Link>
 
             <div className="flex flex-row items-center space-x-2 mt-2">
-                <Link href={`/retail-strategy/${company.category}`} className="a"><p className="">{company.category}</p></Link>
+                <Link href={`/retail-strategies/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`} className="a"><p className="">{company.category}</p></Link>
                 {company.serpProps?.headquarters && <>
                     <span>•</span>
                     {state ? <Link href={`/retail-strategies/${state}`} className="a">{company.serpProps?.headquarters}</Link> : <p>{company.serpProps.headquarters}</p>}

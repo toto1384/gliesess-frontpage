@@ -33,6 +33,7 @@
     "next-compose-plugins": "^2.2.1",
     "next-safe": "^3.5.0",
     "next-seo": "^6.4.0",
+    "nprogress": "^0.2.0",
     "openai": "^4.29.2",
     "patch-package": "^8.0.0",
     "posthog-js": "^1.110.0",

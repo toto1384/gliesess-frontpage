@@ -11,13 +11,18 @@ import { useRouter } from "next/router";
 import { getCompanyModel, dbConnect, CompanyObject } from "../../utils/db";
 
 
-export default function LoginPage({ companies, years, year, type, state, states, types, count: [{ companies: countC }] }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function LoginPage({ companies, years, year, type, state, states, types, count }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
     const router = useRouter()
+
+    const countC = count?.[0]?.companies ?? 0
     return <>
         <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
 
         <BasicNextSeo
+            additionalProps={{
+                noindex: countC === 0
+            }}
             title={`${retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined })} • Gliesess`}
             description={`Browse the ${retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined, disableCount: true })} on Gliesess.`}
             url={`${domain}/${((router.query.slug ?? []) as string[]).join('/')}`}
@@ -192,7 +197,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     const year = (context.params?.slug as string[] ?? []).find((i: string) => /\b\d{4}\b/.test(i)) ?? null
 
-    const [{ companies, count }]: { companies: CompanyObject, count: [{ companies: number }] }[] = await CompanyModel.aggregate([
+
+    const aggregation = [
         { $match: { "serpProps.type": { $ne: null } } },
         ...(year ? [
             { $addFields: { resultObject: { $regexFind: { input: "$serpProps.founded", regex: new RegExp(year.replace(/\d$/, '\\d')) } } } },
@@ -204,7 +210,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         ] : []),
         ...(type ? [{ $match: { "category": type._id } }] : []),
         ...(state ? [
-            { $addFields: { resultObject: { $regexFind: { input: "$serpProps.founded", regex: new RegExp(state._id.toUpperCase()) } } } },
+            { $addFields: { resultObject: { $regexFind: { input: "$serpProps.headquarters", regex: new RegExp(state._id.toUpperCase()) } } } },
             {
                 $match: {
                     resultObject: { $ne: null }
@@ -224,7 +230,10 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
                 ],
             }
         }
-    ])
+    ]
+    console.dir(aggregation, { depth: 100 })
+
+    const [{ companies, count }]: { companies: CompanyObject, count?: [{ companies: number }] }[] = await CompanyModel.aggregate(aggregation)
 
 
 
