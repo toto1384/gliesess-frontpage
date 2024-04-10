@@ -23,6 +23,14 @@ html {
   background-color: #495AC9;
 }
 
+.bg-cta {
+  background-color: #a10202;
+}
+
+.btn-cta {
+  @apply bg-cta rounded-full line-clamp-1 text-white px-6 py-3 hover:bg-[color:#99c433] transition-all;
+}
+
 .btn-primary {
   @apply bg-primary rounded-full line-clamp-1 text-white px-6 py-3 hover:bg-[color:#212B97] transition-all;
 }

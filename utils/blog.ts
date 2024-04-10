@@ -1,10 +1,19 @@
 import { domain } from "./mainUtils";
 
 
+type d = 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9
+type YYYY = `19${d}${d}` | `20${d}${d}`;
+type oneToNine = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9;
+type MM = `0${oneToNine}` | `1${0 | 1 | 2}`;
+
+type DD = `${0}${oneToNine}` | `${1 | 2}${d}` | `3${0 | 1}`;
+
+export type DateYMString = `${YYYY}-${MM}`;
+export type DateYMDString = `${DateYMString}-${DD}`;
 
 export type BlogItemType = {
   slug: string;
-  date: string;
+  date: DateYMDString;
   h1: string;
   description?: string;
   image: string;
@@ -199,7 +208,7 @@ If this story inspires you, keep in mind that it can be easily replicated. By re
     author: 'Alexandru Totolici',
     category: ['Small Business'],
     subCategory: ['Marketing Strategy'],
-    date: '2024-3-25',
+    date: '2024-03-25',
     h1: 'Effective Small Company Marketing Strategies For Success In 2024',
     breadcrumbName: 'Small Business Marketing Strategy',
     image: 'small-company-marketing-strategies.webp',

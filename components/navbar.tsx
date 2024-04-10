@@ -113,12 +113,12 @@ export const Navbar = ({ alwaysWhite, }: { alwaysWhite?: boolean, }) => {
     );
 };
 
-export const CTA = ({ className }: { className?: string }) => {
+export const CTA = ({ className, red }: { className?: string, red?: boolean }) => {
     return (
         <button onClick={() => {
             // @ts-ignore: Unreachable code error
             MeetFox.initStaticButton({ url: 'https://meetfox.com/en/e/gliesess/borderless' }); return false;
-        }} className={`btn-primary ${className}`}>Book a call</button>
+        }} className={`${red ? 'btn-cta' : 'btn-primary'} ${className}`}>Book a call</button>
     );
 };
 
