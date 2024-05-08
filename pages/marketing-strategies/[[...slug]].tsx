@@ -9,49 +9,57 @@ import { RetailStrategyComponent, retailStrategyPageName } from "../../component
 import { BreadcrumbJsonLd } from "next-seo"
 import { useRouter } from "next/router";
 import { getCompanyModel, dbConnect, CompanyObject } from "../../utils/db";
+import { useState } from "react";
 
 
-export default function LoginPage({ companies, years, year, type, state, states, types, count }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function LoginPage({ companies, years, year, type, state, states, types, count: givenCount }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
     const router = useRouter()
 
-    const countC = count?.[0]?.companies ?? 0
+    // const [page, setPage] = useState(1)
+
+    const page = Number((router.query.slug as string[])?.find(i => i.match(/page-\d$/))?.split('-')[1] ?? "1")
+
+
+    const count = givenCount?.[0]?.companies ?? 0
+
+
     return <>
         <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
 
         <BasicNextSeo
             additionalProps={{
-                noindex: countC === 0
+                noindex: count === 0
             }}
-            title={`${retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined })} • Gliesess`}
-            description={`Browse the ${retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined, disableCount: true })} on Gliesess.`}
-            url={`${domain}/marketing-strategies/${((router.query.slug ?? []) as string[]).join('/')}`}
+            title={`${retailStrategyPageName({ category: type?._id, countC: count, state: state?._id, year: year ?? undefined })}`}
+            description={`Browse the ${retailStrategyPageName({ category: type?._id, countC: count, state: state?._id, year: year ?? undefined, disableCount: true })} on Gliesess.`}
+            url={`${domain}/marketing-strategies/${((router.query.slug ?? []) as string[]).join('/')}`.replace(/\/$/g, "")}
         />
         <BreadcrumbJsonLd
             itemListElements={[
                 {
                     position: 1,
-                    name: retailStrategyPageName({ countC, disableCount: true }),
+                    name: retailStrategyPageName({ countC: count, disableCount: true }),
                     item: `${domain}/marketing-strategies`,
                 },
                 year ? {
                     position: 2,
-                    name: retailStrategyPageName({ countC, year: year ?? undefined, disableCount: true }),
+                    name: retailStrategyPageName({ countC: count, year: year ?? undefined, disableCount: true }),
                     item: `${domain}/marketing-strategies/${year}`,
                 } : undefined,
                 type ? {
                     position: 3,
-                    name: retailStrategyPageName({ countC, category: type._id, disableCount: true }),
+                    name: retailStrategyPageName({ countC: count, category: type._id, disableCount: true }),
                     item: `${domain}/marketing-strategies/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`,
                 } : undefined,
                 state ? {
                     position: 4,
-                    name: retailStrategyPageName({ countC, state: state._id, disableCount: true }),
+                    name: retailStrategyPageName({ countC: count, state: state._id, disableCount: true }),
                     item: `${domain}/marketing-strategies/${state._id.toLowerCase()}`,
                 } : undefined,
                 ((year && type) ? {
                     position: 5,
-                    name: retailStrategyPageName({ countC, year: year ?? undefined, category: type._id, disableCount: true }),
+                    name: retailStrategyPageName({ countC: count, year: year ?? undefined, category: type._id, disableCount: true }),
                     item: `${domain}/marketing-strategies/${year}/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`,
                 } : undefined),
             ].filter(i => i)}
@@ -59,7 +67,7 @@ export default function LoginPage({ companies, years, year, type, state, states,
 
         <CenteredCardPage className="mt-32 md:mt-0" appBar={<Navbar />}>
 
-            <h1 className="text-3xl font-semibold">{retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined })}</h1>
+            <h1 className="text-3xl font-semibold">{retailStrategyPageName({ category: type?._id, countC: count, state: state?._id, year: year ?? undefined })}</h1>
 
             <nav aria-label='breadcrumb' className='rounded mb-5 text-sm bg-gray-0 flex items-center flex-wrap'>
                 {innerLeave([
@@ -99,7 +107,7 @@ export default function LoginPage({ companies, years, year, type, state, states,
                 <h3 className="text-xl font-semibold mt-5">Filter by States</h3>
                 <div className="flex flex-row overflow-x-scroll no-scrollbar">
                     {states.map(i => <Link
-                        href={`/marketing-strategies/${i._id?.toLowerCase() ?? 'Other'}`}
+                        href={`/marketing-strategies/${i._id?.toLowerCase().replaceAll(' ', "-") ?? 'Other'}`}
                         className="text-sm px-2 mx-1 whitespace-nowrap bg-gradient-to-r from-blue-100/60 to-purple-100/60 py-1 rounded-xl"
                     >{`${i._id}`}</Link>)}
                 </div>
@@ -109,6 +117,27 @@ export default function LoginPage({ companies, years, year, type, state, states,
             <div className="mt-10">
                 {companies.map(company => <RetailStrategyComponent company={company} />)}
             </div>
+
+            {((page !== 1) || (count > (companies.length + (20 * (page - 1))))) && <div className="flex flex-row max-w-[100vw] overflow-x-scroll overflow-y-hidden items-center mt-5">
+                {Array.from(Array(page - 1)).map((i, index) => {
+                    return <Link key={index}
+                        href={`/marketing-strategies/${((router.query.slug ?? []) as string[]).filter(i => !i.includes('page')).join('/')}/page-${index + 1}`}
+                        className="rounded text-center px-2 py-1 mr-2 bg-gradient-to-r from-blue-100/60 to-purple-100/60"
+                    >
+                        {index + 1}
+                    </Link>
+                })}
+
+
+                {(count > (companies.length + (20 * (page - 1)))) && <Link
+                    href={`/marketing-strategies/${((router.query.slug ?? []) as string[]).filter(i => !i.includes('page')).join('/')}/page-${page + 1}`}
+                    className="rounded min-w-[150px] px-2 py-1 text-center bg-gradient-to-r from-blue-100/60 to-purple-100/60"
+                >
+                    <p className="line-clamp-1"> Next </p>
+                </Link>
+                }
+
+            </div>}
 
         </CenteredCardPage>
     </>
@@ -127,6 +156,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         yearsArray.push(year);
     }
 
+
+    // fetch the filters
     const [{ states, types, years }]: {
         types: { _id: string, count: number }[],
         states: { _id: string, count: number }[],
@@ -176,12 +207,15 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
     const type = types.find(i => context.params?.slug?.includes(i._id?.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-'))) ?? null
 
-    const state = states.find(i => context.params?.slug?.includes(i._id?.toLowerCase())) ?? null
+    const state = states.find(i => context.params?.slug?.includes(i._id?.toLowerCase().replaceAll(' ', '-'))) ?? null
     console.log("🚀 ~ getServerSideProps ~ state:", state)
 
     const year = (context.params?.slug as string[] ?? []).find((i: string) => /\b\d{4}\b/.test(i)) ?? null
 
 
+    const page = Number(((context.params?.slug as string[] ?? []).find(i => i.match(/page-\d$/))?.split('-')[1]) ?? "1")
+
+    // fetch the objects
     const aggregation = [
         { $match: { "serpProps.type": { $ne: null } } },
         ...(year ? [
@@ -201,6 +235,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             $facet: {
                 companies: [
                     // { $match: [] }
+                    { $skip: (page - 1) * 20 },
+                    { $limit: 20 }
                 ],
                 count: [
                     {

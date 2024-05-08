@@ -30,13 +30,6 @@ export default async function handler(req: any, res: any) {
     res.end(`<?xml version="1.0" encoding="UTF-8"?>
     <urlset xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
 
-    <url>
-        <loc>${domain}/blog</loc>
-        <priority>0.7</priority>
-        <lastmod>${format(startOfWeek(new Date()), 'yyyy-MM-dd')}</lastmod>
-        <changefreq>weekly</changefreq>
-    </url>
-
      ${categories.map(i => `
      <url>
          <loc>${domain}/marketing-strategies/${i._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}</loc>

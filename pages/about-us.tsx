@@ -28,7 +28,6 @@ const emiSchema = `{
     "name": "College of Telecommunication"
 },
 "birthDate": "2003-04-13",
-"nationality": "Romanian",
 "gender": "Male",
 "knowsAbout": ["SEO", "Marketing", "Web Development"],
 "address": {

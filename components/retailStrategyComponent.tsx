@@ -43,4 +43,4 @@ export function RetailStrategyComponent({ company }: { company: CompanyObject })
 
 
 
-export const retailStrategyPageName = ({ category, countC, state, year, disableCount }: { countC: number, category?: string, state?: string, year?: string | number, disableCount?: boolean }) => `${disableCount ? '' : `${countC} `}${category ? `${category.toLowerCase()} ` : ''}${`${(!disableCount && countC) || category ? 'm' : 'M'}arketing strategy breakdowns`} ${(year || state) ? `of ${year ? `${year}'s` : ''}${(year && state) ? ', ' : ''}${state ? state : ''} companies` : ''}`
+export const retailStrategyPageName = ({ category, countC, state, year, disableCount }: { countC: number, category?: string, state?: string, year?: string | number, disableCount?: boolean }) => `${disableCount ? '' : `${countC} `}${category ? `${category.toLowerCase()} ` : ''}${`${(!disableCount && countC) || category ? 'm' : 'M'}arketing ${countC == 1 ? "strategy" : "strategies"}`} ${(year || state) ? `of ${year ? `${year}'s` : ''}${(year && state) ? ', ' : ''}${state ? state : ''} companies` : ''}`

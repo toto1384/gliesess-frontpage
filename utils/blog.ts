@@ -61,7 +61,6 @@ export const authors = [
     "name": "College of the Navy"
   },
   "birthDate": "2002-07-13",
-  "nationality": "Romanian",
   "gender": "Male",
   "knowsAbout": ["SEO", "Content Marketing", "Web Development"],
   "address": {
@@ -98,7 +97,7 @@ export const blogs: BlogItemType[] = [
     image: 'store-conversion.webp',
     seo: {
       title: "How we 10x the number of Google organic pages in 2 months | Gliesess",
-      desc: "In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end, you are going to see the strategies we used to do it!"
+      desc: "In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end, you are going to see..."
     },
     description: 'In this post you’re going to read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end, you are going to see the strategies we used to do it!',
     slug: 'seo-agency-10x-google',
