@@ -15,6 +15,11 @@ export const CompanySchema = z.object({
     domain: z.string().optional(),
     icon: z.string().optional(),
     serp: z.string().optional(),
+    state: z.object({
+        name: z.string().optional(),
+        slug: z.string().optional()
+    }),
+    foundedYear: z.number().optional(),
     category: z.enum([
         "Retailers",
         "Supermarkets/Grocery Stores",
@@ -67,6 +72,7 @@ export const CompanySchema = z.object({
     domainAuthority: z.number().optional(),
 
 });
+
 
 export const defaultSlugifyConfiguration = {
     replacement: '-',  // replace spaces with replacement character, defaults to `-`

@@ -39,7 +39,7 @@ export default async function handler(req: any, res: any) {
 
      ${categories.map(i => `
      <url>
-         <loc>${domain}/retail-strategies/${i._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}</loc>
+         <loc>${domain}/marketing-strategies/${i._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}</loc>
          <lastmod>2024-04-02</lastmod>
      </url>
     `)}

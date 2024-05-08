@@ -65,3 +65,13 @@ export function CategoryItem({ i }: { i: { name: string, image: string } }) {
         <h3 className="font-semibold text-xl">{i.name}</h3>
     </Link>
 }
+
+export function TagItem({ i }: { i: string }) {
+    return <Link
+        href={`/blog/tags/${i.toLowerCase().replaceAll(' ', '-')}`}
+        className="flex flex-col rounded-xl items-center w-fit m-1.5 bg-gradient-to-r from-blue-100/60 to-purple-100/60 transition-all cursor-pointer"
+    >
+        {/* <Image width={300} height={300} className="rounded-t-xl aspect-video object-cover" alt={`${i.name} profile picture`} src={`/${i.image}`} /> */}
+        <h3 className="font-medium text-lg hover:underline p-2">{i}</h3>
+    </Link>
+}

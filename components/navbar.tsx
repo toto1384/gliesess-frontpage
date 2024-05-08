@@ -63,7 +63,7 @@ export const BasicNextSeo = ({ description, title, url, additionalProps }: { tit
     </>
 }
 
-export const Navbar = ({ alwaysWhite, }: { alwaysWhite?: boolean, }) => {
+export const Navbar = ({ alwaysWhite, ae }: { alwaysWhite?: boolean, ae?: boolean }) => {
 
     const [isScrolled, setIsScrolled] = useState(false);
     const size = useSize(true)
@@ -96,7 +96,7 @@ export const Navbar = ({ alwaysWhite, }: { alwaysWhite?: boolean, }) => {
             <nav className="flex justify-between md:space-x-5 w-screen items-center px-2 py-2 md:py-0 z-10">
                 <Link href="/" className=''>
                     <Image
-                        src={size.gmd ? "/logo.png" : '/logo-square.png'}
+                        src={size.gmd ? ae ? "/ambient-executiv.png" : "/logo.png" : '/logo-square.png'}
                         alt="Gliesses"
                         width={size.gmd ? 200 : 60}
                         height={100}

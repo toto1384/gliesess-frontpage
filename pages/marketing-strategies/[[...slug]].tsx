@@ -25,34 +25,34 @@ export default function LoginPage({ companies, years, year, type, state, states,
             }}
             title={`${retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined })} • Gliesess`}
             description={`Browse the ${retailStrategyPageName({ category: type?._id, countC, state: state?._id, year: year ?? undefined, disableCount: true })} on Gliesess.`}
-            url={`${domain}/${((router.query.slug ?? []) as string[]).join('/')}`}
+            url={`${domain}/marketing-strategies/${((router.query.slug ?? []) as string[]).join('/')}`}
         />
         <BreadcrumbJsonLd
             itemListElements={[
                 {
                     position: 1,
                     name: retailStrategyPageName({ countC, disableCount: true }),
-                    item: `${domain}/retail-strategies`,
+                    item: `${domain}/marketing-strategies`,
                 },
                 year ? {
                     position: 2,
                     name: retailStrategyPageName({ countC, year: year ?? undefined, disableCount: true }),
-                    item: `${domain}/retail-strategies/${year}`,
+                    item: `${domain}/marketing-strategies/${year}`,
                 } : undefined,
                 type ? {
                     position: 3,
                     name: retailStrategyPageName({ countC, category: type._id, disableCount: true }),
-                    item: `${domain}/retail-strategies/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`,
+                    item: `${domain}/marketing-strategies/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`,
                 } : undefined,
                 state ? {
                     position: 4,
                     name: retailStrategyPageName({ countC, state: state._id, disableCount: true }),
-                    item: `${domain}/retail-strategies/${state._id.toLowerCase()}`,
+                    item: `${domain}/marketing-strategies/${state._id.toLowerCase()}`,
                 } : undefined,
                 ((year && type) ? {
                     position: 5,
                     name: retailStrategyPageName({ countC, year: year ?? undefined, category: type._id, disableCount: true }),
-                    item: `${domain}/retail-strategies/${year}/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`,
+                    item: `${domain}/marketing-strategies/${year}/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`,
                 } : undefined),
             ].filter(i => i)}
         />
@@ -63,12 +63,12 @@ export default function LoginPage({ companies, years, year, type, state, states,
 
             <nav aria-label='breadcrumb' className='rounded mb-5 text-sm bg-gray-0 flex items-center flex-wrap'>
                 {innerLeave([
-                    <Link key={1} className='breadcrumb' href={'/retail-strategies'}>Retail Strategies</Link>,
-                    (year ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}`}>{year}s</Link> : undefined),
-                    (type ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{type._id}</Link> : undefined),
-                    (state ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${state._id.toLowerCase()}`}>{state._id}</Link> : undefined),
+                    <Link key={1} className='breadcrumb' href={'/marketing-strategies'}>Retail Strategies</Link>,
+                    (year ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${year}`}>{year}s</Link> : undefined),
+                    (type ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{type._id}</Link> : undefined),
+                    (state ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${state._id.toLowerCase()}`}>{state._id}</Link> : undefined),
 
-                    ((year && type) ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{type._id} - {year}s</Link> : undefined),
+                    ((year && type) ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${year}/${type._id.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{type._id} - {year}s</Link> : undefined),
                 ].filter(i => i), (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
             </nav>
 
@@ -76,7 +76,7 @@ export default function LoginPage({ companies, years, year, type, state, states,
                 <h3 className="text-xl font-semibold mt-5">Filter by year</h3>
                 <div className="flex flex-row overflow-x-scroll no-scrollbar">
                     {years.map(i => <Link
-                        href={`/retail-strategies/${i._id === 'Other' ? '' : i._id}`}
+                        href={`/marketing-strategies/${i._id === 'Other' ? '' : i._id}`}
                         className="text-sm px-2 mx-1 whitespace-nowrap bg-gradient-to-r from-blue-100/60 to-purple-100/60 py-1 rounded-xl"
                     >{`${i._id}s`}</Link>)}
                 </div>
@@ -88,7 +88,7 @@ export default function LoginPage({ companies, years, year, type, state, states,
                 <h3 className="text-xl font-semibold mt-5">Filter by Categories</h3>
                 <div className="flex flex-row overflow-x-scroll no-scrollbar">
                     {types.map(i => <Link
-                        href={`/retail-strategies/${i._id?.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') ?? 'Other'}`}
+                        href={`/marketing-strategies/${i._id?.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') ?? 'Other'}`}
                         className="text-sm px-2 mx-1 whitespace-nowrap bg-gradient-to-r from-blue-100/60 to-purple-100/60 py-1 rounded-xl"
                     >{`${i._id}`}</Link>)}
                 </div>
@@ -99,7 +99,7 @@ export default function LoginPage({ companies, years, year, type, state, states,
                 <h3 className="text-xl font-semibold mt-5">Filter by States</h3>
                 <div className="flex flex-row overflow-x-scroll no-scrollbar">
                     {states.map(i => <Link
-                        href={`/retail-strategies/${i._id?.toLowerCase() ?? 'Other'}`}
+                        href={`/marketing-strategies/${i._id?.toLowerCase() ?? 'Other'}`}
                         className="text-sm px-2 mx-1 whitespace-nowrap bg-gradient-to-r from-blue-100/60 to-purple-100/60 py-1 rounded-xl"
                     >{`${i._id}`}</Link>)}
                 </div>
@@ -141,23 +141,13 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
                 ],
                 states: [
                     {
-                        $addFields: {
-                            resultObject: {
-                                $regexFind: {
-                                    input: "$serpProps.headquarters",
-                                    regex: /[A-Z][A-Z]/
-                                },
-                            },
-                        },
-                    },
-                    {
                         $match: {
-                            resultObject: { $ne: null },
+                            "state.name": { $ne: null },
                         },
                     },
                     {
                         $group: {
-                            _id: "$resultObject.match",
+                            _id: "$state.name",
                             fieldN: {
                                 $count: {},
                             },
@@ -166,15 +156,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
                     { $sort: { fieldN: -1 } },
                 ],
                 years: [
-                    { $addFields: { resultObject: { $regexFind: { input: "$serpProps.founded", regex: /\b\d{4}\b/ } } } },
-                    {
-                        $addFields: {
-                            year: { $toInt: "$resultObject.match" },
-                        }
-                    },
                     {
                         $bucket: {
-                            groupBy: "$year",
+                            groupBy: "$foundedYear",
                             boundaries: yearsArray,
                             default: "Other",
                             output: {
@@ -210,12 +194,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         ] : []),
         ...(type ? [{ $match: { "category": type._id } }] : []),
         ...(state ? [
-            { $addFields: { resultObject: { $regexFind: { input: "$serpProps.headquarters", regex: new RegExp(state._id.toUpperCase()) } } } },
-            {
-                $match: {
-                    resultObject: { $ne: null }
-                }
-            }
+            { $match: { "state.name": state._id } }
         ] : []),
 
         {

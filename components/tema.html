@@ -1,0 +1,73 @@
+<!-- sa se realizeze un formular functional personalizat folosind elementele de formular predate in care trebuie sa existe cel putin 4 checkbox, 5 radio button -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <h1>Register</h1>
+
+    <form action="get">
+
+        <b>Poza profil</b><br />
+        <input type="file">
+        <br />
+        <br />
+
+        <input maxlength="100" type="text" name="nume" placeholder="Nume" required="required" />
+        <input maxlength="100" type="text" name="prenume" placeholder="Prenume" required="required" /> <br />
+        <br />
+
+        <input maxlength="100" type="email" required="required" name="email" placeholder="Email dvs." /> <br /><br />
+        <input maxlength="100" type="password" required="required" name="parola" placeholder="Parola" /><br /><br />
+
+        <b>Gender</b><br />
+        <input type="radio" name="gender" value="barbat" checked="checked" />Barbat<br />
+        <input type="radio" name="gender" value="femeie" />Femeie<br />
+        <input type="radio" name="gender" value="nonbinar" />Nonbinar<br />
+        <input type="radio" name="gender" value="elicopter_de_atac" />Elicopter de atac<br />
+        <input type="radio" name="gender" value="niciuna" />Prefer sa nu spun<br />
+
+        <br /> <br />
+        <b>Email</b><br />
+        <input type="checkbox" name="subscribe_alerte" checked="checked" />Subscribe alerte <br />
+        <input type="checkbox" name="subscribe_tips" checked="checked" />Subscribe tips <br />
+        <input type="checkbox" name="subscribe_app_updates" checked="checked" />Subscribe app updates <br />
+        <input type="checkbox" name="subscribe_newsletter" checked="checked" />Subscribe newsletter <br />
+
+        <br /><br /><br /><br />
+
+        <b>Descriere personala</b><br />
+        <textarea maxlength="1000" placeholder="Eu sunt o persoana...." name="descriere" cols="30" rows="10"></textarea>
+        <br /><br /><br />
+
+        <b>Varsta (1000% user friendly)</b><br />
+        <select name="varsta">
+            <option value="1" selected="selected">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10+</option>
+        </select>
+
+
+        <br /><br />
+        <input type="reset" name="reset" value="Reseteaza" />
+        <input type="submit" name="submit" value="Trimite" />
+
+    </form>
+
+</body>
+
+</html>

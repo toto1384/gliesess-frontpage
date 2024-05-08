@@ -5,9 +5,8 @@ import { CompanyObject } from "../utils/db";
 
 export function RetailStrategyComponent({ company }: { company: CompanyObject }) {
 
-    const state = company.serpProps?.headquarters?.match(/[A-Z][A-Z]/)?.[0].toLowerCase()
     return <div className="flex flex-row space-x-2 bg-gradient-to-r from-blue-100/60 to-purple-100/60 my-2 px-2 py-1 rounded-xl items-center">
-        <Link href={`/retail-strategy/${company.slug}`}>
+        <Link href={`/marketing-strategy/${company.slug}`}>
             <div className="w-[50px] h-[50px]">
                 {company.icon ? <div className="rounded-xl overflow-hidden"><Image
                     width={50} height={50} className="object-contain"
@@ -17,13 +16,13 @@ export function RetailStrategyComponent({ company }: { company: CompanyObject })
             </div>
         </Link>
         <div className="flex flex-col">
-            <Link href={`/retail-strategy/${company.slug}`} className="a"><h3 className="text-xl font-semibold">{company.name}</h3></Link>
+            <Link href={`/marketing-strategy/${company.slug}`} className="a"><h3 className="text-xl font-semibold">{company.name}</h3></Link>
 
             <div className="flex flex-row items-center space-x-2 mt-2">
-                <Link href={`/retail-strategies/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`} className="a"><p className="">{company.category}</p></Link>
-                {company.serpProps?.headquarters && <>
+                <Link href={`/marketing-strategies/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`} className="a"><p className="">{company.category}</p></Link>
+                {company.state && <>
                     <span>•</span>
-                    {state ? <Link href={`/retail-strategies/${state}`} className="a">{company.serpProps?.headquarters}</Link> : <p>{company.serpProps.headquarters}</p>}
+                    {company.state ? <Link href={`/marketing-strategies/${company.state.slug}`} className="a">{company.state.name}</Link> : <p>{company.serpProps?.headquarters}</p>}
 
                 </>
                 }
@@ -44,4 +43,4 @@ export function RetailStrategyComponent({ company }: { company: CompanyObject })
 
 
 
-export const retailStrategyPageName = ({ category, countC, state, year, disableCount }: { countC: number, category?: string, state?: string, year?: string | number, disableCount?: boolean }) => `${disableCount ? '' : `${countC} `}${category ? `${category.toLowerCase()} ` : ''}${`${(!disableCount && countC) || category ? 'm' : 'M'}arketing strategy breakdowns`} ${(year || state) ? `of ${year ?? ''}${(year && state) ? ', ' : ''}${state ? state : ''} companies` : ''}`
+export const retailStrategyPageName = ({ category, countC, state, year, disableCount }: { countC: number, category?: string, state?: string, year?: string | number, disableCount?: boolean }) => `${disableCount ? '' : `${countC} `}${category ? `${category.toLowerCase()} ` : ''}${`${(!disableCount && countC) || category ? 'm' : 'M'}arketing strategy breakdowns`} ${(year || state) ? `of ${year ? `${year}'s` : ''}${(year && state) ? ', ' : ''}${state ? state : ''} companies` : ''}`

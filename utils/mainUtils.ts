@@ -24,12 +24,18 @@ export const twitterHandle = "@gliesess_ads"
 export const slogan = "We build exceptionally efficient customer acquisition systems using SEO without effort or huge investments"
 
 export const homePageTitle = "Gliesses Home Page"
-export const blogTitle = "Blog Gliesess"
+export const blogTitle = "Blog Gliesess. Read about our Case Studies and Marketing Strategies"
 export const categoriesTitle = `Categories - Blog Gliesess`
+
+export const tagsTitle = `Tags - Blog Gliesess`
 
 export const categoryTitle = (category: string) => `${category} - Blog Gliesess`
 
+export const tagTitle = (tag: string) => `${tag} - Blog Gliesess`
+
 export const categoryUrl = (category: string) => `${domain}/blog/categories/${category.toLowerCase().replaceAll(' ', '-')}`
+
+export const tagUrl = (tag: string) => `${domain}/blog/tags/${tag.toLowerCase().replaceAll(' ', '-')}`
 
 
 export function kFormatter(num: number) {

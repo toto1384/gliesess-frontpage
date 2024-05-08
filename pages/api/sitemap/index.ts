@@ -14,16 +14,28 @@ async function createMap() {
             </sitemap>
 
             <sitemap>
-                <loc>${domain}/api/sitemap/retail-strategies/by-category</loc>
+                <loc>${domain}/api/sitemap/blog/authors</loc>
+            </sitemap>
+
+            <sitemap>
+                <loc>${domain}/api/sitemap/blog/categories</loc>
+            </sitemap>
+
+            <sitemap>
+                <loc>${domain}/api/sitemap/blog/tags</loc>
+            </sitemap>
+
+            <sitemap>
+                <loc>${domain}/api/sitemap/marketing-strategies/by-category</loc>
             </sitemap>
             <sitemap>
-                <loc>${domain}/api/sitemap/retail-strategies/by-state</loc>
+                <loc>${domain}/api/sitemap/marketing-strategies/by-state</loc>
             </sitemap>
             <sitemap>
-                <loc>${domain}/api/sitemap/retail-strategies/by-years</loc>
+                <loc>${domain}/api/sitemap/marketing-strategies/by-years</loc>
             </sitemap>
             <sitemap>
-                <loc>${domain}/api/sitemap/retail-strategies/strategies</loc>
+                <loc>${domain}/api/sitemap/marketing-strategies/strategies</loc>
             </sitemap>
             
             

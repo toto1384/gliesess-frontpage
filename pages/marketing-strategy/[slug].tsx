@@ -1,5 +1,5 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
-import { Navbar } from "../../components/navbar"
+import { BasicNextSeo, Navbar } from "../../components/navbar"
 import Image from "next/image"
 import { MdBusiness, MdChevronRight, MdOpenInNew } from "react-icons/md"
 import { domain, homePageTitle, innerLeave, kFormatter, slogan } from "../../utils/mainUtils"
@@ -42,20 +42,24 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
     const foundedYear = company.serpProps?.founded?.match(/\b\d{4}\b/)?.[0]
 
-    const state = company.serpProps?.headquarters?.match(/[A-Z][A-Z]/)?.[0].toLowerCase()
-
     const h1Text = `${company.name} marketing strategy breakdown`
 
     const title = `${h1Text} • Gliesess`
 
     const description = `A comprehensive analysis of the ${company.name} marketing strategy. ${company.name} (${company.category}) was founded in the ${year}'s.`
 
-    const url = `${domain}/retail-strategy/${company.slug}`
+    const url = `${domain}/marketing-strategy/${company.slug}`
 
     const datePublished = '"2024-04-02"'
 
     return <div className="flex flex-col items-center">
 
+        <BasicNextSeo
+            additionalProps={{}}
+            title={title}
+            description={description}
+            url={url}
+        />
 
         <Head>
             <script
@@ -151,8 +155,8 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                                 "position": 2,
                                 "item": {
                                   "@type": "WebPage",
-                                  "@id": "https://www.gliesess.com/retail-strategies/",
-                                  "url": "https://www.gliesess.com/retail-strategies/",
+                                  "@id": "https://www.gliesess.com/marketing-strategies/",
+                                  "url": "https://www.gliesess.com/marketing-strategies/",
                                   "name": "${retailStrategyPageName({ countC: 0, disableCount: true })}"
                                 }
                               },
@@ -194,11 +198,11 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
                         <nav aria-label='breadcrumb' className='rounded mb-5 text-sm bg-gray-0 flex items-center flex-wrap'>
                             {innerLeave([
-                                <Link key={1} className='breadcrumb' href={'/retail-strategies'}>Retail Strategies</Link>,
-                                (year != -1 ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}`}>{year}s</Link> : undefined),
-                                (company.category ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category}</Link> : undefined),
-                                (((year != -1) && company.category) ? <Link key={2} className='breadcrumb' href={`/retail-strategies/${year}/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category} - {year}s</Link> : undefined),
-                                <Link key={1} className='breadcrumb' href={`/retail-strategy/${company.slug}`}>{company.name}</Link>,
+                                <Link key={1} className='breadcrumb' href={'/marketing-strategies'}>Retail Strategies</Link>,
+                                (year != -1 ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${year}`}>{year}s</Link> : undefined),
+                                (company.category ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category}</Link> : undefined),
+                                (((year != -1) && company.category) ? <Link key={2} className='breadcrumb' href={`/marketing-strategies/${year}/${company.category.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-')}`}>{company.category} - {year}s</Link> : undefined),
+                                <Link key={1} className='breadcrumb' href={`/marketing-strategy/${company.slug}`}>{company.name}</Link>,
                             ].filter(i => i), (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
                         </nav>
                         <div className="flex flex-row items-center space-x-2">
@@ -207,7 +211,7 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                                 src={company.icon as string}
                                 alt={`${company.name} Logo`}
                             /></div> : <div className="w-16 h-16"><MdBusiness className="w-16 h-16" /></div>}
-                            <h1 className="text-3xl font-semibold">{title}</h1>
+                            <h1 className="text-3xl font-semibold">{h1Text}</h1>
                         </div>
 
                         {size.llg && <TableOfContent className="mt-10" />}
@@ -223,7 +227,7 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                                 <p>Founded</p>
                                 {innerLeave(
                                     company.serpProps.founded.split(foundedYear).map(i => <span className="text-indigo-500 font-medium text-lg">{i}</span>),
-                                    <Link className="text-indigo-500 font-medium text-lg underline" href={`/retail-strategies/${year}`} >{foundedYear}</Link>
+                                    <Link className="text-indigo-500 font-medium text-lg underline" href={`/marketing-strategies/${year}`} >{foundedYear}</Link>
                                 )}
 
                                 <hr />
@@ -236,15 +240,15 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                             {company.serpProps?.headquarters && <div className="my-2">
                                 <p>Headquarters</p>
 
-                                {state ?
-                                    <Link href={`/retail-strategies/${state}`} className="text-indigo-500 font-medium text-lg underline">{company.serpProps?.headquarters}</Link> :
+                                {company.state ?
+                                    <Link href={`/marketing-strategies/${company.state.slug}`} className="text-indigo-500 font-medium text-lg underline">{company.serpProps?.headquarters}</Link> :
                                     <p className="text-indigo-500 font-medium text-lg">{company.serpProps.headquarters}</p>}
 
                                 <hr />
                             </div>}
                             {company.category && <div className="my-2">
                                 <p>Category</p>
-                                <Link href={`/retail-strategies/${company.category?.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') ?? 'Other'}`} className="text-indigo-500 font-medium text-lg underline">{company.category}</Link>
+                                <Link href={`/marketing-strategies/${company.category?.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-') ?? 'Other'}`} className="text-indigo-500 font-medium text-lg underline">{company.category}</Link>
                                 <hr />
                             </div>}
                             {company.domain && <div className="my-2">
@@ -341,7 +345,7 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
                         <AuthorBox author={authors[0]} />
 
-                        {size.llg && <RightPanel articleLink={`${domain}/retail-strategy/${company.slug}`} />}
+                        {size.llg && <RightPanel articleLink={`${domain}/marketing-strategy/${company.slug}`} />}
 
                         <div className="flex md:hidden my-5 items-center justify-center">
                             <div className='flex flex-col mx-2'>
@@ -360,7 +364,7 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
             </div>
 
-            {size.gmd && <StickyBox className='w-[30%] mt-[30vh] h-fit mr-2'> <RightPanel articleLink={`${domain}/retail-strategy/${company.slug}`} /> </StickyBox>}
+            {size.gmd && <StickyBox className='w-[30%] mt-[30vh] h-fit mr-2'> <RightPanel articleLink={`${domain}/marketing-strategy/${company.slug}`} /> </StickyBox>}
         </div>
 
 
