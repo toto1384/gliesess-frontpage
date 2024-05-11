@@ -31,7 +31,7 @@ export function Footer() {
                 </div>
                 <div className="w-full md:w-1/3 text-center items-center flex flex-col md:items-end md:text-right">
                     <h3 className="font-bold text-xl mb-4">Connect</h3>
-                    <div className="flex justify-center md:justify-end mb-4">
+                    <div className="flex flex-wrap justify-center md:justify-end mb-4">
                         <a href="https://twitter.com/gliesess_ads" className="hover:text-secondary mx-4" aria-label="Gliesess Twitter account">
                             <FaTwitter className='w-7 h-7' />
                         </a>
