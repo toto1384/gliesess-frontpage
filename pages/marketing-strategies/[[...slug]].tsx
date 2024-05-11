@@ -8,8 +8,9 @@ import { domain, innerLeave } from "../../utils/mainUtils"
 import { RetailStrategyComponent, retailStrategyPageName } from "../../components/retailStrategyComponent"
 import { BreadcrumbJsonLd } from "next-seo"
 import { useRouter } from "next/router";
-import { getCompanyModel, dbConnect, CompanyObject } from "../../utils/db";
+import { getCompanyModel, dbConnect, } from "../../utils/db";
 import { useState } from "react";
+import { CompanyObject } from "../../utils/types";
 
 
 export default function LoginPage({ companies, years, year, type, state, states, types, count: givenCount }: InferGetServerSidePropsType<typeof getServerSideProps>) {

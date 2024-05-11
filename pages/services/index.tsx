@@ -1,11 +1,11 @@
-import { BasicNextSeo, CTA, Navbar, TawkWidget } from "../components/navbar";
 import { CgWebsite } from "react-icons/cg";
 import { LuAreaChart } from "react-icons/lu";
 import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
-import { useSize } from "../utils/useSize";
-import { domain } from "../utils/mainUtils";
+import { BasicNextSeo, TawkWidget, Navbar, CTA } from "../../components/navbar";
+import { domain } from "../../utils/mainUtils";
+import { useSize } from "../../utils/useSize";
 
 
 export default function ServicesPage() {

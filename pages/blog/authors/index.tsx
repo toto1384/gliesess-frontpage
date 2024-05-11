@@ -1,15 +1,11 @@
 
 
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
-import { NextSeo } from "next-seo";
-import Head from "next/head";
 import { MdChevronRight } from "react-icons/md";
-import { authors, blogs, } from "../../../utils/blog";
+import { authors, } from "../../../utils/blog";
 import { domain, innerLeave } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
 import { BasicNextSeo, Navbar } from "../../../components/navbar";
 import Link from "next/link";
-import Image from "next/image";
 import { AuthorItem } from "../../../components/blogItem";
 
 

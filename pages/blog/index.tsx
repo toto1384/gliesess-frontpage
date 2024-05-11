@@ -1,21 +1,19 @@
-import Head from "next/head"
 import { useRouter } from "next/router"
-import { authors, blogs, categories } from "../../utils/blog"
+import { authors, } from "../../utils/blog"
 import { CenteredCardPage } from "../../components/centeredCardPage"
-import { AuthorItem, BlogItem, CategoryItem } from "../../components/blogItem"
+import { AuthorItem, BlogItem, } from "../../components/blogItem"
 import { BasicNextSeo, Navbar } from "../../components/navbar"
 import Link from "next/link"
 import { blogTitle, domain } from "../../utils/mainUtils"
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
+import { dbConnect, getBlogModel } from "../../utils/db"
 
 
 
-export default function Applied() {
+export default function Applied({ actualBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
 
     const router = useRouter()
-
-    const actualBlogs = router.query.s ? blogs.filter(i => i.h1.includes(router.query.s as string) || i.mdText.includes(router.query.s as string)) : blogs
-
 
     const description = "Welcome to Gliesess Blog. Read articles about SEO, Case studies, Marketing strategies and others"
     const url = `${domain}/blog`
@@ -38,11 +36,11 @@ export default function Applied() {
             <h2 className="text-2xl font-medium my-3">Posts</h2>
             {actualBlogs.map(i => <BlogItem i={i} />)}
 
-            <hr className="my-10" />
+            {/* <hr className="my-10" />
             <Link href={`/blog/categories`}><h2 className="text-2xl font-medium decoration-purple-500 cursor-pointer hover:text-purple-500 underline transition-all mb-3">Categories</h2></Link>
             <div className="flex flex-wrap items-center space-x-2">
                 {categories.map(i => <CategoryItem i={i} />)}
-            </div>
+            </div> */}
 
             <hr className="my-10" />
             <Link href={`/blog/authors`}><h2 className="text-2xl font-medium decoration-purple-500 cursor-pointer hover:text-purple-500 underline transition-all mb-3">Authors</h2></Link>
@@ -52,4 +50,16 @@ export default function Applied() {
 
         </CenteredCardPage>
     </>
+}
+
+
+export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
+
+    const BlogModel = getBlogModel(await dbConnect())
+
+    const actualBlogs = await BlogModel.find({ private: { $ne: true }, ...(query.s ? { mdText: { "$regex": query.s as string, "$options": "i" } } : {}) })
+
+    return {
+        props: { actualBlogs: JSON.parse(JSON.stringify(actualBlogs)) as typeof actualBlogs },
+    }
 }

@@ -4,8 +4,7 @@ import zodToJsonSchema from "zod-to-json-schema";
 import { createMongooseSchema } from 'convert-json-schema-to-mongoose';
 import { z, ZodTypeAny } from 'zod'
 import mongoose, { Document, Model, Schema, } from 'mongoose'
-
-export type CompanyObject = z.infer<typeof CompanySchema>;
+import { CompanyObject, BlogObject } from "./types";
 
 export const CompanySchema = z.object({
 
@@ -73,6 +72,31 @@ export const CompanySchema = z.object({
 
 });
 
+export const zDate = z.preprocess((arg) => {
+    if (typeof arg == "string" || arg instanceof Date) return new Date(arg);
+    if (arg == undefined) return arg
+}, z.date())
+
+export const BlogSchema = z.object({
+    slugs: z.array(z.string()),
+    date: z.string(),
+    h1: z.string(),
+    description: z.string().optional(),
+    image: z.string(),
+    author: z.enum(['Alexandru Totolici']),
+    authorSlug: z.enum(['alexandru-totolici']),
+    tags: z.array(z.string()),
+    breadcrumbName: z.string(),
+    seo: z.object({
+        title: z.string(),
+        desc: z.string()
+    }),
+    mdText: z.string(),
+    private: z.boolean().optional()
+})
+
+
+
 
 export const defaultSlugifyConfiguration = {
     replacement: '-',  // replace spaces with replacement character, defaults to `-`
@@ -98,6 +122,16 @@ export const getCompanyModel = (mong?: typeof mongoose) => {
     const companySchema = convertToModel(CompanySchema).plugin(mongooseSlugPlugin, defaultSlugPluginConfiguration)
 
     return mgse.model<CompanyObject & Document>('Company', companySchema, 'companies')
+}
+
+export const getBlogModel = (mong?: typeof mongoose) => {
+    const mgse = mong ?? mongoose;
+
+    if (mgse.models.Blog) return mgse.models.Blog as Model<BlogObject & Document>
+
+    const blogSchema = convertToModel(BlogSchema)
+
+    return mgse.model<BlogObject & Document>('Blog', blogSchema, 'blogs')
 }
 
 

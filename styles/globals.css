@@ -28,11 +28,15 @@ html {
 }
 
 .btn-cta {
-  @apply bg-cta rounded-full line-clamp-1 text-white px-6 py-3 hover:bg-[color:#99c433] transition-all;
+  @apply bg-cta rounded-lg line-clamp-1 text-white px-6 py-3 hover:bg-[color:#99c433] transition-all;
+}
+
+.icon-button {
+  @apply hover:ring-4 hover:ring-blue-100 hover:bg-blue-100 hover:text-blue-700 rounded-full cursor-pointer transition-all
 }
 
 .btn-primary {
-  @apply bg-primary rounded-full line-clamp-1 text-white px-6 py-3 hover:bg-[color:#212B97] transition-all;
+  @apply bg-primary rounded-lg line-clamp-1 text-white px-6 py-3 hover:bg-[color:#212B97] transition-all;
 }
 
 .frosted {

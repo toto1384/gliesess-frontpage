@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { MdBusiness } from "react-icons/md";
 import Link from "next/link";
-import { CompanyObject } from "../utils/db";
+import { CompanyObject } from "../utils/types";
 
 export function RetailStrategyComponent({ company }: { company: CompanyObject }) {
 

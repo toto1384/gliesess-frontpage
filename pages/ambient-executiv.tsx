@@ -147,7 +147,7 @@ const SocialProof = () => {
             </div>
             <div className="grid justify-items-stretch grid-cols-1 md:grid-cols-2 gap-4 mx-2">
                 <div className="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-5 sm:p-6">
-                    <Link className="a text-lg font-medium text-gray-900 mb-4" href={'/blog/seo-agency-10x-google'}>
+                    <Link className="a text-lg font-medium text-gray-900 mb-4" href={'/seo-case-studies/10x-internal-linking'}>
                         How we 10x the number of Google organic pages in 2 months for one of our clients
                     </Link>
                     <p>
@@ -261,7 +261,7 @@ function WhatCost() {
 
 
 function AlternativeCTA() {
-    return <p className='text-gray-500 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/blog/seo-agency-10x-google'} className='a'>case studies</Link></p>
+    return <p className='text-gray-500 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/seo-case-studies/10x-internal-linking'} className='a'>case studies</Link></p>
 }
 
 

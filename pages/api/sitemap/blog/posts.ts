@@ -1,13 +1,17 @@
 
 import { format, startOfWeek } from "date-fns"
 import { contentTypeSitemap } from ".."
-import { blogs, } from "../../../../utils/blog"
 import { domain } from "../../../../utils/mainUtils"
+import { dbConnect, getBlogModel } from "../../../../utils/db"
 
 
 export default async function handler(req: any, res: any) {
     res.statusCode = 200
     res.setHeader('Content-Type', contentTypeSitemap)
+
+    const BlogModel = getBlogModel(await dbConnect())
+
+    const blogs = await BlogModel.find({ private: { $ne: true } })
 
     // Instructing the Vercel edge to cache the file
     res.setHeader('Cache-control', 'stale-while-revalidate, s-maxage=3600')
@@ -24,7 +28,7 @@ export default async function handler(req: any, res: any) {
 
      ${blogs.map(i => `
      <url>
-         <loc>${domain}/blog/${i.slug}</loc>
+         <loc>${domain}/${i.slugs.join('/')}</loc>
          <lastmod>${format(new Date(i.date), 'yyyy-MM-dd')}</lastmod>
      </url>
     `)}

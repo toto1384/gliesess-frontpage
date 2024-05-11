@@ -1,15 +1,16 @@
 import { MdChevronRight } from "react-icons/md";
-import { tags, } from "../../../utils/blog";
 import { tagsTitle, domain, innerLeave } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
 import { BasicNextSeo, Navbar } from "../../../components/navbar";
 import Link from "next/link";
 import { TagItem } from "../../../components/blogItem";
+import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { dbConnect, getBlogModel } from "../../../utils/db";
 
 
-export default function Authors() {
+export default function TagsPage({ tags }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
-    const description = `Blog tags - Explore tags such as ${tags.slice(0, 3).map(i => `${i}, `)}`
+    const description = `Blog tags - Explore tags such as ${tags.slice(0, 3).map(i => `${i._id}, `)}`
     const url = `${domain}/blog/tags`
     return <>
         <BasicNextSeo title={tagsTitle} description={description} url={url} />
@@ -23,8 +24,25 @@ export default function Authors() {
             </nav>
             <h1 className="text-3xl">Tags • Gliesess Blog</h1>
             <div className="flex flex-wrap items-center mt-5">
-                {tags.map(i => <TagItem i={i} />)}
+                {tags.map(i => <TagItem i={i._id} />)}
             </div>
         </CenteredCardPage>
     </>
+}
+
+
+export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
+
+
+    const BlogModel = getBlogModel(await dbConnect())
+
+    const tags: { _id: string, count: number }[] = await BlogModel.aggregate([
+        { $project: { tags: 1 } },
+        { $unwind: "$tags" },
+        { $group: { _id: "$tags", count: { $count: {} } } }
+    ])
+
+    return {
+        props: { tags: JSON.parse(JSON.stringify(tags)) as typeof tags },
+    }
 }

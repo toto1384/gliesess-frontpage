@@ -1,10 +1,10 @@
-import fs from "fs";
 import RSS from "rss";
-import { BlogItemType, blogs } from "../../utils/blog";
 import { domain } from "../../utils/mainUtils";
 import { contentTypeSitemap } from "./sitemap";
+import { BlogObject } from "../../utils/types";
+import { dbConnect, getBlogModel } from "../../utils/db";
 
-async function generateRssFeed(allPosts: BlogItemType[]) {
+async function generateRssFeed(allPosts: BlogObject[]) {
 
   const feedOptions = {
     title: "Blog posts | RSS Feed",
@@ -23,7 +23,7 @@ async function generateRssFeed(allPosts: BlogItemType[]) {
     feed.item({
       title: post.h1,
       description: post.description ?? post.seo.desc,
-      url: `${domain}/blog/${post.slug}`,
+      url: `${domain}/${post.slugs.join('/')}`,
       date: post.date,
     });
   });
@@ -38,7 +38,10 @@ export default async function handler(req: any, res: any) {
 
   res.setHeader('Cache-control', 'stale-while-revalidate, s-maxage=3600')
 
-  const rss = await generateRssFeed(blogs)
+  const BlogModel = getBlogModel(await dbConnect())
+
+
+  const rss = await generateRssFeed(await BlogModel.find({ private: { $ne: true } }))
   // Instructing the Vercel edge to cache the file
   res.end(rss)
 }

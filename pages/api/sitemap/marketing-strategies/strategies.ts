@@ -1,11 +1,7 @@
-
-
-
-import { format, startOfWeek } from "date-fns"
 import { contentTypeSitemap } from ".."
-import { blogs, } from "../../../../utils/blog"
 import { domain } from "../../../../utils/mainUtils"
-import { CompanyObject, dbConnect, getCompanyModel } from "../../../../utils/db"
+import { dbConnect, getCompanyModel } from "../../../../utils/db"
+import { CompanyObject } from "../../../../utils/types"
 
 
 export default async function handler(req: any, res: any) {

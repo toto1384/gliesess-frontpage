@@ -16,7 +16,7 @@ import { FaFacebook, FaGlobe, FaInstagram, FaLinkedin, FaPinterest, FaTwitter, F
 import { IconType } from "react-icons"
 import React from "react"
 import Head from "next/head"
-import { authors, blogs, } from '../../utils/blog'
+import { authors, } from '../../utils/blog'
 import { AuthorBox } from "../../components/blogItem"
 import { dbConnect, getCompanyModel } from "../../utils/db"
 

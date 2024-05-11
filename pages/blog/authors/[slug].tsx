@@ -2,7 +2,7 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { NextSeo } from "next-seo";
 import Head from "next/head";
 import { MdChevronRight, MdPublic, MdWeb } from "react-icons/md";
-import { authors, blogs, } from "../../../utils/blog";
+import { authors, } from "../../../utils/blog";
 import { domain, innerLeave } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
 import { BasicNextSeo, Navbar } from "../../../components/navbar";
@@ -11,6 +11,7 @@ import { BlogItem } from "../../../components/blogItem";
 import Image from "next/image";
 import { useSize } from "../../../utils/useSize";
 import { FaIntercom, FaLinkedin } from "react-icons/fa";
+import { dbConnect, getBlogModel } from "../../../utils/db";
 
 
 export default function Author({ authorBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -80,11 +81,11 @@ export default function Author({ authorBlogs }: InferGetServerSidePropsType<type
 
 export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
 
-    const authorBlogs = blogs.filter(i => i.author.toLowerCase().replaceAll(' ', '-') === params?.slug)
-    // const authors = [...new Set(blogs.map(i=>i.author))]
+    const BlogModel = getBlogModel(await dbConnect())
 
+    const actualBlogs = await BlogModel.find({ private: { $ne: true }, authorSlug: query.slug as any })
 
-    if (!authorBlogs[0]) return { notFound: true }
-
-    return { props: { authorBlogs }, }
+    return {
+        props: { authorBlogs: JSON.parse(JSON.stringify(actualBlogs)) as typeof actualBlogs },
+    }
 }

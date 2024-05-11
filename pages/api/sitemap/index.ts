@@ -18,10 +18,6 @@ async function createMap() {
             </sitemap>
 
             <sitemap>
-                <loc>${domain}/api/sitemap/blog/categories</loc>
-            </sitemap>
-
-            <sitemap>
                 <loc>${domain}/api/sitemap/blog/tags</loc>
             </sitemap>
 

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 import { ShareButton } from "./shareButton";
 import { domain } from "../utils/mainUtils";
 import { NewsletterForm } from "./footer";
+import { useRouter } from "next/router";
 
 export const similarArticlesId = 'similarArticles'
 export const publishedById = 'publishedBy'
@@ -29,10 +30,13 @@ export function RightPanel({ articleLink }: { articleLink: string }) {
 
 function useHeadings() {
     const [headings, setHeadings] = React.useState<Element[]>([]);
+
+    const router = useRouter()
+
     React.useEffect(() => {
         const elements = Array.from(document.querySelectorAll("h2, h3, h4"));
         setHeadings(elements);
-    }, []);
+    }, [router.pathname]);
     return headings.slice(0, headings.findIndex(el => similarArticlesId === el.id)).filter(i => ![publishedById, contentsId].includes(i.id));
 }
 

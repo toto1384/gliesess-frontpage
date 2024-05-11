@@ -1,19 +1,19 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { MdChevronRight } from "react-icons/md";
-import { blogs, } from "../../../utils/blog";
 import { domain, innerLeave, tagTitle } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
 import { BasicNextSeo, Navbar } from "../../../components/navbar";
 import Link from "next/link";
 import { BlogItem } from "../../../components/blogItem";
 import { useRouter } from "next/router";
+import { dbConnect, getBlogModel } from "../../../utils/db";
 
 
-export default function Tag({ tagBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Tag({ actualBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
 
     const router = useRouter()
 
-    const tag = tagBlogs[0]!.tags.find(j => j.toLowerCase().replaceAll(' ', '-') === router.query?.slug)!
+    const tag = (router.query?.slug as string)!
 
 
 
@@ -35,18 +35,20 @@ export default function Tag({ tagBlogs }: InferGetServerSidePropsType<typeof get
                 ], (index: any) => <MdChevronRight className='mx-1 my-2' key={`chevron-${index}`} />)}
             </nav>
             <h1 className="text-3xl">Posts • {tag}</h1>
-            {tagBlogs.map(i => <BlogItem key={i.h1} i={i} />)}
+            {actualBlogs.map(i => <BlogItem key={i.h1} i={i} />)}
         </CenteredCardPage>
     </>
 }
 
 export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
 
-    const tagBlogs = blogs.filter(i => i.tags.some(j => j.toLowerCase().replaceAll(' ', '-') === params?.slug))
-    // const authors = [...new Set(blogs.map(i=>i.author))]
 
+    const BlogModel = getBlogModel(await dbConnect())
 
-    if (!tagBlogs[0]) return { notFound: true }
+    console.log({ tags: { "$regex": (query.slug as string).replaceAll('-', " "), "$options": "i" } })
+    const actualBlogs = await BlogModel.find({ private: { $ne: true }, tags: { "$regex": (query.slug as string).replaceAll('-', " "), "$options": "i" } })
 
-    return { props: { tagBlogs }, }
+    return {
+        props: { actualBlogs: JSON.parse(JSON.stringify(actualBlogs)) as typeof actualBlogs },
+    }
 }

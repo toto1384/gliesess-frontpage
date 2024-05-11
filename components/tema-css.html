@@ -1,0 +1,77 @@
+<!-- - sa se realizeze folosind numai formatare css in modul intern, structura dxe prezentare a unei pagini html.
+- structura de prezentare va fi impartita in 3 zona distincte, toate avand aceeeiasi latime de 900px (sus, mijloc si jos )
+- inaltimea zonei de sus va fi de 150px
+- inaltimea zonei de mijloc de 600px
+- inaltimea zonei de jos de 50px
+- culoarea de fundal a zonei de sus este aceeiasi cu culoarea de fundal a zonei de jos, insa culoarea de fundal a zonei de mijloc este diferita si provine cromatic din culoarea zonei de sus
+- in zona de sus trebuie plasate 5 elemente din care 4 sunt egale ca dimensini (100px latime si 30px inaltime si culoarea de fundal a zonei de mijloc )
+- primul element (250px latime si 100px inaltime) va fi plasat in partea stanga la 25px fata de latura de sus si la 30px fata de latura din stanga
+- celelalte 4 elemente sunt plasate unu langa celalat in partea dreapta a zonei de sus cu o distanta intre ele de 5px si la 115px fata de latura de sus.
+- toate cele 3 zonele principale ( sus, mijloc si jos ) trebuie plasate centrat vis-a-vis de marginile browserului (stanga - dreapta ) -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style type="text/css">
+        #top {
+            background: rgba(0, 0, 255, 1);
+            width: 900px;
+            height: 150px;
+            margin: auto;
+        }
+
+        #mid {
+            background: rgba(0, 0, 155, 1);
+            width: 900px;
+            height: 600px;
+            margin: auto;
+        }
+
+        #bottom {
+            background: rgba(0, 0, 255, 1);
+            width: 900px;
+            height: 50px;
+            margin: auto;
+        }
+
+        #small {
+            width: 100px;
+            height: 30px;
+            background: rgba(0, 0, 155, 1);
+            float: right;
+            margin-left: 5px;
+            margin-top: 115px;
+        }
+
+        #big {
+            width: 250px;
+            height: 100px;
+            float: left;
+            /* nu ati spus sa pun culoare dar am facut-o eu pentru vizibilitate */
+            background: white;
+            margin-top: 25px;
+            margin-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="top">
+        <div id="small"></div>
+        <div id="small"></div>
+        <div id="small"></div>
+        <div id="small"></div>
+        <div id="big"></div>
+    </div>
+    <div id="mid"></div>
+    <div id="bottom"></div>
+
+</body>
+
+</html>
