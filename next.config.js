@@ -55,6 +55,20 @@ module.exports = {
       },
     ]
   },
+  async redirects() {
+    return [
+      {
+        source: '/retail-strategies/:path',
+        destination: '/marketing-strategies/:path',
+        permanent: true,
+      },
+	  {
+        source: '/retail-strategy/:path',
+        destination: '/marketing-strategy/:path',
+        permanent: true,
+      },
+    ]
+  },
 async rewrites() {
 	return [
 		{
