@@ -14,6 +14,14 @@ export const CompanySchema = z.object({
     domain: z.string().optional(),
     icon: z.string().optional(),
     serp: z.string().optional(),
+    stockSymbol: z.string().optional(),
+    companyInfo: z.object({
+        price: z.number().optional(),
+        currency: z.string().optional(),
+        exchangeShortName: z.string().optional(),
+        fullTimeEmployees: z.number().optional(),
+        ipoDate: z.string().optional()
+    }).optional(),
     state: z.object({
         name: z.string().optional(),
         slug: z.string().optional()
@@ -50,6 +58,13 @@ export const CompanySchema = z.object({
         averageViewPerVideo: z.number().optional()
     }).optional(),
 
+    marketingMix: z.object({
+        "product": z.string().optional(),
+        "price": z.string().optional(),
+        "place": z.string().optional(),
+        "promotion": z.string().optional()
+    }).optional(),
+
     serpProps: z.object({
         type: z.string().optional(),
         headquarters: z.string().optional(),
@@ -64,6 +79,9 @@ export const CompanySchema = z.object({
     }).optional(),
 
     description: z.string().optional(),
+
+    descriptionNew: z.string().optional(),
+    marketingDescription: z.string().optional(),
 
     organicTraffic: z.number().optional(),
     paidTraffic: z.number().optional(),

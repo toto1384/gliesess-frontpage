@@ -19,6 +19,7 @@ import Head from "next/head"
 import { authors, } from '../../utils/blog'
 import { AuthorBox } from "../../components/blogItem"
 import { dbConnect, getCompanyModel } from "../../utils/db"
+import { format } from "date-fns"
 
 
 export default function Applied({ company, similarCompanies }: InferGetServerSidePropsType<typeof getServerSideProps>) {
@@ -217,8 +218,11 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                         {size.llg && <TableOfContent className="mt-10" />}
 
                         <h2 id="about-heading" className="text-2xl mt-10 font-medium">About {company.name}</h2>
-                        <p>{company.description}</p>
+                        <p>{company.descriptionNew}</p>
                         {company.serpProps?.wikipedia && <Link className="a" target="_blank" href={company.serpProps.wikipedia}>See more on wikipedia</Link>}
+
+                        <h2 id="marketing-summary-heading" className="text-2xl mt-10 font-medium">{company.name} marketing strategy</h2>
+                        <p>{company.marketingDescription}</p>
 
                         <h2 id="general-info-heading" className="text-2xl mt-10 font-medium">General Info</h2>
                         <div className="">
@@ -277,12 +281,78 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
                         </div>
 
+
+
+                        {company.marketingMix && <>
+                            <h2 id="marketing-mix-heading" className="text-2xl mt-10 font-medium">{company.name} marketing mix</h2>
+                            <p className="whitespace-pre-line">{company.name}, like many other companies, relies on the classic 4Ps marketing mix framework to shape its marketing strategy. This framework comprises four essential elements:</p>
+                            {company.marketingMix.product && <>
+                                <h3 id="product-heading" className="text-xl mt-5 font-medium">Product</h3>
+                                <p className="whitespace-pre-line">{company.marketingMix.product}</p>
+                            </>}
+
+                            {company.marketingMix.price && <>
+                                <h3 id="product-heading" className="text-xl mt-5 font-medium">Price</h3>
+                                <p className="whitespace-pre-line">{company.marketingMix.price}</p>
+                            </>}
+
+                            {company.marketingMix.place && <>
+                                <h3 id="product-heading" className="text-xl mt-5 font-medium">Place</h3>
+                                <p className="whitespace-pre-line">{company.marketingMix.place}</p>
+                            </>}
+
+                            {company.marketingMix.promotion && <>
+                                <h3 id="product-heading" className="text-xl mt-5 font-medium">Promotion</h3>
+                                <p className="whitespace-pre-line">{company.marketingMix.promotion}</p>
+                            </>}
+
+                            <br /> <br />
+                            <p>By strategically managing these four elements, {company.name} can develop marketing strategies tailored for customer needs, enhance brand value, and drive business growth.</p>
+                        </>}
+                        {company.companyInfo && <>
+                            <h2 id="stock-heading" className="text-2xl mt-10 font-medium">{company.name} is on {company.companyInfo.exchangeShortName}</h2>
+
+                            {company.icon &&
+                                <div className='relative mx-auto my-5'><Image
+                                    alt={`${company.name} stock and company info`}
+                                    src={`/marketing-str/${company.slug}.jpg`}
+                                    width={0}
+                                    height={0}
+                                    sizes="100%"
+                                    className='rounded-lg aspect-video object-cover'
+                                    style={{ width: '100%', height: 'auto' }}
+                                />
+                                </div>}
+
+
+                            <p className="">
+                                {company.name} is listed on the {company.companyInfo.exchangeShortName}, a significant milestone that underscores its prominence in the {company.category} industry. {company.name} went public on {format(new Date(company.companyInfo.ipoDate!), 'MMMM dd, yyyy')}, marking the beginning of its journey in the public market, allowing investors to participate in the company's growth. <br /><br />
+
+                                Over the years, {company.name} stock price has seen considerable fluctuations, reflecting its evolving business strategies, market conditions, and overall economic factors.<br /><br />
+
+                                This growth trajectory not only highlights {company.name} success but also demonstrates its impact on the {company.category} landscape, making it a pivotal player in the industry and a significant entity on the {company.companyInfo.exchangeShortName}.{company.name} stock price has gotten to {company.companyInfo.price} {company.companyInfo.currency} at the time of writing this article.<br /><br />
+                            </p>
+
+                        </>
+                        }
+
                         <div className="flex flex-col md:flex-row mt-10">
                             <div>
                                 <h2 id="search-engine-traffic-heading" className="text-2xl font-medium">Search engine traffic</h2>
-                                <p className="whitespace-pre-line">{company.name} focuses more on {((company.organicTraffic ?? 0) > (company.paidTraffic ?? 0)) ? 'Organic Traffic' : 'Paid Traffic'} with its organic traffic accounting for {((company.organicTraffic ?? 0) * 100 / ((company.organicTraffic ?? 0) + (company.paidTraffic ?? 0))).toFixed(1)}% of all traffic. {"\n\n"} {company.name} gets {kFormatter(company.organicTraffic ?? 0)} visitors per month from organic search and {kFormatter(company.paidTraffic ?? 0)} per month from paid search</p>
+
+                                <p>
+                                    {company.name} places a strong emphasis on generating {(company.organicTraffic ?? 0) > (company.paidTraffic ?? 0) ? "organic" : "paid"} traffic, which makes up a significant portion of its overall web traffic. This strategic focus on {(company.organicTraffic ?? 0) > (company.paidTraffic ?? 0) ? "organic" : "paid"} search helps {company.name} attract a vast audience without relying heavily on {(company.organicTraffic ?? 0) > (company.paidTraffic ?? 0) ? "paid advertisements" : "SEO"}. <br /> <br />
+
+                                    {company.name} receives a {kFormatter(company.organicTraffic ?? 0)} visitors per month from organic search and {kFormatter(company.paidTraffic ?? 0)} per month from paid search. A substantial number of visitors each month are from {(company.organicTraffic ?? 0) > (company.paidTraffic ?? 0) ? "organic" : "paid"} search, demonstrating the effectiveness of its {(company.organicTraffic ?? 0) > (company.paidTraffic ?? 0) ? "SEO" : "PPC"} efforts. <br /> <br />
+
+                                    {company.name} <Link className="a" href={`https://moz.com/learn/seo/domain-authority`} target="_blank">domain authority</Link> is {company.domainAuthority}. A high domain authority indicates that the website is well-regarded by search engines, making it easier to rank for relevant keywords and attract organic traffic.<br /><br />
+
+                                    By maintaining a strong focus on {(company.organicTraffic ?? 0) > (company.paidTraffic ?? 0) ? "organic" : "paid"} traffic, {company.name} exemplifies how businesses can build an impactful online presence. This strategy not only enhances visibility and brand reputation but also paves the way for growth and success in the digital marketplace.
+                                </p>
+
+                                {/* <p className="whitespace-pre-line">{company.name} focuses more on {((company.organicTraffic ?? 0) > (company.paidTraffic ?? 0)) ? 'Organic Traffic' : 'Paid Traffic'} with its organic traffic accounting for {((company.organicTraffic ?? 0) * 100 / ((company.organicTraffic ?? 0) + (company.paidTraffic ?? 0))).toFixed(1)}% of all traffic. {"\n\n"} {company.name} gets {kFormatter(company.organicTraffic ?? 0)} visitors per month from organic search and {kFormatter(company.paidTraffic ?? 0)} per month from paid search</p>
                                 <h3 id="domain-authority-heading" className="text-xl mt-3">Domain authority</h3>
-                                <p className="whitespace-pre-line">{company.name} <Link className="a" href={`https://moz.com/learn/seo/domain-authority`} target="_blank">domain authority</Link> is {company.domainAuthority}.</p>
+                                <p className="whitespace-pre-line">{company.name} <Link className="a" href={`https://moz.com/learn/seo/domain-authority`} target="_blank">domain authority</Link> is {company.domainAuthority}.</p> */}
 
                             </div>
                             <PieChart
@@ -301,6 +371,13 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
                         <h2 id="youtube-heading" className="text-2xl mt-10 font-medium">{company.name} Youtube marketing strategy</h2>
                         <p className="whitespace-pre-line">{company.name} has an active Youtube Channel with over {kFormatter(company.youtube?.subscribers ?? 0)} subscribers. Their whole channel has {kFormatter(company.youtube?.channelViews ?? 0)} views. {'\n\n'}They posted {company.youtube?.videoCount} videos, which means that every video got them {kFormatter((company.youtube?.channelViews ?? 0) / (company.youtube?.videoCount ?? 0))} views for the channel and {kFormatter((company.youtube?.subscribers ?? 0) / (company.youtube?.videoCount ?? 0))} subscribers</p>
+
+                        {company.instagramFollowers && <>
+                            <h2 id="youtube-heading" className="text-2xl mt-10 font-medium">{company.name} Instagram marketing strategy</h2>
+                            <p className="whitespace-pre-line">
+                                {company.name} has been steadily expanding its presence across various social media platforms to engage with its vast audience, Instagram being one of them. Currently {company.name} has {kFormatter(company.instagramFollowers)} followers on Instagram. With its visually-driven interface and widespread popularity, Instagram provides {company.name} with a platform to showcase its diverse range of products and connect with customers on a more personal level.
+                            </p>
+                        </>}
 
                         {(company.linkedinFollowers ? 1 : 0) + (company.facebook?.followers ? 1 : 0) + (company.instagramFollowers ? 1 : 0) + (company.youtube?.subscribers ? 1 : 0) >= 3 &&
                             <>
@@ -325,7 +402,10 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
                         <h2 className="text-2xl font-medium">R.O.I. of marketing channels</h2>
                         <p>Even though online marketing channels are found to be more effective than offline marketing channels, not all are created the same. If you think of just running banner ads, you need to rethink your marketing strategy.</p>
                         <br />
-                        <p>Email marketing comes at #1, with #2 being SEO. The good part is that they go hand in hand to create a very effective online marketing machine. SEO is our cup of tea, so if you want to start/improve your marketing strategy, feel free to <span className="a" onClick={() => {
+
+                        <p>At the front of online marketing strategies sits <b>email marketing</b>, boasting high reach and engagement. Following after that is <b>SEO</b>, a cornerstone of any successful digital campaign. What makes this duo truly formidable is their synergy, working hand in hand to fuel an efficient online marketing engine.</p>
+                        <br />
+                        <p>SEO is our cup of tea, so if you want to start or improve your marketing strategy, feel free to <span className="a" onClick={() => {
                             // @ts-ignore: Unreachable code error
                             MeetFox.initStaticButton({ url: 'https://meetfox.com/en/e/gliesess/borderless' }); return false;
                         }}>book a call with us</span>.</p>
@@ -395,6 +475,8 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
         }
     }
 }
+
+
 
 
 

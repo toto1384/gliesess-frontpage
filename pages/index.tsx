@@ -1,12 +1,13 @@
 import Head from 'next/head';
 import Image from 'next/image';
-import { BasicNextSeo, CTA, Navbar, OrganizationStructuredData, TawkWidget } from '../components/navbar';
+import { AlternativeCTA, BasicNextSeo, CTA, Navbar, OrganizationStructuredData, TawkWidget } from '../components/navbar';
 import Link from 'next/link';
 import StickyBox from 'react-sticky-box';
 import { useSize } from '../utils/useSize';
 import React from 'react';
 import { NextSeo } from 'next-seo';
 import { domain, homePageTitle, twitterHandle } from '../utils/mainUtils';
+import { HeroComponent } from '../components/heroComponent';
 
 const Home = ({ posts }: { posts: any[] }) => {
 
@@ -27,7 +28,20 @@ const Home = ({ posts }: { posts: any[] }) => {
 			<Navbar />
 
 			<img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
-			<Hero />
+			<HeroComponent
+				belowH1={<>
+					<p className="text-lg text-gray-700 mb-8 max-w-5xl">
+						... or we’ll send you your money back. We build exceptionally efficient customer acquisition systems using SEO. Even if everybody thinks it’s dead, we use it as a secret to fill our client's stores.
+					</p>
+					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call (no risk/cost to you) and we'll show you our strategy.</strong></p>
+				</>}
+				h1={<>
+					<strong>Effortlessly</strong> drive {size.gmd && <br />}
+					<strong>Consistent</strong> customer {size.gmd && <br />}
+					traffic to your furniture shop. {size.gmd && <br />}
+				</>}
+				cta={<> <CTA /> <AlternativeCTA /> </>} imageAlt="Gliesess paid web design agency" imagePath='/paid-web-design-agency.webp'
+			/>
 			<SocialProof />
 			{/* <CTA /> */}
 
@@ -83,54 +97,6 @@ const Home = ({ posts }: { posts: any[] }) => {
 		</div>
 	)
 }
-
-
-
-
-
-
-const Hero = () => {
-	const size = useSize(true)
-
-	return (
-		<div className='flex mx-2 flex-col-reverse md:pt-10 relative md:mt-0 md:flex-row md:space-x-16 items-center container'>
-			<section className="flex items-center justify-center md:h-[60vh]">
-				<div className="text-center flex flex-col items-center md:items-start md:text-left z-40 mx-3 md:mx-10">
-					<h1 className="text-3xl md:text-5xl font-bold md:mb-6 mt-10 md:mt-0">
-						<strong>Effortlessly</strong> drive {size.gmd && <br />}
-						<strong>Consistent</strong> customer {size.gmd && <br />}
-						traffic to your furniture shop. {size.gmd && <br />}
-
-						{/* We Generate customers {size.gmd && <br />}
-						for Your Furniture Shop {size.gmd && <br />}
-						Without your effort. {size.gmd && <br />}
-						<strong>Consistently.</strong> */}
-						{/* We Generate {size.gmd && <br />}
-						High paying customers {size.gmd && <br />}
-						for Your Furniture Shop {size.gmd && <br />}
-						<strong>Without overhead.</strong> */}
-					</h1>
-					<p className="text-lg text-gray-700 mb-8 max-w-5xl">
-						... or we’ll send you your money back. We build exceptionally efficient customer acquisition systems using SEO. Even if everybody thinks it’s dead, we use it as a secret to fill our client's stores.
-						{/* SEO finally exposed. Why it has become one of the highest ROI marketing channels, <span className='underline decoration-purple-600 decoration-2 underline-offset-2'>even</span> higher than ads. */}
-					</p>
-
-					<p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call (no risk/cost to you) and we'll show you our strategy.</strong></p>
-					<CTA />
-					<AlternativeCTA />
-				</div>
-			</section>
-			<div className='relative w-full max-w-[564px] md:h-[564px] h-[250px]'>
-				<Image
-					alt="Gliesess paid web design agency"
-					layout='fill' priority
-					src={'/paid-web-design-agency.webp'}
-					className='object-cover object-top rounded-lg'
-				/>
-			</div>
-		</div>
-	);
-};
 
 
 const SocialProof = () => {
@@ -260,30 +226,7 @@ function WhatCost() {
 }
 
 
-function AlternativeCTA() {
-	return <p className='text-gray-500 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/seo-case-studies/10x-internal-linking'} className='a'>case studies</Link></p>
-}
-
 
 export default Home
 
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-
-// 	const posts = fs.readdirSync(path.join('pages', 'blog')).map(file => {
-// 		const slug = file.replace('.mdx', '')
-
-// 		const mdWithMeta = fs.readFileSync(path.join('pages', 'blog', file), 'utf8')
-
-// 		const { data } = matter(mdWithMeta)
-
-// 		return {
-// 			slug,
-// 			data
-// 		}
-// 	})
-
-// 	return {
-// 		props: { posts }
-// 	}
-// }

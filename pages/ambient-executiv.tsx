@@ -268,22 +268,3 @@ function AlternativeCTA() {
 export default Home
 
 
-// export const getStaticProps: GetStaticProps = async (context) => {
-
-// 	const posts = fs.readdirSync(path.join('pages', 'blog')).map(file => {
-// 		const slug = file.replace('.mdx', '')
-
-// 		const mdWithMeta = fs.readFileSync(path.join('pages', 'blog', file), 'utf8')
-
-// 		const { data } = matter(mdWithMeta)
-
-// 		return {
-// 			slug,
-// 			data
-// 		}
-// 	})
-
-// 	return {
-// 		props: { posts }
-// 	}
-// }

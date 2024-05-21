@@ -10,7 +10,7 @@ import { dbConnect, getBlogModel } from "../../utils/db"
 
 
 
-export default function Applied({ actualBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Applied({ actualBlogs }: InferGetServerSidePropsType<typeof getStaticProps>) {
 
 
     const router = useRouter()
@@ -53,11 +53,11 @@ export default function Applied({ actualBlogs }: InferGetServerSidePropsType<typ
 }
 
 
-export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
+export async function getStaticProps({ req, res, query, params }: GetServerSidePropsContext) {
 
     const BlogModel = getBlogModel(await dbConnect())
 
-    const actualBlogs = await BlogModel.find({ private: { $ne: true }, ...(query.s ? { mdText: { "$regex": query.s as string, "$options": "i" } } : {}) })
+    const actualBlogs = await BlogModel.find({ private: { $ne: true }, })
 
     return {
         props: { actualBlogs: JSON.parse(JSON.stringify(actualBlogs)) as typeof actualBlogs },

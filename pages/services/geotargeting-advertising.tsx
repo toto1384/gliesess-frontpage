@@ -6,5 +6,7 @@ export default function Applied() {
 
     return <>
         <Navbar />
+
+        <h1></h1>
     </>
 }

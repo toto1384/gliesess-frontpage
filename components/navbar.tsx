@@ -122,6 +122,10 @@ export const CTA = ({ className, red, customText }: { className?: string, red?: 
     );
 };
 
+export function AlternativeCTA() {
+    return <p className='text-gray-500 mt-2'> Or take a look at our <Link href={'/services'} className='a'>services</Link> and <Link href={'/seo-case-studies/10x-internal-linking'} className='a'>case studies</Link></p>
+}
+
 
 export const TawkWidget = () => {
     const nonce = useContext(NonceContext)

@@ -28,7 +28,7 @@ export function RetailStrategyComponent({ company }: { company: CompanyObject })
                 }
             </div>
 
-            <p className="line-clamp-2">{company.description?.slice(0, 100)}...</p>
+            <p className="line-clamp-2">{company.descriptionNew?.slice(0, 100)}...</p>
             {/* <p>{company.domain}</p> */}
             {/* <div className="flex flex-row">
                 {company.serpProps?.founded && <p className="chip border rounded px-2 mx-1">Founded: {company.serpProps?.founded}</p>}
