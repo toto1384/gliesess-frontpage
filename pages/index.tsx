@@ -38,7 +38,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 				h1={<>
 					<strong>Effortlessly</strong> drive {size.gmd && <br />}
 					<strong>Consistent</strong> customer {size.gmd && <br />}
-					traffic to your furniture shop. {size.gmd && <br />}
+					traffic to your Ecommerce store. {size.gmd && <br />}
 				</>}
 				cta={<> <CTA /> <AlternativeCTA /> </>} imageAlt="Gliesess paid web design agency" imagePath='/paid-web-design-agency.webp'
 			/>

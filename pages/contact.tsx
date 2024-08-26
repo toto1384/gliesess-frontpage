@@ -40,10 +40,10 @@ export default function ContactPage() {
             <ContactForm className="md:w-[45%] p-2 mt-2 z-10" />
             <div className="md:w-[45%] p-2 mt-7 z-10">
                 <h2 className="text-2xl mt-3 font-semibold"><Link href={'/about-us'} className="a">Who are we</Link></h2>
-                We specialize in elevating the online presence of furniture shops through battle-tested SEO strategies and bespoke web development solutions. If you have any inquiries, suggestions, or if you're ready to take your furniture business to new heights, we'd love to hear from you!
+                We specialize in elevating the online presence of ecommerce stores through battle-tested SEO strategies and bespoke web development solutions. If you have any inquiries, suggestions, or if you're ready to take your ecommerce business to new heights, we'd love to hear from you!
                 <h2 className="text-2xl mt-3 font-semibold">Get in Touch</h2>
 
-                Have a question about our <Link className="a" href={'/services'}>SEO services</Link> tailored for furniture shops? Curious about how we can enhance your online presence through customized web development? Interested in a personalized consultation to discuss your unique needs? Our team is here to help!
+                Have a question about our <Link className="a" href={'/services'}>SEO services</Link> tailored for ecommerce stores? Curious about how we can enhance your online presence through customized web development? Interested in a personalized consultation to discuss your unique needs? Our team is here to help!
                 <p className="mt-4">Phone: <a href="tel:+15642122412" className="a hover:text-secondary">+1 (864) 715 9376</a></p>
                 <p className="mt-4 mb-2">Email: <a href="mailto:info@gliesses.com" className="a hover:text-secondary">contact@gliesses.com</a></p>
             </div>
