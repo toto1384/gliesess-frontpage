@@ -4,6 +4,9 @@ settings:
   autoInstallPeers: true
   excludeLinksFromLockfile: false
 
+overrides:
+  terser: 3.14.1
+
 dependencies:
   '@builder.io/partytown':
     specifier: ^0.10.2
