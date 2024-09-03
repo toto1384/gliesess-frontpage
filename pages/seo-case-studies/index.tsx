@@ -8,7 +8,7 @@ import { domain } from "../../utils/mainUtils"
 
 const firstSlug = "seo-case-studies"
 
-export default function Applied({ blogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Applied({ blogs }: InferGetServerSidePropsType<typeof getStaticProps>) {
 
 
 
@@ -40,7 +40,7 @@ export default function Applied({ blogs }: InferGetServerSidePropsType<typeof ge
 }
 
 
-export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
+export async function getStaticProps({ req, res, query, params }: GetServerSidePropsContext) {
 
     const BlogModel = getBlogModel(await dbConnect())
 

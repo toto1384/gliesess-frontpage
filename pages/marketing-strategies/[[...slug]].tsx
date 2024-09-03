@@ -9,11 +9,10 @@ import { RetailStrategyComponent, retailStrategyPageName } from "../../component
 import { BreadcrumbJsonLd } from "next-seo"
 import { useRouter } from "next/router";
 import { getCompanyModel, dbConnect, } from "../../utils/db";
-import { useState } from "react";
 import { CompanyObject } from "../../utils/types";
 
 
-export default function LoginPage({ companies, years, year, type, state, states, types, count: givenCount }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function LoginPage({ companies, years, year, type, state, states, types, count: givenCount }: InferGetServerSidePropsType<typeof getStaticProps>) {
 
     const router = useRouter()
 
@@ -145,7 +144,7 @@ export default function LoginPage({ companies, years, year, type, state, states,
 }
 
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
     // await csrf(context.req, context.res)
 
     const CompanyModel = getCompanyModel(await dbConnect())
@@ -262,4 +261,73 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
             year, type, state, count
         }
     }
+}
+
+
+export async function getStaticPaths() {
+
+
+    const CompanyModel = getCompanyModel(await dbConnect())
+
+    const categories: { _id: string, count: number }[] = await CompanyModel.aggregate([
+        { $match: { "serpProps.type": { $ne: null } } },
+        { $group: { _id: "$category", count: { $count: {} } } },
+    ])
+
+    const state: { _id: string, count: number }[] = await CompanyModel.aggregate([
+        { $match: { "serpProps.type": { $ne: null } } },
+        {
+            $match: {
+                "state.slug": { $ne: null },
+            },
+        },
+        {
+            $group: {
+                _id: "$state.slug",
+                count: {
+                    $count: {},
+                },
+            },
+        },
+        { $sort: { fieldN: -1 } },
+    ])
+
+    const yearsArray = [];
+
+    for (let year = 1800; year <= new Date().getFullYear(); year += 10) {
+        yearsArray.push(year);
+    }
+
+    const year: { _id: string, count: number }[] = await CompanyModel.aggregate([
+        { $match: { "serpProps.type": { $ne: null } } },
+        { $addFields: { resultObject: { $regexFind: { input: "$serpProps.founded", regex: /\b\d{4}\b/ } } } },
+        {
+            $addFields: {
+                year: { $toInt: "$resultObject.match" },
+            }
+        },
+        {
+            $bucket: {
+                groupBy: "$year",
+                boundaries: yearsArray,
+                default: "Other",
+                output: {
+                    "count": { $sum: 1 },
+                }
+            }
+        },
+        { $sort: { count: -1 } },
+    ])
+
+    let paths: any[] = [];
+
+    paths = [...paths, [...year, ...state, ...categories].map((post) => {
+        // console.log(post)  
+        return { params: { slug: post._id }, }
+    })]
+
+    console.log(paths)
+
+    // { fallback: false } means other routes should 404
+    return { paths, fallback: 'blocking' }
 }

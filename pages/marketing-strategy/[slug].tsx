@@ -18,11 +18,11 @@ import React from "react"
 import Head from "next/head"
 import { authors, } from '../../utils/blog'
 import { AuthorBox } from "../../components/blogItem"
-import { dbConnect, getCompanyModel } from "../../utils/db"
+import { dbConnect, getBlogModel, getCompanyModel } from "../../utils/db"
 import { format } from "date-fns"
 
 
-export default function Applied({ company, similarCompanies }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Applied({ company, similarCompanies }: InferGetServerSidePropsType<typeof getStaticProps>) {
 
 
     const year = Number(/\b\d{4}\b/.exec(company.serpProps?.founded ?? '')?.[0].replace(/\d$/, '0') ?? -1)
@@ -455,7 +455,7 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
 
 
-export async function getServerSideProps(context: GetServerSidePropsContext) {
+export async function getStaticProps(context: GetServerSidePropsContext) {
     // await csrf(context.req, context.res)
 
     const CompanyModel = getCompanyModel(await dbConnect())
@@ -476,7 +476,24 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
 }
 
+export async function getStaticPaths() {
 
+
+    const CompanyModel = getCompanyModel(await dbConnect())
+
+    const companies = await CompanyModel.find()
+
+
+    const paths = companies.map((post) => {
+        // console.log(post)  
+        return { params: { slug: post.slug }, }
+    })
+
+    console.log(paths)
+
+    // { fallback: false } means other routes should 404
+    return { paths, fallback: false }
+}
 
 
 

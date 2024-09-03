@@ -8,9 +8,11 @@ const firstSlug = "small-company-marketing"
 
 export default BlogPage
 
-export async function getServerSideProps({ req, res, query, params }: GetServerSidePropsContext) {
 
-    const path = [firstSlug]
+export async function getStaticProps({ params }: GetServerSidePropsContext) {
+
+    const path = [firstSlug,]
 
     return await getBlogItem(path)
 }
+
