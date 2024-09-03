@@ -35,9 +35,6 @@ dependencies:
   '@types/mdx':
     specifier: ^2.0.13
     version: 2.0.13
-  '@vercel/speed-insights':
-    specifier: ^1.0.12
-    version: 1.0.12(next@13.2.3)(react@18.3.1)
   chart.js:
     specifier: ^4.4.4
     version: 4.4.4
@@ -1180,34 +1177,6 @@ packages:
 
   /@ungap/structured-clone@1.2.0:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
-    dev: false
-
-  /@vercel/speed-insights@1.0.12(next@13.2.3)(react@18.3.1):
-    resolution: {integrity: sha512-ZGQ+a7bcfWJD2VYEp2R1LHvRAMyyaFBYytZXsfnbOMkeOvzGNVxUL7aVUvisIrTZjXTSsxG45DKX7yiw6nq2Jw==}
-    requiresBuild: true
-    peerDependencies:
-      '@sveltejs/kit': ^1 || ^2
-      next: '>= 13'
-      react: ^18 || ^19
-      svelte: ^4
-      vue: ^3
-      vue-router: ^4
-    peerDependenciesMeta:
-      '@sveltejs/kit':
-        optional: true
-      next:
-        optional: true
-      react:
-        optional: true
-      svelte:
-        optional: true
-      vue:
-        optional: true
-      vue-router:
-        optional: true
-    dependencies:
-      next: 13.2.3(react-dom@18.3.1)(react@18.3.1)
-      react: 18.3.1
     dev: false
 
   /@yarnpkg/lockfile@1.1.0:
