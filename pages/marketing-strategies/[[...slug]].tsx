@@ -329,5 +329,5 @@ export async function getStaticPaths() {
     console.log(paths)
 
     // { fallback: false } means other routes should 404
-    return { paths, fallback: 'blocking' }
+    return { paths: paths.filter(i => i.params.slug), fallback: 'blocking' }
 }
