@@ -48,6 +48,6 @@ export async function getBlogItem(path: string[]) {
     const [{ blog, similarArticles: [{ suggested }] }] =
         JSON.parse(JSON.stringify(result)) as [{ blog: [BlogObject], similarArticles: [{ suggested: ProjectionType<BlogObject, typeof blogItemProjection> }] }]
 
-    console.dir(result, { depth: 100 })
+
     return { props: { blog: blog[0] ?? null, suggested: suggested ?? null }, }
 }

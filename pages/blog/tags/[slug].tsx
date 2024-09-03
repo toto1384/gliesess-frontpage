@@ -1,4 +1,4 @@
-import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
+import { GetServerSidePropsContext, InferGetServerSidePropsType, InferGetStaticPropsType } from "next";
 import { MdChevronRight } from "react-icons/md";
 import { domain, innerLeave, tagTitle } from "../../../utils/mainUtils";
 import { CenteredCardPage } from "../../../components/centeredCardPage";
@@ -9,7 +9,7 @@ import { useRouter } from "next/router";
 import { dbConnect, getBlogModel } from "../../../utils/db";
 
 
-export default function Tag({ actualBlogs }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+export default function Tag({ actualBlogs }: InferGetStaticPropsType<typeof getServerSideProps>) {
 
     const router = useRouter()
 
@@ -52,3 +52,29 @@ export async function getServerSideProps({ req, res, query, params }: GetServerS
         props: { actualBlogs: JSON.parse(JSON.stringify(actualBlogs)) as typeof actualBlogs },
     }
 }
+
+// export async function getStaticPaths() {
+//     // When this is true (in preview environments) don't
+//     // prerender any static pages
+//     // (faster builds, but slower initial page load)
+//     if (process.env.SKIP_BUILD_STATIC_GENERATION) {
+//       return {
+//         paths: [],
+//         fallback: 'blocking',
+//       }
+//     }
+   
+//     // Call an external API endpoint to get posts
+//     const res = await fetch('https://.../posts')
+//     const posts = await res.json()
+   
+//     // Get the paths we want to prerender based on posts
+//     // In production environments, prerender all pages
+//     // (slower builds, but faster initial page load)
+//     const paths = posts.map((post) => ({
+//       params: { id: post.id },
+//     }))
+   
+//     // { fallback: false } means other routes should 404
+//     return { paths, fallback: false }
+//   }

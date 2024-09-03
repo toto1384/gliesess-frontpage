@@ -4,7 +4,7 @@ import { HiOutlineShoppingCart } from "react-icons/hi";
 import { FaCheck } from "react-icons/fa";
 import Image from "next/image";
 import { BasicNextSeo, TawkWidget, Navbar, CTA } from "../../components/navbar";
-import { domain } from "../../utils/mainUtils";
+import { domain, itemListStyle } from "../../utils/mainUtils";
 import { useSize } from "../../utils/useSize";
 
 
@@ -232,7 +232,7 @@ export default function ServicesPage() {
 
         <div className="flex flex-col md:flex-row w-full alternateBg items-center">
             <div className="md:w-[50vw] md:h-[1000px] w-full h-[70vw] relative">
-                <Image alt="Gliesess desk setup" className="object-cover object-top md:rounded-tr-xl" src={'/gliesess-development-and-seo-methodology.webp'} layout="fill" />
+                <Image alt="Gliesess desk setup" className="object-cover object-top md:rounded-tr-xl" src={'/seo-growth.webp'} layout="fill" />
             </div>
             <div className="flex md:w-[50vw] w-full flex-col items-start px-2 md:px-16 my-5">
                 <h2 className="text-3xl md:text-4xl font-bold">Why Consider Investing in SEO Optimization?</h2>
@@ -276,6 +276,19 @@ export default function ServicesPage() {
             <h2 className="text-4xl font-semibold">Get Started</h2>
             <p>Book a call to get a <span className="underline decoration-purple-500">free website analysis</span> (if you have one) or a <span className="underline decoration-purple-500">free SEO blueprint</span> (if you don't).</p>
             <CTA className="mt-2" />
+        </div>
+
+        <div className='mx-5'>
+            <h2 className='text-2xl mb-5'>Explore our 90 marketing strategies from the most influential retailers in the US.</h2>
+            <div className="flex flex-col space-y-2 lg:flex-row justify-around">
+                <a href="/marketing-strategies" className={itemListStyle}><div>All Marketing strategies →</div></a>
+                <a href="/marketing-strategies/supermarkets-grocery-stores" className={itemListStyle}><div>Supermarkets/grocery stores marketing strategies →</div></a>
+                <a href="/marketing-strategies/fashion-apparel" className={itemListStyle}><div>Fashion/apparel marketing strategies →</div></a>
+                <a href="/marketing-strategies/retailers" className={itemListStyle}><div>Retailers marketing strategies →</div></a>
+                <a href="/marketing-strategies/beauty-cosmetics" className={itemListStyle}><div>Beauty/cosmetics marketing strategies →</div></a>
+
+
+            </div>
         </div>
 
         {/*  */}

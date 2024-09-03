@@ -4,7 +4,7 @@ import { CenteredCardPage } from "../../components/centeredCardPage"
 import { AuthorItem, BlogItem, } from "../../components/blogItem"
 import { BasicNextSeo, Navbar } from "../../components/navbar"
 import Link from "next/link"
-import { blogTitle, domain } from "../../utils/mainUtils"
+import { blogTitle, domain, itemListStyle } from "../../utils/mainUtils"
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next"
 import { dbConnect, getBlogModel } from "../../utils/db"
 
@@ -33,6 +33,18 @@ export default function Applied({ actualBlogs }: InferGetServerSidePropsType<typ
         // }}
         >
             <h1 className="text-3xl font-semibold">Blog Gliesess</h1>
+
+            <div className=''>
+                <h2 className='text-2xl mb-5'>Explore our 90 marketing strategies from the most influential retailers in the US.</h2>
+                <div className="flex flex-wrap space-y-2 justify-around">
+                    <a href="/marketing-strategies" className={itemListStyle}><div>All Marketing strategies →</div></a>
+                    <a href="/marketing-strategies/supermarkets-grocery-stores" className={itemListStyle}><div>Supermarkets/grocery stores marketing strategies →</div></a>
+                    <a href="/marketing-strategies/fashion-apparel" className={itemListStyle}><div>Fashion/apparel marketing strategies →</div></a>
+                    <a href="/marketing-strategies/retailers" className={itemListStyle}><div>Retailers marketing strategies →</div></a>
+
+
+                </div>
+            </div>
             <h2 className="text-2xl font-medium my-3">Posts</h2>
             {actualBlogs.map(i => <BlogItem i={i} />)}
 

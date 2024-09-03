@@ -27,6 +27,7 @@ export function BarChart({ data }: { data: ChartData<'bar'> }) {
   return <Bar options={{
     responsive: true,
 
+
     plugins: {
       title: {
         display: true,

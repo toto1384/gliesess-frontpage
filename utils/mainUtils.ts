@@ -43,3 +43,6 @@ export function kFormatter(num: number) {
         Math.abs(num) > 999 ? Math.sign(num) * ((Math.abs(num) / 1000).toFixed(1) as any) + 'k' :
             (Math.sign(num) * Math.abs(num)).toFixed(1)
 }
+
+
+export const itemListStyle = "bg-gray-50 pt-16 p-5 rounded bg-gradient-to-r from-blue-100/60 to-purple-100/60 text-xl w-full mr-4 items-end flex flex-row justify-end text-end hover:scale-[1.05] transition-all hover:from-blue-200/60 hover:to-purple-200/60"

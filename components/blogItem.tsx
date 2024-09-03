@@ -10,7 +10,7 @@ export function BlogItem({ i }: { i: BlogObject }) {
     return <div className="bg-gradient-to-r from-blue-100/60 to-purple-100/60 flex space-x-2 flex-col md:flex-row items-center rounded-xl m-2 border-blue-200 ">
         <Link href={href}>
             <div className="w-[122px] h-[122px]">
-                <Image className="ml-1  rounded-lg" width="122" height="122" src={`${domain}/blog/${i.image}`} alt={`${i.image} blog image`}></Image>
+                <Image className="ml-1 rounded-lg object-cover h-[122px] w-[122px]" width="122" height="122" src={`${domain}/blog/${i.image}`} alt={`${i.image} blog image`}></Image>
             </div>
         </Link>
         <div className="flex flex-col w-fit p-2">
