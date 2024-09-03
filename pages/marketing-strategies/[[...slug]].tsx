@@ -323,11 +323,11 @@ export async function getStaticPaths() {
 
     paths = [...paths, ...[...year, ...state, ...categories].map((post) => {
         // console.log(post)  
-        return { params: { slug: post._id }, }
+        return { params: { slug: [post._id] }, }
     })]
 
     console.log(paths)
 
     // { fallback: false } means other routes should 404
-    return { paths: paths.filter(i => i.params.slug), fallback: 'blocking' }
+    return { paths, fallback: 'blocking' }
 }
