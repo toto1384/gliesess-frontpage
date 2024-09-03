@@ -489,8 +489,6 @@ export async function getStaticPaths() {
         return { params: { slug: post.slug }, }
     })
 
-    console.log(paths)
-
     // { fallback: false } means other routes should 404
     return { paths, fallback: false }
 }

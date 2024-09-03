@@ -3,7 +3,7 @@ import type { AppProps } from 'next/app'
 import Head from 'next/head'
 import { Footer } from '../components/footer'
 import { DefaultSeo } from 'next-seo'
-import { SpeedInsights } from "@vercel/speed-insights/next"
+// import { SpeedInsights } from "@vercel/speed-insights/next"
 import posthog from "posthog-js"
 import { PostHogProvider } from 'posthog-js/react'
 import { domain } from '../utils/mainUtils'
@@ -79,7 +79,7 @@ function MyApp({ Component, pageProps }: AppProps) {
 				}}
 
 			/>
-			<SpeedInsights />
+			{/* <SpeedInsights /> */}
 			<Component {...pageProps} />
 			<Footer />
 		</PostHogProvider>

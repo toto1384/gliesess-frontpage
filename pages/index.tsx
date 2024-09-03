@@ -1,11 +1,9 @@
-import Head from 'next/head';
 import Image from 'next/image';
 import { AlternativeCTA, BasicNextSeo, CTA, Navbar, OrganizationStructuredData, TawkWidget } from '../components/navbar';
 import Link from 'next/link';
 import StickyBox from 'react-sticky-box';
 import { useSize } from '../utils/useSize';
 import React from 'react';
-import { NextSeo } from 'next-seo';
 import { domain, homePageTitle, itemListStyle, twitterHandle } from '../utils/mainUtils';
 import { HeroComponent } from '../components/heroComponent';
 

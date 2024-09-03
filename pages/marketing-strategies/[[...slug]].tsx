@@ -208,7 +208,6 @@ export async function getStaticProps(context: GetServerSidePropsContext) {
     const type = types.find(i => context.params?.slug?.includes(i._id?.toLowerCase().replaceAll(' ', '-').replaceAll('/', '-'))) ?? null
 
     const state = states.find(i => context.params?.slug?.includes(i._id?.toLowerCase().replaceAll(' ', '-'))) ?? null
-    console.log("🚀 ~ getServerSideProps ~ state:", state)
 
     const year = (context.params?.slug as string[] ?? []).find((i: string) => /\b\d{4}\b/.test(i)) ?? null
 
@@ -321,12 +320,10 @@ export async function getStaticPaths() {
 
     let paths: any[] = [];
 
-    paths = [...paths, ...[...year, ...state, ...categories].map((post) => {
+    paths = [...paths, ...[...state, ...categories].map((post) => {
         // console.log(post)  
         return { params: { slug: [post._id] }, }
     })]
-
-    console.log(paths)
 
     // { fallback: false } means other routes should 404
     return { paths, fallback: 'blocking' }

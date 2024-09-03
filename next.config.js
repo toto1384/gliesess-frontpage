@@ -114,6 +114,7 @@ async rewrites() {
 		]
 	},
   reactStrictMode: true,
+  swc:false,
   pageExtensions: ['ts', 'tsx', 'md', 'mdx'],
   // images: {
   //   loader: 'imgix',
