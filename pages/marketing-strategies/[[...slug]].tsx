@@ -321,7 +321,7 @@ export async function getStaticPaths() {
 
     let paths: any[] = [];
 
-    paths = [...paths, [...year, ...state, ...categories].map((post) => {
+    paths = [...paths, ...[...year, ...state, ...categories].map((post) => {
         // console.log(post)  
         return { params: { slug: post._id }, }
     })]
