@@ -2,7 +2,9 @@ import Image from "next/image";
 import { useSize } from "../utils/useSize";
 import { ReactNode } from "react";
 
-export const HeroComponent = ({ belowH1, cta, h1, imageAlt, imagePath }: { imageAlt: string, imagePath: string, h1: ReactNode, belowH1: ReactNode, cta: ReactNode }) => {
+export const HeroComponent = (
+    { belowH1, cta, h1, imageAlt, imagePath, customRitghtElement }:
+        { imageAlt: string, imagePath: string, h1: ReactNode, belowH1: ReactNode, cta: ReactNode, customRitghtElement?: ReactNode }) => {
     const size = useSize(true)
 
     return (
@@ -14,13 +16,13 @@ export const HeroComponent = ({ belowH1, cta, h1, imageAlt, imagePath }: { image
                     {cta}
                 </div>
             </section>
-            <div className='relative w-full max-w-[564px] md:h-[564px] h-[250px]'>
-                <Image
+            <div className='relative w-full max-w-[664px] md:h-[564px] h-[250px]'>
+                {customRitghtElement ? customRitghtElement : <Image
                     alt={imageAlt}
                     layout='fill' priority
                     src={imagePath}
                     className='object-cover object-top rounded-lg'
-                />
+                />}
             </div>
         </div>
     );

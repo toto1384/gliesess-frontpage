@@ -11,16 +11,16 @@ const Document = () => {
     const csp = `
     base-uri 'none';
     child-src 'none';
-		connect-src 'self' *.gliesess.com *.google.com https://*.googleapis.com *.google-analytics.com *.googletagmanager.com *.posthog.com *.convertkit.com *.emailjs.com *.tawk.to wss://*.tawk.to;
+		connect-src 'self' data: *.gliesess.com *.google.com https://*.googleapis.com *.wistia.com *.google-analytics.com *.googletagmanager.com *.posthog.com *.convertkit.com *.emailjs.com *.tawk.to wss://*.tawk.to;
 		default-src 'self';
-		font-src 'self' *.sendinblue.com *.tawk.to fonts.gstatic.com;
+		font-src 'self' data: *.sendinblue.com *.tawk.to fonts.gstatic.com *.wistia.com;
 		form-action 'self' *.convertkit.com *.tawk.to;
 		frame-src 'self' *.google.com *.google-analytics.com *.meetfox.com meetfox.com 'nonce-${nonce}' *.tawk.to *.youtube.com;
-		img-src 'self' data: *.tawk.to cdn.jsdelivr.net tawk.link s3.amazonaws.com *.2findlocal.com;
+		img-src 'self' data: *.tawk.to cdn.jsdelivr.net *.wistia.com tawk.link s3.amazonaws.com *.2findlocal.com;
 		manifest-src 'self';
-		media-src 'self';
+		media-src 'self' blob:;
 		object-src 'none';
-		script-src ${process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''} 'self' unpkg.com *.gliesess.com *.googletagmanager.com *.google-analytics.com *.google.com *.gstatic.com cdn.jsdelivr.net 'nonce-${nonce}' *.vercel-scripts.com *.convertkit.com *.tawk.to 'sha256-xMNk+iEs3UvYrk5oHnOqjx93iwXmn3fD+VhqxqoTocE=';
+		script-src ${process.env.NODE_ENV !== 'production' ? "'unsafe-eval'" : ''} 'self' *.wistia.com unpkg.com *.gliesess.com *.googletagmanager.com *.google-analytics.com *.google.com *.gstatic.com cdn.jsdelivr.net 'nonce-${nonce}' *.vercel-scripts.com *.convertkit.com *.tawk.to 'sha256-xMNk+iEs3UvYrk5oHnOqjx93iwXmn3fD+VhqxqoTocE=';
 		style-src 'self' *.google.com *.meetfox.com *.tawk.to 'unsafe-inline';
 		worker-src 'self' blob:;
   `
