@@ -6,6 +6,7 @@ import { useSize } from '../utils/useSize';
 import React from 'react';
 import { domain, homePageTitle, itemListStyle, twitterHandle } from '../utils/mainUtils';
 import { HeroComponent } from '../components/heroComponent';
+import { SocialProof } from '../components/socialProof';
 
 const Home = ({ posts }: { posts: any[] }) => {
 
@@ -50,6 +51,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 				cta={<> <CTA /> <AlternativeCTA /> </>} customRitghtElement={<div className='flex flex-col justify-center h-full my-5 mx-2 md:mx-0'>{vsl}</div>} imageAlt="Gliesess paid web design agency" imagePath='/paid-web-design-agency.webp'
 			/>
 			<SocialProof />
+
 			{/* <CTA /> */}
 
 			<section className='flex flex-col items-center max-w-[100vw]'>
@@ -57,7 +59,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 					<h2 className='text-2xl md:text-4xl font-semibold text-center'>Honestly now, is this the only way <br />to get customers for your business?</h2>
 					<p className='md:mt-10 text-center'>Stop running ineficient ads that convert less and less with time, while trying to reinvent the wheel each month. <br /> Organic social media is a bit better but still not that much engagement. What if there was a better way, <br /> and how long are you willing to wait before actually getting lots of clients?</p>
 
-					<p className='mt-7 md:mt-16 text-center md:text-start'>You can schedule a call with us and we'll show you the better way. Trackable, scalable, efficient.</p>
+					<p className='mt-7 md:mt-16 text-center md:text-start'>You can schedule a call with our <Link className="a" href={'/shopify-seo/experts'}>Shopify SEO experts</Link>  or WooCommerce SEO experts and we'll show you the better way. Trackable, scalable, efficient.</p>
 					<CTA className='mt-2 md:mt-5' />
 					<AlternativeCTA />
 				</div>
@@ -118,54 +120,6 @@ const Home = ({ posts }: { posts: any[] }) => {
 	)
 }
 
-
-const SocialProof = () => {
-	const size = useSize(true)
-
-
-	return (
-		<section className="w-full container md:my-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
-
-			{size.lmd && <hr className='w-full mb-7' />}
-			<div className="text-center md:pb-8">
-				<h2 className="text-3xl font-bold md:mb-2">Success Stories and Case Studies</h2>
-				<p className="text-gray-600">See how the people working with us achieve their objectives:</p>
-			</div>
-			<div className="grid justify-items-stretch grid-cols-1 md:grid-cols-3 gap-4 mx-2">
-				<div className="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-5 sm:p-6">
-					<Link className="a text-lg font-medium text-gray-900 mb-4" href={'/seo-case-studies/10x-internal-linking'}>
-						How we 10x the number of Google organic pages in 2 months for one of our clients
-					</Link>
-					<p>
-						Read exactly how we 10x the organic pages indexed on Google for one of our clients. Towards the end you are going to see the strategies we used to do it!
-					</p>
-				</div>
-				<div className="bg-white shadow-lg rounded-lg overflow-hidden px-4 py-5 sm:p-6">
-					<Link className="a text-lg font-medium text-gray-900 mb-4" href={'/seo-case-studies/10x-internal-linking'}>
-						How we got 4 hight-ticket deals(5-20k) in a month for one of our clients
-					</Link>
-					<p>
-						Read exactly how we 4 high-ticket deals for one of our clients. Towards the end you are going to see the strategies we used to do it!
-					</p>
-				</div>
-				<div className="bg-white shadow-lg rounded-lg overflow-hidden">
-					<div className="px-4 py-5 sm:p-6">
-						<blockquote>
-							<div className="text-lg font-medium text-gray-900 mb-4">
-								“His expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest, and most efficient way.„
-							</div>
-							<div className="flex items-center">
-								<div className="">
-									<div className="text-sm font-medium text-gray-900">David Lehnhardt</div>
-								</div>
-							</div>
-						</blockquote>
-					</div>
-				</div>
-			</div>
-		</section>
-	);
-};
 
 const FeaturesAndObjections = () => {
 

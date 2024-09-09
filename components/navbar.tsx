@@ -6,7 +6,6 @@ import { useSize } from "../utils/useSize";
 import { BrandJsonLd, LogoJsonLd, NextSeo, NextSeoProps, OrganizationJsonLd } from "next-seo";
 import Head from "next/head";
 import { slogan } from "../utils/mainUtils";
-import { NonceContext } from "../pages/_document";
 
 
 export const OrganizationStructuredData = () => {
@@ -130,10 +129,9 @@ export function AlternativeCTA() {
 
 
 export const TawkWidget = () => {
-    const nonce = useContext(NonceContext)
     return <>
         <Head>
-            <script nonce={nonce} type="text/javascript" dangerouslySetInnerHTML={{
+            <script type="text/javascript" dangerouslySetInnerHTML={{
                 __html: `
             var Tawk_API=Tawk_API||{ }, Tawk_LoadStart=new Date();
             (function(){

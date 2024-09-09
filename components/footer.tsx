@@ -28,6 +28,7 @@ export function Footer() {
                     <Link className="a" href={'/services'}>Services</Link>
                     <Link className="a" href={'/marketing-strategies'}>Marketing strategy breakdowns</Link>
                     <Link className="a" href={`/seo-case-studies`}>Case Studies</Link>
+                    <Link className="a" href={'/shopify-seo/experts'}>Our Shopify SEO experts</Link>
                 </div>
                 <div className="w-full md:w-1/3 text-center items-center flex flex-col md:items-end md:text-right">
                     <h3 className="font-bold text-xl mb-4">Connect</h3>

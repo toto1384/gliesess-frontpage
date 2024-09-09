@@ -13,24 +13,7 @@ const nextSafeHeaders = nextSafe({
 		geolocation: '*'
 	},
 	referrerPolicy: "no-referrer-when-downgrade",
-	contentSecurityPolicy: {
-		"base-uri": "'none'",
-		"child-src": "'none'",
-		"connect-src": ["*", "'unsafe-inline'", "'unsafe-eval'","*.gliesess.com", "*.wistia.com", "data:",],
-		"default-src": "'self'",
-		"font-src": ["'self'", "data:",  "*.sendinblue.com", "*.tawk.to", "fonts.gstatic.com","*.wistia.com"],
-		"form-action": ["*", "'unsafe-inline'", "'unsafe-eval'"],
-		"frame-ancestors": "self",
-		"frame-src": ["*", "'unsafe-inline'", "'unsafe-eval'"],
-		"img-src": ["'self'", "data:", "*.tawk.to", "cdn.jsdelivr.net", "*.wistia.com", "tawk.link", "s3.amazonaws.com","*.clearbit.com", '*.2findlocal.com'],
-		"manifest-src": "'self'",
-		"media-src": ["'self'","blob:"],
-		"object-src": "'none'",
-		"prefetch-src": false,
-		"script-src": ["*", "'unsafe-inline'", "'unsafe-eval'"],
-		"style-src": ["'self'", "'unsafe-inline'", "*.google.com","*.meetfox.com","*.tawk.to"],
-		"worker-src": ["'self'","blob:"],
-	},
+  contentSecurityPolicy:false,
  }).filter(i=>i.key!=='Feature-Policy' && i.key !=='Permissions-Policy')
 
  const fullHeaders = [

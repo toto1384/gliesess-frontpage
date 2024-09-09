@@ -101,6 +101,9 @@ dependencies:
   react:
     specifier: ^18.3.1
     version: 18.3.1
+  react-accessible-accordion:
+    specifier: ^5.0.0
+    version: 5.0.0(react-dom@18.3.1)(react@18.3.1)
   react-chartjs-2:
     specifier: ^5.2.0
     version: 5.2.0(chart.js@4.4.4)(react@18.3.1)
@@ -3627,6 +3630,16 @@ packages:
     resolution: {integrity: sha512-iHZWu+q3IdFZFX36ro/lKBkSvfkztY5Y7HMiPlOUjhupPcG2JMfst2KKEpu5XndviX/3UhFbRngUPNKtgvtZiA==}
     dependencies:
       inherits: 2.0.4
+    dev: false
+
+  /react-accessible-accordion@5.0.0(react-dom@18.3.1)(react@18.3.1):
+    resolution: {integrity: sha512-MT2obYpTgLIIfPr9d7hEyvPB5rg8uJcHpgA83JSRlEUHvzH48+8HJPvzSs+nM+XprTugDgLfhozO5qyJpBvYRQ==}
+    peerDependencies:
+      react: ^16.3.2 || ^17.0.0 || ^18.0.0
+      react-dom: ^16.3.3 || ^17.0.0 || ^18.0.0
+    dependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
     dev: false
 
   /react-chartjs-2@5.2.0(chart.js@4.4.4)(react@18.3.1):

@@ -4,6 +4,7 @@ import { BasicNextSeo, CTA, Navbar } from "../../components/navbar"
 import { BlogItem } from "../../components/blogItem"
 import { CenteredCardPage } from "../../components/centeredCardPage"
 import { domain } from "../../utils/mainUtils"
+import Link from "next/link"
 
 
 const firstSlug = "seo-case-studies"
@@ -25,7 +26,7 @@ export default function Applied({ blogs }: InferGetServerSidePropsType<typeof ge
             <h1 className="text-3xl font-semibold">SEO Case studies</h1>
 
             <p className="mt-10 whitespace-pre-line">
-                Ever felt like your website is lost in a sea of internet noise? Yeah, we've all been there. But fear not! {"\n\n"}We're like the treasure map to getting your site noticed. We've helped businesses big and small turn their online presence from a tumbleweed into a bustling marketplace. Let's make your online presence as visible as a neon sign in the desert night.
+                Ever felt like your website is lost in a sea of internet noise? Yeah, we've all been there. {"\n\n"}Our <Link className="a" href={'/shopify-seo/experts'}>Shopify SEO experts</Link>  or WooCommerce SEO experts are like the treasure map to getting your site noticed. We've helped businesses big and small turn their online presence from a tumbleweed into a bustling marketplace. Let's make your online presence as visible as a neon sign in the desert night.
             </p>
 
             <CTA className="m-auto" customText="Become a Case Study" />
