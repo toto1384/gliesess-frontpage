@@ -328,3 +328,16 @@ export async function getStaticPaths() {
     // { fallback: false } means other routes should 404
     return { paths, fallback: 'blocking' }
 }
+
+
+// talk about the certain challenges each industry faces, be it being low ticket or high ticket
+// have a big talk about online and the pro's and cons of each strategy
+// have it be a lot of words
+
+const marketingStrategiesText = [
+    {
+        title: 'Fashion/Apparel',
+        description: `
+#Fashion marketing strategies`
+    }
+]

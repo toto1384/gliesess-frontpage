@@ -68,10 +68,10 @@ const Home = ({ posts }: { posts: any[] }) => {
 				<div className='flex flex-col w-screen my-10 items-center'>
 					<div className='flex flex-col md:flex-row items-center justify-around w-full'>
 						<Image alt='Gliesess Paid Ads Marketing Channels' width={imageSize} height={imageSize} className='rounded-full object-cover aspect-square' src={'/paid-ads-marketing-channel.webp'} />
-						<div className="px-2 md:w-[50%] md:text-center">
-							<h2 className="text-3xl text-center font-bold mb-2">Meta/Google Ads are getting worse day by day</h2>
+						<div className="px-2 md:w-[50%]">
+							<h2 className="text-3xl font-bold mb-2">Meta/Google Ads are getting worse day by day</h2>
 							<p className="text-gray-600">With Meta/Google ads you are trying to reinvent the wheel each month trying to get a creative to convert, but only temporarly. What if there's a way to make your marketing efforts yield results month after month.</p>
-							<div className='flex flex-col items-start w-fit mt-5'>
+							<div className='flex flex-col items-start text-start w-fit mt-5'>
 								<p>❌ Every month you start from 0</p>
 								<p>❌ Paid ads convert worse the more people you try to reach out</p>
 								<p>❌ Have to film creatives or write a ton of copy</p>
@@ -81,10 +81,10 @@ const Home = ({ posts }: { posts: any[] }) => {
 					{size.lmd && <hr className='w-full my-5' />}
 					<div className='flex flex-col md:flex-row-reverse items-center justify-around w-full'>
 						<Image alt='Gliesess Social Media Marketing' width={imageSize} height={imageSize} className='rounded-full aspect-square object-cover' src={'/social-media-marketing.webp'} />
-						<div className="px-2 md:w-[50%] md:text-center">
-							<h2 className="text-3xl text-center font-bold mb-2">Social media isn't getting that much engagement</h2>
+						<div className="px-2 md:w-[50%]">
+							<h2 className="text-3xl font-bold mb-2">Social media isn't getting that much engagement</h2>
 							<p className="text-gray-600">With even big brands having only 10-30 likes on their post, social media is hard to grow and it usually requires investment in paid promotion</p>
-							<div className='flex flex-col items-start w-fit mt-5'>
+							<div className='flex flex-col items-start text-start w-fit mt-5'>
 								<p>❌ Organic doesn't work that well for most platforms, Paid promotion being necessary</p>
 								<p>❌ Very low ROI(You have to post for months before getting a couple of clients)</p>
 								<p>❌ Low intent: People on social media don't want to buy products, they just want to be entertained</p>
@@ -94,6 +94,25 @@ const Home = ({ posts }: { posts: any[] }) => {
 				</div>
 			</section>
 			{/* <WhatCost /> */}
+
+			<div className="flex flex-col md:flex-row justify-around space-y-5 w-full alternateBg mt-20 items-center">
+				<div className="md:w-[30vw] w-full flex flex-col items-center text-center">
+					<Image alt="Gliesess woocommerce seo services" className="object-center object-cover rounded-full w-[300px] h-[300px]" width={300} height={300} src={'/woocommerce-seo-services.webp'} />
+					<h2 className="text-3xl font-bold py-2">Woocommerce SEO services</h2>
+					<p>Grow your Woocommerce store in months not years with our 6-step efficient process aimed to optimize how fast you can scale and rank in the page 1 on Google.</p>
+				</div>
+				<div className="md:w-[30vw] w-full flex flex-col items-center text-center">
+					<Image alt="Gliesess shopify seo services" className="object-center object-cover rounded-full w-[300px] h-[300px]" width={300} height={300} src={'/shopify-seo-services.webp'} />
+					<h2 className="text-3xl font-bold py-2"><Link className="a" href={'/shopify-seo/services'}>Shopify SEO services</Link></h2>
+					<p>Specialized Shopify SEO services tailored specifically for your shop. We follow our efficient 6-step e-commerce process, aimed at delivering results faster.</p>
+				</div>
+				<div className="md:w-[30vw] w-full flex flex-col items-center text-center">
+					<Image alt="Gliesess ecommerce services box" className="object-center object-cover rounded-full w-[300px] h-[300px]" width={300} height={300} src={'/ecommerce-box.webp'} />
+					<h2 className="text-3xl font-bold py-2">Ecommerce SEO services</h2>
+					<p>General e-commerce strategy for everything that isn't Woocommerce or Shopify. Get your shop the love it deserves with Search engine optimization.</p>
+				</div>
+			</div>
+
 
 			<FeaturesAndObjections />
 			{/* <CTA className='mb-16' /> */}

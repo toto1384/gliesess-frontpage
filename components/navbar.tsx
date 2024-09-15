@@ -6,6 +6,7 @@ import { useSize } from "../utils/useSize";
 import { BrandJsonLd, LogoJsonLd, NextSeo, NextSeoProps, OrganizationJsonLd } from "next-seo";
 import Head from "next/head";
 import { slogan } from "../utils/mainUtils";
+import { MdDesignServices, MdSupportAgent } from "react-icons/md";
 
 
 export const OrganizationStructuredData = () => {
@@ -85,9 +86,37 @@ export const Navbar = ({ alwaysWhite, ae }: { alwaysWhite?: boolean, ae?: boolea
 
     const children = <div className='flex flex-row justify-between'>
         {/* <Link href="/blog" ><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link> */}
-        {size.gmd && <Link className="font-semibold" href="/services"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Services</p></Link>}
 
         <Link className="font-semibold" href="/seo-case-studies"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Case Studies</p></Link>
+
+        {size.gmd && <div className={`${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} rounded transition-all mr-2 cursor-pointer group relative flex items-center space-x-1`}>
+            <Link className="font-semibold" href="/services"><p className={`px-4`}>Services</p></Link>
+            <button className="shrink-0 p-1">
+                <span className="sr-only">Show submenu for "Flyout Menu"</span>
+                <svg className="w-3 h-3 fill-slate-500" xmlns="http://www.w3.org/2000/svg" width="12" height="12">
+                    <path d="M10 2.586 11.414 4 6 9.414.586 4 2 2.586l4 4z" />
+                </svg>
+            </button>
+            <ul className="invisible group-hover:visible origin-top-right absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-white border border-slate-200 p-2 rounded-lg shadow-xl">
+                <li>
+                    <Link className="text-slate-800 hover:bg-slate-50 flex items-center p-2" href="/shopify-seo/experts">
+                        <div className="flex items-center justify-center bg-white border border-slate-200 rounded shadow-sm h-7 w-7 shrink-0 mr-3">
+                            <MdSupportAgent />
+                        </div>
+                        <span className="whitespace-nowrap">Shopify SEO experts</span>
+                    </Link>
+                </li>
+                <li>
+                    <Link className="text-slate-800 hover:bg-slate-50 flex items-center p-2" href="/shopify-seo/services">
+                        <div className="flex items-center justify-center bg-white border border-slate-200 rounded shadow-sm h-7 w-7 shrink-0 mr-3">
+                            <MdDesignServices />
+                        </div>
+                        <span className="whitespace-nowrap">Shopify SEO Services</span>
+                    </Link>
+                </li>
+
+            </ul>
+        </div>}
 
         {size.gmd && <Link className="font-semibold" href="/blog"><p className={`px-4 ${isScrolled ? 'hover:bg-gray-300' : 'hover:bg-white'} mr-2 cursor-pointer rounded transition-all py-3`}>Blog</p></Link>}
     </div>

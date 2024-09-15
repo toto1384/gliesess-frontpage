@@ -38,6 +38,27 @@ const createSitemap = () =>
             <lastmod>${format(new Date(), 'yyyy-MM-dd')}</lastmod>
             <changefreq>daily</changefreq>
         </url>
+
+        <url>
+            <loc>${domain}/shopify-seo/services</loc>
+            <priority>0.8</priority>
+            <lastmod>2024-09-15-</lastmod>
+            <changefreq>monthly</changefreq>
+        </url>
+
+        <url>
+            <loc>${domain}/shopify-seo/experts</loc>
+            <priority>0.8</priority>
+            <lastmod>2024-09-15-</lastmod>
+            <changefreq>monthly</changefreq>
+        </url>
+
+        <url>
+            <loc>${domain}/seo-case-studies</loc>
+            <priority>0.8</priority>
+            <lastmod>2024-09-15-</lastmod>
+            <changefreq>monthly</changefreq>
+        </url>
         
     </urlset>`;
 

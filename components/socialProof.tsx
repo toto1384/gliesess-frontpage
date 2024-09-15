@@ -7,7 +7,7 @@ export const SocialProof = () => {
 
 
     return (
-        <section className="w-full container md:my-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
+        <section className="w-full md:my-10 flex flex-col items-center justify-center px-4 sm:px-6 lg:px-8 py-12">
 
             {size.lmd && <hr className='w-full mb-7' />}
             <div className="text-center md:pb-8">
@@ -35,7 +35,7 @@ export const SocialProof = () => {
                     <div className="px-4 py-5 sm:p-6">
                         <blockquote>
                             <div className="text-lg font-medium text-gray-900 mb-4">
-                                “His expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest, and most efficient way.„
+                                “(The founder's) ...expertise exceeded my expectations. He consulted and educated me on tech for my app to find the best, cheapest, and most efficient way.„
                             </div>
                             <div className="flex items-center">
                                 <div className="">

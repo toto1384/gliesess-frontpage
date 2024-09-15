@@ -79,9 +79,9 @@ const Home = ({ posts }: { posts: any[] }) => {
             <HeroComponent
                 belowH1={<>
                     <p className="text-lg text-gray-700 mb-8 max-w-5xl">
-                        We're <strong>Shopify SEO experts</strong> increasing traffic using a <strong>6-step SEO process</strong> tailored for E-commerce.
+                        We are Shopify SEO experts increasing traffic using a 6-step SEO process tailored specifically for E-commerce brands and dropshippers.
                     </p>
-                    <p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call and we'll show you our strategy.</strong></p>
+                    <p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call (no risk/cost) and we'll show you our strategy.</strong></p>
                 </>}
                 h1={<>
                     <strong>Shopify SEO Experts</strong> {size.gmd && <br />}
@@ -93,12 +93,12 @@ const Home = ({ posts }: { posts: any[] }) => {
             <SocialProof />
             {/* <CTA /> */}
 
-            <section className='flex flex-col w-full items-center max-w-[100vw]'>
-                <div className='flex w-full flex-col items-center alternateBg py-16 px-2'>
+            <section className='flex flex-col items-center max-w-[100vw]'>
+                <div className='container flex flex-col items-center alternateBg w-screen py-20 px-2'>
                     <h2 className='text-2xl md:text-4xl font-semibold text-center'>Is this the only way <br />to get customers for your Shopify store?</h2>
-                    <p className='md:mt-10 text-center max-w-4xl whitespace-pre-wrap'>Even though TikTok and other social media platforms are <strong>great for generating traffic</strong> to your online store, you're relying on <strong>seasonal trends</strong>. Not only is this not ideal for <strong>consistency</strong>, but it's not guaranteed that every campaign or product will work. {'\n\n'}With  <Link className='a' href={'/shopify-seo/services'}>Shopify SEO services</Link> you're not convincing anyone to buy your products, but <strong>position your e-commerce store in front of their eyes</strong> when they are ready for purchase.</p>
+                    <p className='md:mt-10 text-center'>Even though TikTok and other social media platforms are great for generating traffic to your online store, you're relying on seasonal trends. Not only is this not ideal for consistency, but it's not guaranteed that every campaign or product will work. With Shopify search engine optimization you're not convincing anyone to buy your products, but position your e-commerce store in front of their eyes when they are ready for purchase.</p>
 
-                    <p className='mt-7 md:mt-16 text-center'>Feel free to schedule a call with our Shopify experts in SEO to see how you can generate sales consistently.</p>
+                    <p className='mt-7 md:mt-16 text-center md:text-start'>Feel free to schedule a call with our Shopify experts in SEO to see how you can generate sales consistently.</p>
                     <CTA className='mt-2 md:mt-5' />
                     <AlternativeCTA />
                 </div>
@@ -107,10 +107,10 @@ const Home = ({ posts }: { posts: any[] }) => {
                 <div className='flex flex-col w-screen my-10 items-center'>
                     <div className='flex flex-col md:flex-row items-center justify-around w-full'>
                         <Image alt='Gliesess Facebook engagement' width={imageSize} height={imageSize} className='rounded-full object-cover aspect-square' src={'/facebook-engagement.webp'} />
-                        <div className="px-2 md:w-[50%]">
-                            <h2 className="text-3xl font-bold mb-2">Meta/Google Ads are driving inconsistent traffic to your Shopify store</h2>
+                        <div className="px-2 md:w-[50%] md:text-center">
+                            <h2 className="text-3xl text-center font-bold mb-2">Meta/Google Ads are driving inconsistent traffic to your Shopify store</h2>
                             <p className="text-gray-600">You are not alone if you are tired of ads working great for small audiences yet poorly for bigger ones.</p>
-                            <div className='flex flex-col items-start text-start w-fit mt-5'>
+                            <div className='flex flex-col items-start w-fit mt-5'>
                                 <p>❌ Paid ads convert worse the more people you try to reach out because you are less targeted</p>
                                 <p>❌ Every month you start from 0</p>
                                 <p>❌ Have to film creatives or write a ton of copy</p>
@@ -120,10 +120,10 @@ const Home = ({ posts }: { posts: any[] }) => {
                     {size.lmd && <hr className='w-full my-5' />}
                     <div className='flex flex-col md:flex-row-reverse items-center justify-around w-full'>
                         <Image alt='Gliesess Seo alternative tiktok' width={imageSize} height={imageSize} className='rounded-full aspect-square object-cover' src={'/organic-marketing-tiktok.webp'} />
-                        <div className="px-2 md:w-[50%]">
-                            <h2 className="text-3xl font-bold mb-2">Organic social is inconsistent and sometimes luck-based</h2>
+                        <div className="px-2 md:w-[50%] md:text-center">
+                            <h2 className="text-3xl text-center font-bold mb-2">Organic social is inconsistent and sometimes luck-based</h2>
                             <p className="text-gray-600">You have to test lots of creatives until one blows up, and even that is a temporary success. A healthy business requires consistent cashflow</p>
-                            <div className='flex flex-col items-start text-start w-fit mt-5'>
+                            <div className='flex flex-col items-start w-fit mt-5'>
                                 <p>❌ Only some creatives will have success and bring sales</p>
                                 <p>❌ Doesn't work that well with boring products, even though those sell the most</p>
                                 <p>❌ Low intent: People on social media don't want to buy products, they just want to be entertained</p>
@@ -133,12 +133,12 @@ const Home = ({ posts }: { posts: any[] }) => {
                     {size.lmd && <hr className='w-full my-5' />}
                     <div className='flex flex-col md:flex-row items-center justify-around w-full'>
                         <Image alt='Gliesess SEO Alternative' width={imageSize} height={imageSize} className='rounded-full object-cover aspect-square' src={'/seo-illustration.webp'} />
-                        <div className="px-2 md:w-[50%]">
-                            <h2 className="text-3xl font-bold mb-2">SEO remains the most efficient way to diversify your traffic while making your revenue more consistent</h2>
+                        <div className="px-2 md:w-[50%] md:text-center">
+                            <h2 className="text-3xl text-center font-bold mb-2">SEO remains the most efficient way to diversify your traffic while making your revenue more consistent</h2>
                             <p className="text-gray-600">SEO remains the big daunting task that your Shopify store needs to truly become valuable.</p>
-                            <div className='flex flex-col items-start text-start w-fit mt-5'>
+                            <div className='flex flex-col items-start w-fit mt-5'>
                                 <p>✅ Diversify Your Traffic Generation and build a long-term business</p>
-                                <p>✅ Never start from 0 each month again - Build a compound machine with <Link className='a' href={'/shopify-seo/services'}>Shopify SEO services</Link></p>
+                                <p>✅ Never start from 0 each month again - Build a compound machine</p>
                                 <p>✅ Stop looking for trends and build a healthy business</p>
                                 <p>✅ 2X Your Sales Revenue with little marketing efforts</p>
                             </div>
@@ -184,13 +184,13 @@ const Home = ({ posts }: { posts: any[] }) => {
             </div>
 
 
-            <h2 className='text-2xl text-center mt-20'>Get in Touch with Our Shopify SEO Consultant for a Quote</h2>
-            <p className='text-center'>If you truly want to make a predictable traffic machine and escape the ads hamster wheel feel free to book a call below. Only if we see that we can help you scale, we'll offer help</p>
+            <h2 className='text-2xl text-start mt-20'>Get in Touch with Our Shopify SEO Consultant for a Quote</h2>
+            <p>If you truly want to make a predictable traffic machine and escape the ads hamster wheel feel free to book a call below. Only if we see that we can help you scale, we'll offer help</p>
             <CTA className='mt-2 md:mt-5' />
             <AlternativeCTA />
 
             <div className='w-full px-2 md:px-16 my-16'>
-                <h2 className='text-3xl mb-2 font-semibold mx-2'>Our Shopify SEO expert process</h2>
+                <h2 className='text-3xl mb-2 font-semibold mx-2'>Our Shopify SEO expert</h2>
                 <TimelineView data={data} />
                 <p className='mx-2 mt-5 text-lg'>Our unique advantage lies in optimizing this process for doing it at scale. Nobody does all of the products and collection pages. By using these strategies on all pages on the site, we outrank our competitors where they're too lazy to put in the effort.</p>
             </div>

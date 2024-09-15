@@ -150,6 +150,25 @@ export default function ServicesPage() {
 
 
 
+        <div className="flex flex-col md:flex-row justify-around space-y-5 w-full alternateBg mt-20 items-center">
+            <div className="md:w-[30vw] w-full flex flex-col items-center text-center">
+                <Image alt="Gliesess woocommerce seo services" className="object-center object-cover rounded-full w-[300px] h-[300px]" width={300} height={300} src={'/woocommerce-seo-services.webp'} />
+                <h2 className="text-3xl font-bold py-2">Woocommerce SEO services</h2>
+                <p>Grow your Woocommerce store in months not years with our 6-step efficient process aimed to optimize how fast you can scale and rank in the page 1 on Google.</p>
+            </div>
+            <div className="md:w-[30vw] w-full flex flex-col items-center text-center">
+                <Image alt="Gliesess shopify seo services" className="object-center object-cover rounded-full w-[300px] h-[300px]" width={300} height={300} src={'/shopify-seo-services.webp'} />
+                <h2 className="text-3xl font-bold py-2"><Link className="a" href={'/shopify-seo/services'}>Shopify SEO services</Link></h2>
+                <p>Specialized Shopify SEO services tailored specifically for your shop. We follow our efficient 6-step e-commerce process, aimed at delivering results faster.</p>
+            </div>
+            <div className="md:w-[30vw] w-full flex flex-col items-center text-center">
+                <Image alt="Gliesess ecommerce services box" className="object-center object-cover rounded-full w-[300px] h-[300px]" width={300} height={300} src={'/ecommerce-box.webp'} />
+                <h2 className="text-3xl font-bold py-2">Ecommerce SEO services</h2>
+                <p>General e-commerce strategy for everything that isn't Woocommerce or Shopify. Get your shop the love it deserves with Search engine optimization.</p>
+            </div>
+        </div>
+
+
         {/* images explanation */}
         <div className="flex flex-col-reverse md:flex-row w-full alternateBg mt-20 items-center">
             <div className="flex md:w-[50vw] w-full flex-col items-start px-2 md:px-16 my-5">
