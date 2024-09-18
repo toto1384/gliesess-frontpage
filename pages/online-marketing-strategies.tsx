@@ -75,7 +75,7 @@ const Home = ({ posts }: { posts: any[] }) => {
                     90 Online Marketing Strategies {size.gmd && <br />}
                     <strong>To study and analyze</strong>. {size.gmd && <br />}
                 </>}
-                cta={browseStrategiesCta} imageAlt="Gliesess online marketing strategies" imagePath='/marketing-strategies.png' imgClassName='border-2'
+                cta={browseStrategiesCta} imageAlt="Gliesess online marketing strategies" imagePath='/marketing-strategies.webp' imgClassName='border-2'
             />
 
             <section className='flex flex-col items-center max-w-[100vw]'>

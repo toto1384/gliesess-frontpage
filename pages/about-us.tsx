@@ -14,7 +14,7 @@ const emiSchema = `{
 "@context": "https://schema.org",
 "@type": "Person",
 "name": "Emil Sandu",
-"image": "https://www.gliesess.com/emil-sandu-profile-picture.jpeg",
+"image": "https://www.gliesess.com/emil-sandu-profile-picture.webp",
 "sameAs": [
     "https://www.facebook.com/emi.sandu.3"
 ],
@@ -117,7 +117,7 @@ export default function AboutUs({ }: {}) {
                 <div className="flex flex-col items-center my-5">
                     <div className="mx-10" style={{ width: `${imageSize}px`, height: `${imageSize}px` }}>
                         <Image
-                            src={'/emil-sandu-profile-picture.jpeg'} alt="Alex Totolici Photo"
+                            src={'/emil-sandu-profile-picture.webp'} alt="Alex Totolici Photo"
                             className="rounded-full border-blue-950 border-8 aspect-square object-cover object-top"
                             width={imageSize} height={imageSize}
                         />
