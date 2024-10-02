@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 
-export const ProgressBar = () => {
+export const ProgressBar = ({ onUpdate }: { onUpdate?: (scroll: number) => any }) => {
     //Width State
     const [width, setWidth] = useState(0);
     // scroll function
@@ -12,6 +12,7 @@ export const ProgressBar = () => {
         var percent = (ScrollTop / (ScrollHeight - el.clientHeight)) * 100;
         // store percentage in state
         setWidth(percent);
+        if (onUpdate) onUpdate(percent);
     };
 
     useEffect(() => {

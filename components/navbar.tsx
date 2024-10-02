@@ -6,7 +6,7 @@ import { useSize } from "../utils/useSize";
 import { BrandJsonLd, LogoJsonLd, NextSeo, NextSeoProps, OrganizationJsonLd } from "next-seo";
 import Head from "next/head";
 import { slogan } from "../utils/mainUtils";
-import { MdDesignServices, MdSupportAgent } from "react-icons/md";
+import { MdBusiness, MdDesignServices, MdSupportAgent } from "react-icons/md";
 
 
 export const OrganizationStructuredData = () => {
@@ -112,6 +112,15 @@ export const Navbar = ({ alwaysWhite, ae }: { alwaysWhite?: boolean, ae?: boolea
                             <MdDesignServices />
                         </div>
                         <span className="whitespace-nowrap">Shopify SEO Services</span>
+                    </Link>
+                </li>
+
+                <li>
+                    <Link className="text-slate-800 hover:bg-slate-50 flex items-center p-2" href="/shopify-seo/agency">
+                        <div className="flex items-center justify-center bg-white border border-slate-200 rounded shadow-sm h-7 w-7 shrink-0 mr-3">
+                            <MdBusiness />
+                        </div>
+                        <span className="whitespace-nowrap">Shopify SEO agency</span>
                     </Link>
                 </li>
 

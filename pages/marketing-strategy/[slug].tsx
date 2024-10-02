@@ -14,12 +14,13 @@ import { useSize } from "../../utils/useSize"
 import { RetailStrategyComponent, retailStrategyPageName } from "../../components/retailStrategyComponent"
 import { FaFacebook, FaGlobe, FaInstagram, FaLinkedin, FaPinterest, FaTwitter, FaYoutube } from "react-icons/fa"
 import { IconType } from "react-icons"
-import React from "react"
+import React, { useState } from "react"
 import Head from "next/head"
 import { authors, } from '../../utils/blog'
 import { AuthorBox } from "../../components/blogItem"
 import { dbConnect, getBlogModel, getCompanyModel } from "../../utils/db"
 import { format } from "date-fns"
+import { Dialog } from "../../components/radixDialog"
 
 
 export default function Applied({ company, similarCompanies }: InferGetServerSidePropsType<typeof getStaticProps>) {
@@ -52,6 +53,15 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
     const url = `${domain}/marketing-strategy/${company.slug}`
 
     const datePublished = '"2024-04-02"'
+
+    const [hasShownPopup, setHasShownPopup] = useState(false)
+    const [isPopupOpen, setIsPopupOpen] = useState(false)
+
+    const autoSubmit = async (s: string) => {
+        const res = await fetch('/api/setEcommerce', { body: JSON.stringify({ response: s }), method: 'POST' })
+        console.log(await res.json(), res.status)
+        setIsPopupOpen(false)
+    }
 
     return <div className="flex flex-col items-center">
 
@@ -184,7 +194,39 @@ export default function Applied({ company, similarCompanies }: InferGetServerSid
 
 
         <div className={`top-0 z-30 w-full`}><Navbar /></div>
-        <StickyBox className='z-50 w-full'><ProgressBar /></StickyBox>
+        <StickyBox className='z-50 w-full'><ProgressBar onUpdate={(percent) => {
+            if (percent > 35 && percent < 45 && !hasShownPopup && !isPopupOpen) {
+                setHasShownPopup(true)
+                setIsPopupOpen(true)
+            }
+        }} /></StickyBox>
+
+        <Dialog closeIcon open={isPopupOpen} onClose={() => setIsPopupOpen(false)} mediumWidth>
+            <div className="flex flex-col md:flex-row md:min-w-[40rem]">
+                <div className="relative h-52 md:h-96 md:w-[50%]">
+                    <Image
+                        alt={"Ecommerce boxes"}
+                        layout='fill' priority
+                        src={"/ecommerce-boxes.webp"}
+                        className={`object-cover object-top rounded-lg`}
+                    />
+
+                </div>
+                <div className="w-[50%] mx-5 ">
+                    <h2 className="text-xl mt-5">Do you own an E-commerce store? </h2>
+                    <input type="radio" id="yes" name="response" value="yes" className="cursor-pointer" onChange={() => autoSubmit('yes')} />
+                    <label htmlFor="yes" className="px-2 cursor-pointer">Yes</label><br />
+
+                    <input type="radio" id="no" name="response" value="no" className="cursor-pointer" onChange={() => autoSubmit('no')} />
+                    <label htmlFor="no" className="px-2 cursor-pointer">No</label><br />
+
+                    <input type="radio" id="not-yet" name="response" value="not-yet" className="cursor-pointer" onChange={() => autoSubmit('not-yet')} />
+                    <label htmlFor="not-yet" className="px-2 cursor-pointer">Not yet</label>
+
+                </div>
+
+            </div>
+        </Dialog>
         <img alt='Background image' src="/wave.svg" className='blur-3xl h-[80vh] w-[100vw] top-0 absolute object-cover -z-10' />
         <div className="mb-20 mx-auto flex flex-col md:flex-row">
 

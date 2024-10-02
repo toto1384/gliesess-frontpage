@@ -1,7 +1,11 @@
 import { z } from "zod";
-import { CompanySchema, BlogSchema } from "./db";
+import { CompanySchema, BlogSchema, KWSSchema } from "./db";
 
 export type CompanyObject = z.infer<typeof CompanySchema>;
+
+export type KWSObject = z.infer<typeof KWSSchema>;
+
+
 export type BlogObject = z.infer<typeof BlogSchema>;
 
 export const blogItemProjection = {

@@ -25,7 +25,7 @@ const Home = ({ posts }: { posts: any[] }) => {
     const imageSize = size.gmd ? 450 : 250
 
 
-    const description = "Meet Gliesess - A team of Shopify SEO experts ready to help you increase your store traffic and rely less on Meta and Google ads | Gliesess"
+    const description = "Discover a Shopify SEO agency which is specialized on e-commerce SEO only. Our attention is focused on mastering only one craft.| Gliesess"
     const url = `${domain}/shopify-seo/experts`
 
     const data = [
@@ -69,7 +69,7 @@ const Home = ({ posts }: { posts: any[] }) => {
 
     return (
         <div className="flex min-h-screen flex-col items-center justify-center bg-svg py-2">
-            <BasicNextSeo title={"Shopify SEO experts: Everything you need to get off the ads Kool Aid"} description={description} url={url} />
+            <BasicNextSeo title={"Shopify SEO agency: Jack of few trades, master of one."} description={description} url={url} />
             <TawkWidget />
             <OrganizationStructuredData />
 
@@ -79,14 +79,14 @@ const Home = ({ posts }: { posts: any[] }) => {
             <HeroComponent
                 belowH1={<>
                     <p className="text-lg text-gray-700 mb-8 max-w-5xl">
-                        We are Shopify SEO experts increasing traffic using a 6-step SEO process tailored specifically for E-commerce brands and dropshippers.
+                        We are a Shopify SEO Agency increasing traffic using a 6-step SEO process tailored specifically for E-commerce brands and dropshippers.
                     </p>
-                    <p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call (no risk/cost) and we'll show you our strategy.</strong></p>
+                    <p className='mb-2 md:mb-7' id='testimonials'><strong>Book a 30-minute call and we'll show you our strategy.</strong></p>
                 </>}
                 h1={<>
-                    <strong>Shopify SEO Experts</strong> {size.gmd && <br />}
-                    Double your store traffic or {size.gmd && <br />}
-                    <strong>you don't pay</strong>. {size.gmd && <br />}
+                    <strong>Shopify SEO agency</strong> {size.gmd && <br />}
+                    Jack of few trades{size.gmd && <br />}
+                    <strong>Master of One</strong>. {size.gmd && <br />}
                 </>}
                 cta={<> <CTA /> <AlternativeCTA /> </>} customRitghtElement={<div className='flex flex-col justify-center h-full my-5 mx-2 md:mx-0'>{vsl}</div>} imageAlt="Gliesess paid web design agency" imagePath='/paid-web-design-agency.webp'
             />
@@ -95,10 +95,10 @@ const Home = ({ posts }: { posts: any[] }) => {
 
             <section className='flex flex-col items-center max-w-[100vw]'>
                 <div className='container flex flex-col items-center alternateBg w-screen py-20 px-2'>
-                    <h2 className='text-2xl md:text-4xl font-semibold text-center'>Is this the only way <br />to get customers for your Shopify store?</h2>
-                    <p className='md:mt-10 text-center'>Even though TikTok and other social media platforms are great for generating traffic to your online store, you're relying on seasonal trends. Not only is this not ideal for consistency, but it's not guaranteed that every campaign or product will work. With Shopify search engine optimization you're not convincing anyone to buy your products, but position your e-commerce store in front of their eyes when they are ready for purchase.</p>
+                    <h2 className='text-2xl md:text-4xl font-semibold text-center'>Is this the only way <br />to work with "Shopify SEO Agencies"?</h2>
+                    <p className='md:mt-10 text-center'>Having cookie-cutter plans as your E-commerce SEO strategy is a sure way of not getting any results. The way you do SEO for e-commerce is different for the way you do SEO for SaaS, Services, Local or anything else. From the keyword research, to the backlinks, to which tasks should be done first. Normal agencies have the same strategy for all the different clients they are working with. Those strategies fail to optimize the processes and recognize the specific nuances for each type of client they work with. This will yield the desired results later, or not at all.</p>
 
-                    <p className='mt-7 md:mt-16 text-center md:text-start'>Feel free to schedule a call with our Shopify experts in SEO to see how you can generate sales consistently.</p>
+                    <p className='mt-7 md:mt-16 text-center md:text-start'>Feel free to schedule a call to see how you can generate sales consistently.</p>
                     <CTA className='mt-2 md:mt-5' />
                     <AlternativeCTA />
                 </div>
@@ -108,12 +108,12 @@ const Home = ({ posts }: { posts: any[] }) => {
                     <div className='flex flex-col md:flex-row items-center justify-around w-full'>
                         <Image alt='Gliesess Facebook engagement' width={imageSize} height={imageSize} className='rounded-full object-cover aspect-square' src={'/facebook-engagement.webp'} />
                         <div className="px-2 md:w-[50%] md:text-center">
-                            <h2 className="text-3xl text-center font-bold mb-2">Meta/Google Ads are driving inconsistent traffic to your Shopify store</h2>
-                            <p className="text-gray-600">You are not alone if you are tired of ads working great for small audiences yet poorly for bigger ones.</p>
+                            <h2 className="text-3xl text-center font-bold mb-2">Stop getting told that "SEO takes time"</h2>
+                            <p className="text-gray-600">If your shop is older than 6-12 months, it shouldn't take another 6-12 to grow it.</p>
                             <div className='flex flex-col items-start w-fit mt-5'>
-                                <p>❌ Paid ads convert worse the more people you try to reach out because you are less targeted</p>
-                                <p>❌ Every month you start from 0</p>
-                                <p>❌ Have to film creatives or write a ton of copy</p>
+                                <p>❌ SEO takes as much time as it takes for the necessary changes to be implemented</p>
+                                <p>❌ Generic SEO agencies make one-size-fits-all strategies and timelines for all clients (Saas, Local businesses, E-commerce, Services)</p>
+                                <p>❌ If your brand is at least 6-12 months old, it should have no reason to grow fast(er) once every change is applied</p>
                             </div>
                         </div>
                     </div>
@@ -121,26 +121,25 @@ const Home = ({ posts }: { posts: any[] }) => {
                     <div className='flex flex-col md:flex-row-reverse items-center justify-around w-full'>
                         <Image alt='Gliesess Seo alternative tiktok' width={imageSize} height={imageSize} className='rounded-full aspect-square object-cover' src={'/organic-marketing-tiktok.webp'} />
                         <div className="px-2 md:w-[50%] md:text-center">
-                            <h2 className="text-3xl text-center font-bold mb-2">Organic social is inconsistent and sometimes luck-based</h2>
-                            <p className="text-gray-600">You have to test lots of creatives until one blows up, and even that is a temporary success. A healthy business requires consistent cashflow</p>
+                            <h2 className="text-3xl text-center font-bold mb-2">Skip the cookie-cutter SEO strategies</h2>
+                            <p className="text-gray-600">Big agencies usually work with tens of clients ranging from different industries. Our Shopify SEO Agency is build from the ground up to work well with E-commerce. </p>
                             <div className='flex flex-col items-start w-fit mt-5'>
-                                <p>❌ Only some creatives will have success and bring sales</p>
-                                <p>❌ Doesn't work that well with boring products, even though those sell the most</p>
-                                <p>❌ Low intent: People on social media don't want to buy products, they just want to be entertained</p>
+                                <p>• We are aware of the specific nuances of each CMS</p>
+                                <p>• We boiled down the exact things we need to do and which order to guarantee optimal results.</p>
+                                <p>• This allows us to move faster in our strategy and bring results sooner than our competitors.</p>
                             </div>
                         </div>
                     </div>
                     {size.lmd && <hr className='w-full my-5' />}
                     <div className='flex flex-col md:flex-row items-center justify-around w-full'>
-                        <Image alt='Gliesess SEO Alternative' width={imageSize} height={imageSize} className='rounded-full object-cover aspect-square' src={'/seo-illustration.webp'} />
+                        <Image alt='Gliesess Different store Shopify SEO Agency' width={imageSize} height={imageSize} className='rounded-full object-cover aspect-square' src={'/different-stores.webp'} />
                         <div className="px-2 md:w-[50%] md:text-center">
-                            <h2 className="text-3xl text-center font-bold mb-2">SEO remains the most efficient way to diversify your traffic while making your revenue more consistent</h2>
-                            <p className="text-gray-600">SEO remains the big daunting task that your Shopify store needs to truly become valuable.</p>
+                            <h2 className="text-3xl text-center font-bold mb-2">Different shop different strategy</h2>
+                            <p className="text-gray-600">Every shop has longer or shorter sales life-cycle. Some need a blog sooner than others. Some even need different types of keywords.</p>
                             <div className='flex flex-col items-start w-fit mt-5'>
-                                <p>✅ Diversify Your Traffic Generation and build a long-term business</p>
-                                <p>✅ Never start from 0 each month again - Build a compound machine</p>
-                                <p>✅ Stop looking for trends and build a healthy business</p>
-                                <p>✅ 2X Your Sales Revenue with little marketing efforts</p>
+                                <p>✅ Higher ticket items require a blog sooner. With the help of those blogs we build highly effective funnels that start from the TOFU and converts customers to BOFU.</p>
+                                <p>✅ Some shops benefit more from low traffic high intent keywords, some high traffic low intent.</p>
+                                <p>✅ Every store needs to build backlinks to related websites. We do a deep research of your industry to find the best non-competing websites.</p>
                             </div>
                         </div>
                     </div>
@@ -150,8 +149,8 @@ const Home = ({ posts }: { posts: any[] }) => {
 
 
             <section className='text-center alternateBg py-20 w-full flex flex-col items-center'>
-                <h2 className='text-3xl font-semibold'>Shopify SEO consultants exclusively specialized in e-commerce</h2>
-                <p className='max-w-5xl my-3'>The default golden standard for SEO agencies is being a jack of all trades, master of none. We believe that strategy is flawed and  working only with e-commerce clients will not only bring substantial results for them, but optimize our processes to the point where we deliver results faster, and internally we can do this easier, passing the cost down to you</p>
+                <h2 className='text-3xl font-semibold'>Shopify SEO Agency specialized in E-commerce.</h2>
+                <p className='max-w-5xl my-3'>From the backlinks build, to the whole SEO strategy, we have engineered our 6-step process to work flawlessly with Shopify and any e-commerce store. After working with clients from lots of industries, we realized high-ticket e-commerce stores function completely different from low-ticket ones. High ticket ones sometimes require a calling process, funnels being build, low traffic but high intent keywords. Low ticket stores require lots of traffic built especially to the "money pages" and lots of links.</p>
 
                 <h3 className='text-xl'>We help every Shopify or e-commerce store, regardless of the niche</h3>
 
@@ -176,21 +175,22 @@ const Home = ({ posts }: { posts: any[] }) => {
                     <Image alt="Shopify SEO Performance" className="object-cover w-full object-top scale-x-[-1] rounded-l-md" src={'/shopify-seo-performance.webp'} layout="fill" />
                 </div>
                 <div className='w-full md:max-w-[50%] md:mx-10'>
-                    <h2 className='text-2xl'>How much is this costing you?</h2>
-                    <p>+ If you would've gotten paid hourly for all the time wasted: 1. managing ad accounts, 2. designing creatives, 3. writing copy, 4. finding keywords to target, how much would that cost you?</p>
-                    <p>+ If your CPC is $3 hypothetically, and we would bring you 1000 visitors a month, that's already $3000 saved in ad spend. Multiply that by the ROI of your ads and you've got another chunk of saved cash by working with us</p>
+                    <h2 className='text-2xl'>How much more would you pay for?</h2>
+                    <p>1. Results twice as likely to happen.</p>
+                    <p>2. Results in half the time.</p>
+                    <p>3. On a long enough time horizon, results twice as big.</p>
                     <p></p>
                 </div>
             </div>
 
 
-            <h2 className='text-2xl text-start mt-20'>Get in Touch with Our Shopify SEO Consultant for a Quote</h2>
-            <p>If you truly want to make a predictable traffic machine and escape the ads hamster wheel feel free to book a call below. Only if we see that we can help you scale, we'll offer help</p>
+            <h2 className='text-2xl text-start mt-20'>Our Shopify SEO agency is ready to work with you</h2>
+            <p>If you truly want to make a predictable traffic machine and escape the generalist SEO agencies feel free to book a call below. Only if we see that we can help you scale, we'll offer help</p>
             <CTA className='mt-2 md:mt-5' />
             <AlternativeCTA />
 
             <div className='w-full px-2 md:px-16 my-16'>
-                <h2 className='text-3xl mb-2 font-semibold mx-2'>Our Shopify SEO expert</h2>
+                <h2 className='text-3xl mb-2 font-semibold mx-2'>Our Shopify SEO Agency</h2>
                 <TimelineView data={data} />
                 <p className='mx-2 mt-5 text-lg'>Our unique advantage lies in optimizing this process for doing it at scale. Nobody does all of the products and collection pages. By using these strategies on all pages on the site, we outrank our competitors where they're too lazy to put in the effort.</p>
             </div>
@@ -199,8 +199,9 @@ const Home = ({ posts }: { posts: any[] }) => {
 
             {/* faq's */}
             <AccordionComponent className='w-full max-w-5xl' items={[
-                { title: 'Is it worth it to hire a Shopify SEO expert?', desc: "Yes, it is worth it to hire a Shopify SEO expert. Hiring a generalist SEO expert, or even worse, doing it yourself will delay your SEO results by weeks or even months. It is important to note that the time wasted on not hiring a Shopify SEO expert will cost you more than the additional cost working with him/her." },
-                { title: 'How much does it cost to hire a Shopify SEO expert in 2024?', desc: "It depends a lot on the quality of the service. A general SEO expert with no e-commerce experience will be significantly cheaper(25$/h) than an expert with experience in e-commerce(75$+/h). These experts usually form strategies around which keywords you will rank on the first page as soon as possible and which keywords represent your Shopify brand the most" }
+                { title: 'How\'s a Shopify SEO Agency different from other Marketing Agencies?', desc: "Mainly the difference comes from the efficiency, likelyhood and the time-frame for the results. While generalist marketing agencies do worse for all of those, a specialized agency formulated its steps to bring bigger results, faster, and it's more likely to happen." },
+                { title: 'How much does it cost to hire a Shopify SEO agency in 2024?', desc: "It depends a lot on the quality of the service. A general marketing agency with no e-commerce experience will be significantly cheaper(25$/h) than an expert with experience in e-commerce(75$+/h). These experts usually form strategies around which keywords you will rank on the first page as soon as possible and which keywords represent your Shopify brand the most" },
+                { title: 'Is SEO important for Shopify?', desc: "With stores launching each day and an ever increasing cost in CPC (cost per click), having an organic SEO strategy has never been more important. Nowadays every channel is getting more and more saturated, and no strategy is as untapped as SEO. It's been told that \"SEO is dead\" for years and years, yet people are still making money with it. " }
             ]} />
 
 

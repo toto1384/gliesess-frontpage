@@ -4,7 +4,7 @@ import zodToJsonSchema from "zod-to-json-schema";
 import { createMongooseSchema } from 'convert-json-schema-to-mongoose';
 import { z, ZodTypeAny } from 'zod'
 import mongoose, { Document, Model, Schema, } from 'mongoose'
-import { CompanyObject, BlogObject } from "./types";
+import { CompanyObject, BlogObject, KWSObject } from "./types";
 
 export const CompanySchema = z.object({
 
@@ -115,6 +115,11 @@ export const BlogSchema = z.object({
 
 
 
+export const KWSSchema = z.object({
+    key: z.string(),
+    value: z.any(),
+})
+
 
 export const defaultSlugifyConfiguration = {
     replacement: '-',  // replace spaces with replacement character, defaults to `-`
@@ -141,6 +146,18 @@ export const getCompanyModel = (mong?: typeof mongoose) => {
 
     return mgse.model<CompanyObject & Document>('Company', companySchema, 'companies')
 }
+
+
+export const getKWSModel = (mong?: typeof mongoose) => {
+    const mgse = mong ?? mongoose;
+
+    if (mgse.models.KWS) return mgse.models.KWS as Model<KWSObject & Document>
+
+    const kwsSchema = convertToModel(KWSSchema)
+
+    return mgse.model<KWSObject & Document>('KWS', kwsSchema, 'kws')
+}
+
 
 export const getBlogModel = (mong?: typeof mongoose) => {
     const mgse = mong ?? mongoose;
