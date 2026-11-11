@@ -27,7 +27,7 @@
     "jsx-runtime": "^1.2.0",
     "lodash": "^4.17.21",
     "markdown-to-text": "^0.1.1",
-    "mongoose": "^8.6.0",
+    "mongoose": "^8.24.7",
     "mongoose-slug-plugin": "^2.1.0",
     "next": "^13.2.3",
     "next-compose-plugins": "^2.2.1",
